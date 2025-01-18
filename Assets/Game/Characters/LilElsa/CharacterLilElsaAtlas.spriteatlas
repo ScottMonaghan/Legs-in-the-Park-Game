@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharacterLilElsaAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7e61f973cfa3bf34a8821ececc9b7877, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 065201804ad8cc845a5d62b9c1308580, type: 3}
+  - {fileID: 21300000, guid: 9bf89ca1bd504b94d9590719238e6b42, type: 3}
+  - {fileID: 21300000, guid: 90c881c28f99af343a6efe2f1bb0eed7, type: 3}
+  - {fileID: 21300000, guid: c9a8eb44f6bafbc46950f97914fe41fb, type: 3}
+  - {fileID: 21300000, guid: dcb3daf687580e245a638c955caeb28c, type: 3}
+  - {fileID: 21300000, guid: 05e2f178cac0fe94e981a3472377a2ee, type: 3}
+  - {fileID: 21300000, guid: bd0ac398b530e1349838b178884e76ae, type: 3}
+  - {fileID: 21300000, guid: efaf5c4965eb8f34f9eff2cc9352b3a7, type: 3}
+  - {fileID: 21300000, guid: acf88ccc2e878c443bf980c09555ae72, type: 3}
+  - {fileID: 21300000, guid: 26b2856dd7ee7fa47bedf297773b977a, type: 3}
+  - {fileID: 21300000, guid: 265dd39d488d2e043863739abcdb8eca, type: 3}
+  - {fileID: 21300000, guid: dd986cbd92d778a42822be3032ff5a0d, type: 3}
+  - {fileID: 21300000, guid: 8754297fdacc4fe4e85155008ef79e99, type: 3}
+  - {fileID: 21300000, guid: 220feebf58eadb14ab90696f8a059fbb, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - WalkUR_0
+  - WalkR_2
+  - WalkUR_2
+  - IdleUR_0
+  - WalkUR_1
+  - IdleD_1
+  - WalkR_3
+  - WalkR_1
+  - IdleR_1
+  - IdleR_0
+  - IdleD_0
+  - WalkUR_3
+  - IdleU_0
+  - WalkR_0
+  m_RenderDataMap: {}
+  m_Tag: CharacterLilElsaAtlas
+  m_IsVariant: 0

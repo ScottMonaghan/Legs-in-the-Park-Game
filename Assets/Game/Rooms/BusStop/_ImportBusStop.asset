@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a16e9f9c6db14b418901a66d60f8d1b, type: 3}
+  m_Name: _ImportBusStop
+  m_EditorClassIdentifier: 
+  m_animations:
+  - m_name: bus-stop-fg
+    m_firstFrame: 5
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 20030000
+  - m_name: bus-stop-bg
+    m_firstFrame: 6
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 20030000
+  - m_name: tree
+    m_firstFrame: 7
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: d0070000140500005e01000042020000
+  - m_name: legs-fg
+    m_firstFrame: 11
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 42020000
+  - m_name: near-bg
+    m_firstFrame: 12
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: StreetAndPark
+    m_firstFrame: 13
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: Skyline
+    m_firstFrame: 14
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: BlackScreen
+    m_firstFrame: 15
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  m_pixelsPerUnit: 1
+  m_filterMode: 0
+  m_compression: 0
+  m_spriteMeshType: 1
+  m_crunchedCompression: 0
+  m_sourcePSD: ../Documents/bus-stop.aseprite
+  m_sourceDirectory: ..\Documents/Export
+  m_deleteImportedPngs: 1
+  m_spriteDirectory: Sprites
+  m_gui: 0
+  m_isAseprite: 1
+  m_trimSprites: 0
+  m_createSingleSpriteAnims: 1
+  m_importLayers: []
+  m_ignoreLayers:
+  - Guide
+  - Ignore
+  m_notes: 

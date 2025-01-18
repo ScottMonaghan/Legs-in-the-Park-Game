@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharacterElsaAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c122c5b5585fa2d4eb19684532502a34, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: af226540fd41a1d43b501c8c8e2fdf9d, type: 3}
+  - {fileID: 21300000, guid: a1806460fcbf08145943e3098d54dfee, type: 3}
+  - {fileID: 21300000, guid: d8583980c9e9dc644b08fafa13dc195a, type: 3}
+  - {fileID: 21300000, guid: 13ea50e24d7bb7042947a744749ea50f, type: 3}
+  - {fileID: 21300000, guid: 6d4e4703073e20140a06a577fa5de4d8, type: 3}
+  - {fileID: 21300000, guid: 6acaf71370dcd824faed723001961963, type: 3}
+  - {fileID: 21300000, guid: 520ca483feff5d7478e07f94b3b50df3, type: 3}
+  - {fileID: 21300000, guid: b9e1d2e3e71393b4cb9e8241ac240d6b, type: 3}
+  - {fileID: 21300000, guid: 224e0b05bcde11444bfe1c95ff57c1d0, type: 3}
+  - {fileID: 21300000, guid: e298cf5598d8b6247a0f0a5e791abd58, type: 3}
+  - {fileID: 21300000, guid: a2466475010bfdb44a3efd72d63f4a8c, type: 3}
+  - {fileID: 21300000, guid: 8d683095ba38e5349923caf1d8104b6a, type: 3}
+  - {fileID: 21300000, guid: 6641dff5983c8f44e8a27e202c4ed51a, type: 3}
+  - {fileID: 21300000, guid: 33d1b7f6954791a44b5fb60ace75867c, type: 3}
+  - {fileID: 21300000, guid: c7672e6715be9c043903833bc5b8647b, type: 3}
+  - {fileID: 21300000, guid: 45d09177567944548a030424697713ad, type: 3}
+  - {fileID: 21300000, guid: 5a8d08c7f0972744da1fef2c79d389f4, type: 3}
+  - {fileID: 21300000, guid: fcb7dcd7e29d46a4dbe0e9c689f166eb, type: 3}
+  - {fileID: 21300000, guid: 773d0df7713fec8479c0ddd4515fa94c, type: 3}
+  - {fileID: 21300000, guid: c6d607198ab1d654ebbc8ddd14675981, type: 3}
+  - {fileID: 21300000, guid: dae34089bd2fd9b449502d17a744b220, type: 3}
+  - {fileID: 21300000, guid: 0ab2add9f556bec49b53e9bb5fcb385f, type: 3}
+  - {fileID: 21300000, guid: 518002e9b01fc3d4285b71dd7f757f45, type: 3}
+  - {fileID: 21300000, guid: 51e8269afc4627a4dbac9e4ebf80ce6f, type: 3}
+  - {fileID: 21300000, guid: 1d94241b70058224fa9ccd4311445270, type: 3}
+  - {fileID: 21300000, guid: eabc417bdd1b24a439740864e4ca06e5, type: 3}
+  - {fileID: 21300000, guid: 56bb09bb915490a4a96c3d13f0c35d8a, type: 3}
+  - {fileID: 21300000, guid: 05af61dbda63d634da39db128967fe4b, type: 3}
+  - {fileID: 21300000, guid: 5c45b1db12713b34c8fdee2c234aa318, type: 3}
+  - {fileID: 21300000, guid: 86a6c73c7eff3b14c975b925cd55729e, type: 3}
+  - {fileID: 21300000, guid: 6c8d108ce26176145b22ec8f5294382d, type: 3}
+  - {fileID: 21300000, guid: 6c8d63ccc34e76148b679f64899c3061, type: 3}
+  - {fileID: 21300000, guid: f8d1c33dadfa2ac4cb5995cb85785888, type: 3}
+  - {fileID: 21300000, guid: b344816df8b7dab4e92e93343f9c24ce, type: 3}
+  - {fileID: 21300000, guid: 825bf1cd4f25da54299628124465e507, type: 3}
+  - {fileID: 21300000, guid: 8bacad7e0dba6614dbe4ccbf6f77eed7, type: 3}
+  - {fileID: 21300000, guid: 1021fa7f82d2eb94cb8d249b34b684cd, type: 3}
+  - {fileID: 21300000, guid: 24a445efffcf39749a37050137afd900, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - WalkUR_3
+  - IdleR_1
+  - TalkD_3
+  - WalkUR_1
+  - TalkU_0
+  - TalkR_2
+  - TalkU_5
+  - TalkR_5
+  - TalkR_1
+  - WalkUR_2
+  - TalkU_2
+  - TalkD_2
+  - TalkR_0
+  - TalkUR_1
+  - TalkU_3
+  - TalkD_1
+  - TalkUR_4
+  - IdleD_1
+  - TalkD_0
+  - IdleD_0
+  - TalkU_4
+  - TalkD_5
+  - IdleUR_0
+  - TalkUR_3
+  - IdleR_0
+  - TalkU_1
+  - TalkUR_5
+  - WalkR_0
+  - TalkUR_2
+  - WalkUR_0
+  - TalkUR_0
+  - WalkR_3
+  - WalkR_2
+  - WalkR_1
+  - TalkR_3
+  - IdleU_0
+  - TalkR_4
+  - TalkD_4
+  m_RenderDataMap: {}
+  m_Tag: CharacterElsaAtlas
+  m_IsVariant: 0
