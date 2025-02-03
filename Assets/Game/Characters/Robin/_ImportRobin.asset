@@ -12,18 +12,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a16e9f9c6db14b418901a66d60f8d1b, type: 3}
   m_Name: _ImportRobin
   m_EditorClassIdentifier: 
-  m_animations: []
+  m_animations:
+  - m_name: IdleD
+    m_firstFrame: 1
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: a00f000032000000
+  - m_name: IdleR
+    m_firstFrame: 3
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: a00f000032000000
+  - m_name: IdleUR
+    m_firstFrame: 5
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: c8000000
+  - m_name: IdleU
+    m_firstFrame: 6
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: c8000000
+  - m_name: IdleUL
+    m_firstFrame: 7
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 90010000
+  - m_name: IdleL
+    m_firstFrame: 8
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: a00f000032000000
+  - m_name: WalkR
+    m_firstFrame: 10
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: 96000000960000009600000096000000
+  - m_name: WalkL
+    m_firstFrame: 14
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: 96000000960000009600000096000000
+  - m_name: TalkD
+    m_firstFrame: 18
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c8000000c8000000640000006400000064000000
+  - m_name: TalkR
+    m_firstFrame: 24
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c8000000640000006400000064000000c8000000
+  - m_name: TalkL
+    m_firstFrame: 30
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c800000064000000640000006400000064000000
+  - m_name: TalkU
+    m_firstFrame: 36
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c800000064000000640000006400000064000000
+  - m_name: TalkUL
+    m_firstFrame: 42
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c800000064000000640000006400000064000000
+  - m_name: TalkUR
+    m_firstFrame: 48
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 6
+    m_frameDurations: c8000000c800000064000000640000006400000064000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
-  m_sourcePSD: 
-  m_sourceDirectory: 
+  m_sourcePSD: Art/robin.aseprite
+  m_sourceDirectory: Art/Export
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
   m_gui: 0
-  m_isAseprite: 0
+  m_isAseprite: 1
   m_trimSprites: 0
   m_createSingleSpriteAnims: 1
   m_importLayers: []

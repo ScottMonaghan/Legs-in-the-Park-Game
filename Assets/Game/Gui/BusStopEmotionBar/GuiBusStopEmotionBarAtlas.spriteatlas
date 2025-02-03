@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GuiBusStopEmotionBarAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 6926b3f11a208c745ba043bde1f63e4e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4168b420aeb497b439c638b61b020406, type: 3}
+  - {fileID: 21300000, guid: bae9ed2094f20cf48a839acc55757afd, type: 3}
+  - {fileID: 21300000, guid: f53a643065601f04fbc406f3443e2841, type: 3}
+  - {fileID: 21300000, guid: e77419314180cbd4696d53e4edae07e4, type: 3}
+  - {fileID: 21300000, guid: 6a38e351ef694a14cb4e58a9cc9dcf79, type: 3}
+  - {fileID: 21300000, guid: bb8e5df16f8f1f5448d9e055b0f7103b, type: 3}
+  - {fileID: 21300000, guid: ecd5d0426ec7fdd42b2d95b13aee06d4, type: 3}
+  - {fileID: 21300000, guid: ba627752135cf0f418c1ed39730ea72d, type: 3}
+  - {fileID: 21300000, guid: ae54bf720220b8d4990b4bc635d8779e, type: 3}
+  - {fileID: 21300000, guid: 6f194e23ce5ebee49800b13a7203c74d, type: 3}
+  - {fileID: 21300000, guid: 501ec44311e64d34b84469ce73431144, type: 3}
+  - {fileID: 21300000, guid: 8c2f44b3106cb704d95839f148a63c20, type: 3}
+  - {fileID: 21300000, guid: 4ef98004142afcc4abcd55dcd2eaf2a1, type: 3}
+  - {fileID: 21300000, guid: f71610051d154b744bcc31c864b3e912, type: 3}
+  - {fileID: 21300000, guid: 27c2b535aecd4ec43b0468b8999b5e38, type: 3}
+  - {fileID: 21300000, guid: 8e422145040713b4693f2447ddeb4ab7, type: 3}
+  - {fileID: 21300000, guid: e87c0b45bf9f4bf46b4d8b138b9d2968, type: 3}
+  - {fileID: 21300000, guid: f0e19455c030d9543bbadf69efb6cd60, type: 3}
+  - {fileID: 21300000, guid: 9d40dae57e703d44289eb8d8c8d188be, type: 3}
+  - {fileID: 21300000, guid: 4fa20c1664afc7d4b9a421ddbce5bf86, type: 3}
+  - {fileID: 21300000, guid: 6053e3b6b250c91489118baac39b3fcb, type: 3}
+  - {fileID: 21300000, guid: b9fd83776a44d9441ab6bec39598f44a, type: 3}
+  - {fileID: 21300000, guid: 4ac11487a4f845543a2672f6b2c0123e, type: 3}
+  - {fileID: 21300000, guid: 7a7bfc18d2d675e459732329c6bc23d9, type: 3}
+  - {fileID: 21300000, guid: 26186fa86f32d0e4a85f8e41a1656438, type: 3}
+  - {fileID: 21300000, guid: d1e052d8c3f05384f963128bd0174bd5, type: 3}
+  - {fileID: 21300000, guid: 4956e649a9c9f52448272e9d90b6bcc9, type: 3}
+  - {fileID: 21300000, guid: 81c573893a28e104e85d2995c672b8e7, type: 3}
+  - {fileID: 21300000, guid: 4fc7c0b96ae48ba42b1221191641a6c5, type: 3}
+  - {fileID: 21300000, guid: ee0690e999fc8e344b5f2cc7dd0a6a9b, type: 3}
+  - {fileID: 21300000, guid: a82470f924443a74aaaacd904c165375, type: 3}
+  - {fileID: 21300000, guid: 4ecca61a10579e84199464fd1431453d, type: 3}
+  - {fileID: 21300000, guid: 7a00227ab043bcb42b27689b35f8e1f1, type: 3}
+  - {fileID: 21300000, guid: b1941d9a486c0484aa0b5e080a72065c, type: 3}
+  - {fileID: 21300000, guid: 51ebcdfaeba525a4090ca33056070027, type: 3}
+  - {fileID: 21300000, guid: cb5782cb88f91db4dbb2fa9a80c247cd, type: 3}
+  - {fileID: 21300000, guid: d138f7cbae13e594eb6d26ce4d49437a, type: 3}
+  - {fileID: 21300000, guid: 3b0a43ebb200e6245ae952b010f303bd, type: 3}
+  - {fileID: 21300000, guid: 542714ee5c153954c8bdebcd671a2a79, type: 3}
+  - {fileID: 21300000, guid: 4f9de40fadcc53f43a8ce24e773c8231, type: 3}
+  - {fileID: 21300000, guid: b774443f08f422e4291a5ebefc27ea56, type: 3}
+  - {fileID: 21300000, guid: e78a4f8f18708794899a262eebbcc2bc, type: 3}
+  - {fileID: 21300000, guid: 947087af7891c9e41a33f4f98dad2844, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - BgEmoteImpatient5_1
+  - BgEmoteImpatient3_1
+  - BgEmoteImpatient1_5
+  - BgEmoteImpatient3_4
+  - BgEmoteImpatient3_2
+  - Fadeout_1
+  - Fadeout_0
+  - BgEmoteImpatient1_1
+  - BgEmoteImpatient4_2
+  - BgEmoteImpatient2_4
+  - BgFadeout_2
+  - BgEmoteImpatient1_3
+  - BgEmoteImpatient5_4
+  - BgEmoteImpatient2_3
+  - Fadeout_2
+  - Fadeout_4
+  - BgFadeout_5
+  - BgEmoteImpatient4_3
+  - BgEmoteImpatient3_3
+  - BgFadeout_1
+  - BgEmoteImpatient1_2
+  - BgFadeout_3
+  - BgEmoteImpatient2_5
+  - BgEmoteImpatient5_3
+  - BgEmoteImpatient3_5
+  - BgEmoteImpatient5_2
+  - BgFadeout_4
+  - Bg_0
+  - BgEmoteImpatient5_5
+  - BgEmoteImpatient2_1
+  - BgEmoteImpatient1_4
+  - BgEmoteImpatient3_0
+  - BgEmoteImpatient4_1
+  - BgEmoteImpatient4_5
+  - Fadeout_3
+  - BgEmoteImpatient4_4
+  - BgFadeout_0
+  - Fadeout_5
+  - BgEmoteImpatient1_0
+  - BgEmoteImpatient4_0
+  - BgEmoteImpatient2_2
+  - BgEmoteImpatient5_0
+  - BgEmoteImpatient2_0
+  m_RenderDataMap: {}
+  m_Tag: GuiBusStopEmotionBarAtlas
+  m_IsVariant: 0

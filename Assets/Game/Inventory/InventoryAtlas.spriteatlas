@@ -49,8 +49,14 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 8e670963018cd7442bfda98fdf2cc308, type: 3}
+  - {fileID: 21300000, guid: e5156f3513628b845a26dab5e6b3275f, type: 3}
+  - {fileID: 21300000, guid: f12c6f2bd067890469a44610bfcbcbfa, type: 3}
   - {fileID: 21300000, guid: 3128a95e76c6adf44a7ffde8daa56743, type: 3}
   m_PackedSpriteNamesToIndex:
+  - AbcGum_0
+  - StickyShoe_0
+  - AstronautCard_0
   - Bucket_0
   m_RenderDataMap: {}
   m_Tag: InventoryAtlas

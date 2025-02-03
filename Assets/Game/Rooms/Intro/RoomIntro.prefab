@@ -2178,7 +2178,7 @@ MonoBehaviour:
   m_data:
     m_description: Intro
     m_playerVisible: 1
-    m_verticalResolution: 0
+    m_verticalResolution: 216
     m_activeWalkableArea: 0
     m_bounds:
       m_min: {x: 0, y: 0}

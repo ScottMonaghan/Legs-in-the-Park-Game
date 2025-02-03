@@ -55,7 +55,7 @@ MonoBehaviour:
     m_visibleInCutscenes: 1
     m_modal: 1
     m_pauseGame: 0
-    m_hideObscuredGuis: 1
+    m_hideObscuredGuis: 0
     m_hideSpecificGuis: []
     m_description: 
     m_cursor: 

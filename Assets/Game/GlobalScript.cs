@@ -206,11 +206,11 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 					// Left click with active inventory, use the inventory item
 					E.ProcessClick( eQuestVerb.Inventory );
 				}
-				else if ( E.GetMouseOverType() == eQuestClickableType.Inventory )
-				{
+				//else if ( E.GetMouseOverType() == eQuestClickableType.Inventory )
+				//{
 					// Left clicked on inventory item, make it the active item. Remove this "if statement" if you want to be able to "use" items by clicking on them
-					I.Active = (IInventory)E.GetMouseOverClickable();
-				}
+					//I.Active = (IInventory)E.GetMouseOverClickable();
+				//}
 				else
 				{
 					// Left click on item, so use it

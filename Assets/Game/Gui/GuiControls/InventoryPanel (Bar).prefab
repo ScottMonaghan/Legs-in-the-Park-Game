@@ -47,9 +47,12 @@ MonoBehaviour:
   m_baseline: 0
   m_visible: 1
   m_targetCharacter: 
+  m_reverseOrder: 0
+  m_itemCursor: 
   m_itemPrefab: {fileID: 0}
   m_buttonScrollBack: {fileID: 0}
   m_buttonScrollForward: {fileID: 0}
+  m_mask: {fileID: 0}
 --- !u!114 &5265485779176328983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,8 +65,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09dd368ab6c385740a7607115c8e009f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cellSize: {x: 16, y: 16}
+  m_autoLayoutChildren: 0
+  m_itemSpacing: {x: 16, y: 16}
   m_columnsPerRow: 0
   m_scrollColumns: 10
   m_scrollRows: 0
+  m_overdraw: {x: 0, y: 0}
   m_items: []
+  m_size: {x: 0, y: 0}

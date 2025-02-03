@@ -27,6 +27,9 @@ namespace PowerScript
 	{		
 		// Access to specific Inventory (Auto-generated)
 		public static IInventory Bucket         { get { return PowerQuest.Get.GetInventory("Bucket"); } }
+		public static IInventory AstronautCard  { get { return PowerQuest.Get.GetInventory("AstronautCard"); } }
+		public static IInventory StickyShoe     { get { return PowerQuest.Get.GetInventory("StickyShoe"); } }
+		public static IInventory AbcGum         { get { return PowerQuest.Get.GetInventory("AbcGum"); } }
 		// #INVENTORY# - Do not edit this line, it's used by the system to insert rooms for easy access
 	}
 
@@ -42,6 +45,7 @@ namespace PowerScript
 		public static IGui InventoryBar   { get { return PowerQuest.Get.GetGui("InventoryBar"); } }
 		public static IGui Options        { get { return PowerQuest.Get.GetGui("Options"); } }
 		public static IGui Save           { get { return PowerQuest.Get.GetGui("Save"); } }
+		public static IGui BusStopEmotionBar { get { return PowerQuest.Get.GetGui("BusStopEmotionBar"); } }
 		// #GUI# - Do not edit this line, it's used by the system to insert rooms for easy access
 	}
 
@@ -65,6 +69,8 @@ namespace PowerScript
 		public static IDialogTree InteractLegs         { get { return PowerQuest.Get.GetDialogTree("InteractLegs"); } }
 		public static IDialogTree BusStopInteractTree  { get { return PowerQuest.Get.GetDialogTree("BusStopInteractTree"); } }
 		public static IDialogTree BusStopInteractCrosswalk { get { return PowerQuest.Get.GetDialogTree("BusStopInteractCrosswalk"); } }
+		public static IDialogTree InteractAstronautCard { get { return PowerQuest.Get.GetDialogTree("InteractAstronautCard"); } }
+		public static IDialogTree InteractStickyShoe   { get { return PowerQuest.Get.GetDialogTree("InteractStickyShoe"); } }
 		// #DIALOG# - Do not edit this line, it's used by the system to insert rooms for easy access	    	    
 	}
 

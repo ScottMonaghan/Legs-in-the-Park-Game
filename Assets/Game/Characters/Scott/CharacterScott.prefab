@@ -52,7 +52,7 @@ MonoBehaviour:
     m_description: Dad
     m_cursor: Talk
     m_room: BusStop
-    m_position: {x: -260, y: -55}
+    m_position: {x: -261, y: -73}
     m_faceDirection: 1
     m_clickable: 1
     m_visible: 1

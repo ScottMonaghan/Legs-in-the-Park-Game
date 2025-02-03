@@ -49,7 +49,7 @@ MonoBehaviour:
     tempor incididunt ut labore et dolore magna aliqua
   m_localize: 0
   m_sortingLayer: Gui
-  m_orderInLayer: 10
+  m_orderInLayer: -999
   m_wrapWidth: 200
   m_truncate: 0
   m_wrapUniformLineWidth: 0
@@ -123,52 +123,21 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115000}
-  m_Text: '
+  m_Text: 'Lorem ipsum dolor sit amet,
 
-    Lorem
-
-    ipsum
-
-    dolor
-
-    sit
-
-    amet,
-
-    consectetur
-
-    adipiscing
-
-    elit,
-
-    sed
-
-    do
+    consectetur adipiscing elit, sed do
 
     eiusmod
+    tempor incididunt ut labore
 
-    tempor
-
-    incididunt
-
-    ut
-
-    labore
-
-    et
-
-    dolore
-
-    magna
-
-    aliqua'
+    et dolore magna aliqua'
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 10
   m_LineSpacing: 0.9
   m_Anchor: 7
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 100
+  m_FontSize: 10
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 703176b3361ccab4da6c9d4e7a52ad55, type: 3}

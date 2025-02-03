@@ -52,13 +52,13 @@ MonoBehaviour:
     m_dialogDisplay: 0
     m_languageCode: EN
     m_textSpeedMultiplier: 1
-  m_verticalResolution: 200
+  m_verticalResolution: 216
   m_letterboxWidth:
-    m_min: 356
+    m_min: 384
     m_max: 533
     m_hasMax: 0
     m_hasValue: 0
-  m_snapToPixel: 0
+  m_snapToPixel: 1
   m_pixelCamEnabled: 1
   m_defaultPixelsPerUnit: 1
   m_speechStyle: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_spawnablePrefabs:
   - {fileID: 198790, guid: e3cad009f08664a4098fd91ac4e9f76b, type: 3}
   m_facingSegmentAngle: 45
-  m_saveScreenshotHeight: 300
+  m_saveScreenshotHeight: 200
   m_saveVersion: 0
   m_saveVersionRequired: 0
   m_textSpriteMaterial: {fileID: 0}
@@ -107,13 +107,14 @@ MonoBehaviour:
   - {fileID: 4844208553166097438, guid: f33262eb5b624dd47b8e6c3d94dba430, type: 3}
   m_characterPrefabs:
   - {fileID: 5593523908310942928, guid: 7118ab3977950094980ee559ad56550d, type: 3}
+  - {fileID: 4970074800657891017, guid: 6edc8cf2727821547b551120845e5351, type: 3}
   - {fileID: 4581767922099648042, guid: d145bebf3091d284fb8933c384f7881b, type: 3}
   - {fileID: 1266680259239985126, guid: 5aa7dd7116fb63e4d97e8350a8a778ec, type: 3}
   - {fileID: 114953134120639602, guid: b4910caf4195aeb45895069ad277b9fd, type: 3}
   - {fileID: 114894982771319608, guid: 65de018bf92bf6a4088d8c3f977119e7, type: 3}
-  - {fileID: 4970074800657891017, guid: 6edc8cf2727821547b551120845e5351, type: 3}
   - {fileID: 1097922384601763554, guid: bfaa2537c8b202d4db87c0ead8b26cbe, type: 3}
   m_guiPrefabs:
+  - {fileID: 159721734365434343, guid: cee68f1d304773449b364851ce365d0e, type: 3}
   - {fileID: 114997530584156344, guid: 411a5d13109ce024888cfebc375721e4, type: 3}
   - {fileID: 8056484958200454590, guid: 008d06288a0a6bf40a1f91be9220b969, type: 3}
   - {fileID: 3440285403923831220, guid: e4d641910d987554f936e3e385631a31, type: 3}
@@ -129,12 +130,20 @@ MonoBehaviour:
   - {fileID: 553994783978057643, guid: 4f778f9afa7d03b4ca5e96503b072dbe, type: 3}
   - {fileID: 8950532403675501233, guid: e7fa35d59716480409e249de41895c2a, type: 3}
   - {fileID: 2904042888007224162, guid: 751c506f39dd089458dc9fd2191c3960, type: 3}
+  - {fileID: 3270966325124245372, guid: d87fd9db969ebb34d94338789b588b83, type: 3}
+  - {fileID: 245112948282465998, guid: c3b1bb2015ba2fa42a7feaf0b1b9c613, type: 3}
   m_inventoryPrefabs:
   - {fileID: 114497078864246608, guid: 7a896bee3c107ce49b5aebeb3b5d1b31, type: 3}
+  - {fileID: 7134853990285981313, guid: c0c8d490c05bb54419270d281a0aed46, type: 3}
+  - {fileID: 8735793602775207818, guid: 2f9e09e027192b349ac3f42b96d946dc, type: 3}
+  - {fileID: 3913804434993976541, guid: 132c8949806ea5b429ebd5b2204d749f, type: 3}
   m_inventoryAnimations:
   - {fileID: 7400000, guid: 10856a3a6e09a994f876dd16f8272cce, type: 2}
   m_inventorySprites:
+  - {fileID: 21300000, guid: 8e670963018cd7442bfda98fdf2cc308, type: 3}
+  - {fileID: 21300000, guid: f12c6f2bd067890469a44610bfcbcbfa, type: 3}
   - {fileID: 21300000, guid: 3128a95e76c6adf44a7ffde8daa56743, type: 3}
+  - {fileID: 21300000, guid: e5156f3513628b845a26dab5e6b3275f, type: 3}
   m_guiAnimations:
   - {fileID: 0}
   - {fileID: 0}

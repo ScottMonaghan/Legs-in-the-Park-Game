@@ -52,20 +52,20 @@ MonoBehaviour:
     m_description: Robin
     m_cursor: 
     m_room: 
-    m_position: {x: 0, y: 0}
+    m_position: {x: -274, y: -80}
     m_faceDirection: 2
     m_clickable: 1
     m_visible: 1
     m_inventory: []
     m_walkSpeed: {x: 50, y: 50}
     m_moveable: 1
-    m_solid: 0
-    m_solidSize: {x: 20, y: 4}
+    m_solid: 1
+    m_solidSize: {x: 32, y: 23}
     m_turnBeforeWalking: 1
     m_turnBeforeFacing: 1
     m_turnSpeedFPS: 12
     m_adjustSpeedWithScaling: 1
-    m_textColour: {r: 1, g: 1, b: 1, a: 1}
+    m_textColour: {r: 0.8784314, g: 0.76862746, b: 0, a: 1}
     m_animIdle: Idle
     m_animWalk: Walk
     m_animTalk: Talk
@@ -77,16 +77,30 @@ MonoBehaviour:
     m_LipSyncEnabled: 0
     m_antiGlide: 0
     m_footstepSound: 
-    m_useSpriteAsHotspot: 0
-    m_baseline: 0
-    m_walkToPoint: {x: 0, y: 0}
-    m_lookAtPoint: {x: 0, y: 0}
+    m_useSpriteAsHotspot: 1
+    m_baseline: -11
+    m_walkToPoint: {x: -1, y: -9}
+    m_lookAtPoint: {x: 1, y: 61}
     m_scriptName: Robin
     m_scriptClass: CharacterRobin
   m_clickableColliders: []
   m_turnAnims: []
   m_transitionAnims: []
-  m_animations: []
+  m_animations:
+  - {fileID: 7400000, guid: 6650ad5b6e5b59e468aca9ff9cc60012, type: 2}
+  - {fileID: 7400000, guid: 9c56e3a46a19ad54094f4eda7a960336, type: 2}
+  - {fileID: 7400000, guid: 389c986388009cc418c58c0a4a465757, type: 2}
+  - {fileID: 7400000, guid: 37cdd12382b80b943993a160ad90b5f1, type: 2}
+  - {fileID: 7400000, guid: 57ede1d8f84ac3147b4f2c7b846d1de2, type: 2}
+  - {fileID: 7400000, guid: 3419b0277c1b30a4fb679c083e8f0679, type: 2}
+  - {fileID: 7400000, guid: 95c19bbd561bc1245a75cdd008e8c96f, type: 2}
+  - {fileID: 7400000, guid: c740df472abb55a41a35b68e3cd9da43, type: 2}
+  - {fileID: 7400000, guid: 6e6e4c5b6627f3e45bc09e7a4ae1011d, type: 2}
+  - {fileID: 7400000, guid: 5cd3ab4b08e10d141bcfcdec6c738ac3, type: 2}
+  - {fileID: 7400000, guid: 535579ad430d00449b61157b28cfabaf, type: 2}
+  - {fileID: 7400000, guid: ccbc2af54b76d8640a884d41caaeb9fa, type: 2}
+  - {fileID: 7400000, guid: b190115204e2d874f98447d7544abbfc, type: 2}
+  - {fileID: 7400000, guid: 0b0ed67618ef89e4cbc399e035c62e28, type: 2}
 --- !u!60 &6971564378802948092
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -103,10 +117,10 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 32, y: 80}
+    newSize: {x: 32, y: 80}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -155,16 +169,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 110
+  m_Sprite: {fileID: 21300000, guid: a890472ac61b14d478512ce043c5827f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 32, y: 80}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8436872939439414405
@@ -181,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_tint: {r: 1, g: 1, b: 1, a: 0}
   m_outline: {r: 1, g: 1, b: 1, a: 0}
-  m_offset: {x: 0, y: 0}
+  m_offset: {x: -0, y: 29}
   m_shaderOverride: {fileID: 0}
 --- !u!95 &7677564396439434253
 Animator:

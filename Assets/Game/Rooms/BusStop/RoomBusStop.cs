@@ -8,9 +8,54 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 {
 	public enum eLocation {BusStop,Legs}
 	public eLocation m_locationState = eLocation.BusStop;
-	public bool m_lookedAtSchedule = false;
+	public int m_emotion_level = 0;
+	public bool m_allowCrosswalk = false;
+	public int m_numberOfBuses = 2;
+	public int m_minutesLeft = 5;
 	
-	
+	public IEnumerator SetEmotionLevel(int new_emotion_level)
+    {
+		m_emotion_level = new_emotion_level;
+		
+		if (!G.BusStopEmotionBar.Visible){
+			G.BusStopEmotionBar.Show();
+			G.BusStopEmotionBar.GetControl("Impatience").Visible = false;
+			IImage meterBg = (IImage)(G.BusStopEmotionBar.GetControl("Bg"));
+			meterBg.Alpha = 0;
+			yield return meterBg.Fade(0,1,2);
+			G.BusStopEmotionBar.GetControl("Impatience").Visible = true;
+		}
+		switch (m_emotion_level)
+		{
+			case 0:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "Bg";
+				break;
+			case 1:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient1";
+				break;
+			case 2:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient2";
+				break;
+			case 3:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient3";
+				break;
+			case 4:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient4";
+				break;
+			case 5:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient5";
+				m_allowCrosswalk = true;
+				break;
+			default:
+				break;
+		
+		
+		}
+		
+		
+		yield return E.Break;
+	}
+
 	IEnumerator OnInteractHotspotStreet( IHotspot hotspot )
 	{
 		eFace _prevFacing = C.Player.Facing;
@@ -107,10 +152,15 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 		yield return C.FaceClicked();
 		yield return C.Player.Say("It's the CTA Bus schedule.");
 		yield return E.WaitSkip(0.25f);
-		yield return C.Player.Say("2 buses should have come by now.");
+		yield return C.Player.Say($"{m_numberOfBuses} buses should have come by now!");
+		m_numberOfBuses ++;
 		yield return E.WaitSkip(0.25f);
-		yield return C.Player.Say("Maybe I should just give up and play in The Legs across the street.");
-		m_lookedAtSchedule = true;
+		if (Hotspot("BusSchedule").FirstLook){
+			yield return SetEmotionLevel(m_emotion_level+1);
+		}
+		if (m_emotion_level >=5){
+			yield return FullEmotionHint();
+		}
 		yield return E.Break;
 	}
 
@@ -123,6 +173,7 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 	void OnEnterRoom()
 	{
 		C.Scott.AnimPrefix = "Phone";
+		
 		
 	}
 
@@ -149,7 +200,7 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 	{
 		E.StartCutscene();
 		yield return C.Narrator.ChangeRoom(R.Current);
-		C.Narrator.SetPosition(-175,0);
+		C.Narrator.SetPosition(-158,0);
 		Prop("BlackScreen").Alpha = 1;
 		yield return E.FadeIn();
 		yield return C.Display("Chapter 1: Elsa");
@@ -168,5 +219,42 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 		yield return C.Narrator.Say("the bus isn't coming.");
 		E.EndCutscene();
 		yield return E.Break;
+	}
+
+	public IEnumerator FullEmotionHint()
+	{
+		eFace _oldFacing = C.Player.Facing;
+		yield return C.Player.Face(eFace.Down);
+		yield return C.Player.Say("Maybe I should just give up and go play in the Legs accross the street.");
+		yield return C.Player.Face(_oldFacing);
+		yield return E.Break;
+	}
+
+	void OnPostRestore( int version )
+	{
+		switch (m_emotion_level)
+		{
+			case 0:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "Bg";
+				break;
+			case 1:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient1";
+				break;
+			case 2:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient2";
+				break;
+			case 3:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient3";
+				break;
+			case 4:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient4";
+				break;
+			case 5:
+				G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient5";
+				m_allowCrosswalk = true;
+				break;
+			default:
+				break;
+		}
 	}
 }

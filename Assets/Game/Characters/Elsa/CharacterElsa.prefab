@@ -51,12 +51,14 @@ MonoBehaviour:
   m_data:
     m_description: Elsa
     m_cursor: 
-    m_room: TestRoom
-    m_position: {x: -270, y: -70}
+    m_room: BusStop
+    m_position: {x: -274, y: -80}
     m_faceDirection: 1
     m_clickable: 0
     m_visible: 1
-    m_inventory: []
+    m_inventory:
+    - m_name: AstronautCard
+      m_quantity: 1
     m_walkSpeed: {x: 50, y: 50}
     m_moveable: 1
     m_solid: 1
@@ -78,9 +80,9 @@ MonoBehaviour:
     m_antiGlide: 0
     m_footstepSound: 
     m_useSpriteAsHotspot: 1
-    m_baseline: -6
-    m_walkToPoint: {x: 0, y: -4}
-    m_lookAtPoint: {x: 0, y: -4}
+    m_baseline: -8
+    m_walkToPoint: {x: 8, y: -3}
+    m_lookAtPoint: {x: 0, y: 40}
     m_scriptName: Elsa
     m_scriptClass: CharacterElsa
   m_clickableColliders: []
@@ -91,6 +93,8 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 87f9fc358e4bf594fab8d0391b84f489, type: 2}
   - {fileID: 7400000, guid: f526a43368a0f0c4c886167493730fc0, type: 2}
   - {fileID: 7400000, guid: 58663be5a455a8f438c04ac3d3c3d9cf, type: 2}
+  - {fileID: 7400000, guid: bc27569d227fec74da65f8179e71aedb, type: 2}
+  - {fileID: 7400000, guid: 2e421f0bfca209645a6b8f2b3cd21d99, type: 2}
   - {fileID: 7400000, guid: b6fd913d9c5a216468831da22c42cdd7, type: 2}
   - {fileID: 7400000, guid: 62a81c1767ae3274bb0f05e949e520b4, type: 2}
   - {fileID: 7400000, guid: 5c98c4bcecc0bdd45a214acf3c4571ad, type: 2}
@@ -165,7 +169,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 602
+  m_SortingOrder: 622
   m_Sprite: {fileID: 21300000, guid: c6d607198ab1d654ebbc8ddd14675981, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -191,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_tint: {r: 1, g: 1, b: 1, a: 0}
   m_outline: {r: 1, g: 1, b: 1, a: 0}
-  m_offset: {x: 0, y: 28}
+  m_offset: {x: 0, y: 26}
   m_shaderOverride: {fileID: 0}
 --- !u!95 &3840477428478743226
 Animator:

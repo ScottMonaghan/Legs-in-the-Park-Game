@@ -48,8 +48,114 @@ SpriteAtlas:
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 402a1b50012272645828c007996a7e96, type: 3}
+  - {fileID: 21300000, guid: ec61c57074d3cfc43b577c8f1cb2e06a, type: 3}
+  - {fileID: 21300000, guid: 0c0c48902c98bd8448d04aa41909d8f8, type: 3}
+  - {fileID: 21300000, guid: 414c0e904c5a1e7498f0e51cfe5e8cb3, type: 3}
+  - {fileID: 21300000, guid: 985c4f90521106142bc41a1dc60f0d1b, type: 3}
+  - {fileID: 21300000, guid: 8b4973515d55fc84da137faa759957aa, type: 3}
+  - {fileID: 21300000, guid: 4fff037195c9bbf48a544af7885a0d9a, type: 3}
+  - {fileID: 21300000, guid: 06e6edf16f819214fb56d826d11ebe8b, type: 3}
+  - {fileID: 21300000, guid: b7a0caa2fa941ed48a49be5e4e28cef2, type: 3}
+  - {fileID: 21300000, guid: 5dfb35046bbaa904ba83af74f6afa27e, type: 3}
+  - {fileID: 21300000, guid: e5713cb45673d9e48aaa8841551406b7, type: 3}
+  - {fileID: 21300000, guid: 30051d856a1065b408ca73b0b5ad8f40, type: 3}
+  - {fileID: 21300000, guid: 789f2e95595ab684490f7ba78045bb7d, type: 3}
+  - {fileID: 21300000, guid: 12dddfb5c49043146bbeceb50333c61f, type: 3}
+  - {fileID: 21300000, guid: a51754d560683284bb1b0304a4de64df, type: 3}
+  - {fileID: 21300000, guid: 5c40d626a65e3d94590a0b752b093dd5, type: 3}
+  - {fileID: 21300000, guid: b85353561ce3f0e4d87e7b8f630c5e10, type: 3}
+  - {fileID: 21300000, guid: 8296eaa6dad9dc5419cc8f48f1269591, type: 3}
+  - {fileID: 21300000, guid: 5b73eb672b4a72147a7e31b569b99335, type: 3}
+  - {fileID: 21300000, guid: db3e76d74a4d70845a9f3b9727a52362, type: 3}
+  - {fileID: 21300000, guid: 392f1de878e8b8e49941b14789deda5d, type: 3}
+  - {fileID: 21300000, guid: ae82def8556445e4d9dbbc239f376aa8, type: 3}
+  - {fileID: 21300000, guid: 93e2a4a9e057a0a49a057fc80536ae51, type: 3}
+  - {fileID: 21300000, guid: 6c9526b9a88bdf543896c8a8649b6347, type: 3}
+  - {fileID: 21300000, guid: 2dbadfc977dc4e0408f5fa6be087ef2a, type: 3}
+  - {fileID: 21300000, guid: 7b82d6f9836a74d4999db146f4cd42aa, type: 3}
+  - {fileID: 21300000, guid: a890472ac61b14d478512ce043c5827f, type: 3}
+  - {fileID: 21300000, guid: e56149caf615ed84fa4ed3abffe822c5, type: 3}
+  - {fileID: 21300000, guid: 767ce4da23c0a004ca82484daffe53d8, type: 3}
+  - {fileID: 21300000, guid: f7a4912bcb4b6174caaaaffccca04334, type: 3}
+  - {fileID: 21300000, guid: a147513b0141b5740aebaf2b14d3fa9e, type: 3}
+  - {fileID: 21300000, guid: a513aa3b42ead3c4fac67ba4cabaf53d, type: 3}
+  - {fileID: 21300000, guid: d25eae6ba8cc4ad44af634f1d53c18ec, type: 3}
+  - {fileID: 21300000, guid: e62331fbec2475344ad6c9b9a396cc16, type: 3}
+  - {fileID: 21300000, guid: ccfa34fb642a107489e93a657be1b708, type: 3}
+  - {fileID: 21300000, guid: 7f5fa60c8b6e02a45ac76c74241915e5, type: 3}
+  - {fileID: 21300000, guid: baaadc0c32cdc664bb0fae4e85a87ee3, type: 3}
+  - {fileID: 21300000, guid: c193c66c3d150104dba52bfd40af8929, type: 3}
+  - {fileID: 21300000, guid: 117c586c2738cda46b22d9cce5e3ba51, type: 3}
+  - {fileID: 21300000, guid: 77293f4dd21942442bd158823603d87b, type: 3}
+  - {fileID: 21300000, guid: 52c4f85dd0126ed409ca1bc99776f29e, type: 3}
+  - {fileID: 21300000, guid: 327d0e8d9f37a7a48ad2c3fe866d01d9, type: 3}
+  - {fileID: 21300000, guid: d0fa50fd0d9495544a3832226d350e50, type: 3}
+  - {fileID: 21300000, guid: 07a85c2e9cd03794eac42f496d4f14d2, type: 3}
+  - {fileID: 21300000, guid: e71bba9eaba59794a9f61df4c20006c4, type: 3}
+  - {fileID: 21300000, guid: 72c5e9be124503c4abc4cae913f8e629, type: 3}
+  - {fileID: 21300000, guid: bbf54feeace801d45b2dd43c421c572d, type: 3}
+  - {fileID: 21300000, guid: 7c8e760f23475f843ad950c7032664ad, type: 3}
+  - {fileID: 21300000, guid: 8d6bcd0f74f69ef4d9b428b30d8faeed, type: 3}
+  - {fileID: 21300000, guid: 9ea08f2f680b0a448a4bdb763f8fcfca, type: 3}
+  - {fileID: 21300000, guid: ff34573fdd69ad346a78f91ccc5d9872, type: 3}
+  - {fileID: 21300000, guid: 6046e94f7bfbd744caf64dd2690ed4fb, type: 3}
+  - {fileID: 21300000, guid: f7556aaf5b90f40448bb367150ccf9ee, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - TalkUL_4
+  - WalkR_0
+  - TalkL_0
+  - TalkL_2
+  - TalkD_1
+  - TalkUR_1
+  - WalkL_0
+  - TalkUR_5
+  - TalkD_3
+  - TalkU_3
+  - WalkL_2
+  - TalkR_2
+  - WalkR_3
+  - IdleR_1
+  - TalkR_3
+  - TalkUL_2
+  - TalkUR_0
+  - TalkUR_4
+  - TalkUL_1
+  - TalkD_0
+  - TalkU_4
+  - TalkUR_3
+  - TalkU_1
+  - IdleD_0
+  - TalkD_2
+  - WalkL_1
+  - IdleR_0
+  - WalkR_2
+  - TalkL_5
+  - IdleUL_0
+  - TalkU_5
+  - TalkL_1
+  - IdleUR_0
+  - IdleL_0
+  - TalkL_3
+  - TalkR_1
+  - TalkR_0
+  - TalkUL_3
+  - TalkL_4
+  - IdleU_0
+  - TalkU_2
+  - TalkUL_0
+  - TalkD_5
+  - TalkR_4
+  - IdleL_1
+  - TalkUL_5
+  - TalkUR_2
+  - WalkL_3
+  - IdleD_1
+  - WalkR_1
+  - TalkR_5
+  - TalkU_0
+  - TalkD_4
   m_RenderDataMap: {}
   m_Tag: CharacterRobinAtlas
   m_IsVariant: 0
