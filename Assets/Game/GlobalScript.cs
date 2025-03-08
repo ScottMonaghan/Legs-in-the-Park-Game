@@ -24,6 +24,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		DrankWater,
 		WonGame
 	};
+	public enum eExitDirection {None,North,South,West,East};
+	public eExitDirection m_lastExitDirection = eExitDirection.None;
 	public eProgress m_progressExample = eProgress.None;
 	
 	/// Just an example of using a global variable that can be accessed in any room with `Globals.m_spokeToBarney`.

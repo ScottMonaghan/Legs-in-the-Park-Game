@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Game/Rooms/TestRoom/SceneRoomTestRoom.unity
     guid: aa09b19dd68c13e4fb00f9e10b5b2cfa
+  - enabled: 1
+    path: Assets/Game/Rooms/Legs1/SceneRoomLegs1.unity
+    guid: d1dcbd5ba0c4f394692aaf5597771b52
+  - enabled: 1
+    path: Assets/Game/Rooms/Legs2/SceneRoomLegs2.unity
+    guid: 532d84ed034405b4b88f39fcec6939df
   m_configObjects: {}

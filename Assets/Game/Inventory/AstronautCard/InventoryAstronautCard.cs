@@ -34,13 +34,19 @@ public class InventoryAstronautCard : InventoryScript<InventoryAstronautCard>
 			yield return C.Player.Say("This should work to scrape this gum off!");
 			yield return C.Elsa.PlayAnimation("ScrapeOffGum");
 			C.Elsa.StopAnimation();
+			C.Elsa.AnimPrefix="ScrapeOffGum";
 			yield return C.Player.Say("Nice, ABC gum! Saving that for later!");
+			yield return C.Elsa.PlayAnimation("PocketGum");
+			C.Elsa.StopAnimation();
+			C.Elsa.AnimPrefix="";
 			I.StickyShoe.Remove();
 			I.AbcGum.Add();
 			yield return C.Plr.Face(_prevFacing);
 		} else if (item == I.AstronautCard) {
 			yield return C.Plr.Face(eFace.Down);
 			yield return C.Player.Say("Maybe I can use a glitch to make two of these!");
+			yield return E.WaitSkip();
+			yield return E.WaitSkip();
 			yield return E.WaitSkip();
 			yield return C.Player.Say("Nope");
 			yield return C.Plr.Face(_prevFacing);

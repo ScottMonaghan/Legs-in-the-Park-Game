@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a16e9f9c6db14b418901a66d60f8d1b, type: 3}
+  m_Name: _ImportDan
+  m_EditorClassIdentifier: 
+  m_animations:
+  - m_name: IdleD
+    m_firstFrame: 3
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 32
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  - m_name: IdleUR
+    m_firstFrame: 35
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 64000000
+  - m_name: IdleR
+    m_firstFrame: 36
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 32
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000640000006400000064000000
+  - m_name: TalkR
+    m_firstFrame: 68
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 7
+    m_frameDurations: c8000000c8000000c8000000c8000000640000006400000064000000
+  - m_name: WalkR
+    m_firstFrame: 75
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: WalkUL
+    m_firstFrame: 83
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: SueTalkR
+    m_firstFrame: 91
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 7
+    m_frameDurations: c8000000c8000000c8000000c8000000640000006400000064000000
+  m_pixelsPerUnit: 1
+  m_filterMode: 0
+  m_compression: 0
+  m_spriteMeshType: 1
+  m_crunchedCompression: 0
+  m_sourcePSD: Art/dan_danman.aseprite
+  m_sourceDirectory: Art/Export
+  m_deleteImportedPngs: 1
+  m_spriteDirectory: Sprites
+  m_gui: 0
+  m_isAseprite: 1
+  m_trimSprites: 0
+  m_createSingleSpriteAnims: 1
+  m_importLayers: []
+  m_ignoreLayers:
+  - Guide
+  - Ignore
+  m_notes: 

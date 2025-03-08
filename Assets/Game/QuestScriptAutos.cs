@@ -20,6 +20,7 @@ namespace PowerScript
 		public static ICharacter Scott          { get { return PowerQuest.Get.GetCharacter("Scott"); } }
 		public static ICharacter Robin          { get { return PowerQuest.Get.GetCharacter("Robin"); } }
 		public static ICharacter Narrator       { get { return PowerQuest.Get.GetCharacter("Narrator"); } }
+		public static ICharacter Dan            { get { return PowerQuest.Get.GetCharacter("Dan"); } }
 		// #CHARS# - Do not edit this line, it's used by the system to insert characters
 	}
 
@@ -57,6 +58,8 @@ namespace PowerScript
 		public static IRoom TestRoom       { get { return PowerQuest.Get.GetRoom("TestRoom"); } }
 		public static IRoom BusStop        { get { return PowerQuest.Get.GetRoom("BusStop"); } }
 		public static IRoom Intro          { get { return PowerQuest.Get.GetRoom("Intro"); } }
+		public static IRoom Legs1          { get { return PowerQuest.Get.GetRoom("Legs1"); } }
+		public static IRoom Legs2          { get { return PowerQuest.Get.GetRoom("Legs2"); } }
 		// #ROOM# - Do not edit this line, it's used by the system to insert rooms for easy access
 	}
 
@@ -71,6 +74,8 @@ namespace PowerScript
 		public static IDialogTree BusStopInteractCrosswalk { get { return PowerQuest.Get.GetDialogTree("BusStopInteractCrosswalk"); } }
 		public static IDialogTree InteractAstronautCard { get { return PowerQuest.Get.GetDialogTree("InteractAstronautCard"); } }
 		public static IDialogTree InteractStickyShoe   { get { return PowerQuest.Get.GetDialogTree("InteractStickyShoe"); } }
+		public static IDialogTree BusStopInteractBarrel { get { return PowerQuest.Get.GetDialogTree("BusStopInteractBarrel"); } }
+		public static IDialogTree BusStopDialogDan     { get { return PowerQuest.Get.GetDialogTree("BusStopDialogDan"); } }
 		// #DIALOG# - Do not edit this line, it's used by the system to insert rooms for easy access	    	    
 	}
 

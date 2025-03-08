@@ -17,81 +17,81 @@ MonoBehaviour:
     m_firstFrame: 1
     m_loop: 1
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: 2413000064000000
+    m_length: 1
+    m_frameDurations: 24130000
   - m_name: IdleR
+    m_firstFrame: 2
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 24130000
+  - m_name: IdleUR
     m_firstFrame: 3
     m_loop: 1
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: 2413000064000000
-  - m_name: IdleUR
-    m_firstFrame: 5
-    m_loop: 1
-    m_fullRect: 0
     m_length: 1
-    m_frameDurations: 24130000
+    m_frameDurations: c8000000
   - m_name: IdleU
-    m_firstFrame: 6
+    m_firstFrame: 4
     m_loop: 1
     m_fullRect: 0
     m_length: 1
     m_frameDurations: 24130000
-  - m_name: WalkR
-    m_firstFrame: 7
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 4
-    m_frameDurations: c8000000c8000000c8000000c8000000
-  - m_name: WalkUR
-    m_firstFrame: 11
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 4
-    m_frameDurations: c8000000c8000000c8000000c8000000
   - m_name: TalkR
-    m_firstFrame: 15
+    m_firstFrame: 5
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c8000000640000006400000064000000c8000000
   - m_name: TalkD
-    m_firstFrame: 21
+    m_firstFrame: 11
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c8000000640000006400000064000000c8000000
   - m_name: TalkUR
-    m_firstFrame: 27
+    m_firstFrame: 17
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c8000000640000006400000064000000c8000000
   - m_name: TalkU
-    m_firstFrame: 33
+    m_firstFrame: 23
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c800000064000000c800000064000000c8000000
   - m_name: PhoneIdleR
-    m_firstFrame: 39
+    m_firstFrame: 29
     m_loop: 1
     m_fullRect: 0
     m_length: 2
     m_frameDurations: c8000000c8000000
   - m_name: PhoneTalkR
-    m_firstFrame: 41
+    m_firstFrame: 31
     m_loop: 1
     m_fullRect: 0
     m_length: 4
     m_frameDurations: c8000000c8000000c8000000c8000000
+  - m_name: WalkR
+    m_firstFrame: 35
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: WalkUR
+    m_firstFrame: 43
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
-  m_sourcePSD: ../Documents/scott_v2.aseprite
-  m_sourceDirectory: ..\Documents/Export
+  m_sourcePSD: Art/scott_v3.aseprite
+  m_sourceDirectory: C:\Users\scott\Desktop
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
   m_gui: 0

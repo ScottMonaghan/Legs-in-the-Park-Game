@@ -8,6 +8,8 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 {
 	public IEnumerator OnStart()
 	{
+		yield return C.Plr.WalkTo(C.Scott);
+		yield return C.Plr.Face(C.Scott);
 		yield return E.Break;
 	}
 

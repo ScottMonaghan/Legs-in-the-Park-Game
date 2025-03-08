@@ -28,9 +28,10 @@ public class DialogInteractLegs : DialogTreeScript<DialogInteractLegs>
 		yield return C.Player.Say("This is fine.");
 		yield return E.WaitSkip();
 		yield return C.Plr.WalkTo(Hotspot("Legs"));
-		yield return E.FadeOut();
-		yield return C.Display("Thanks for trying out this alpha demo of Legs in the Park!");
-		Application.Quit();
+		yield return C.Plr.ChangeRoom(R.Legs1);
+		//E.FadeOut();
+		//Display: Thanks for trying out this alpha demo of Legs in the Park!
+		//Application.Quit();
 		yield return E.Break;
 	}
 

@@ -12,6 +12,11 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 	public bool m_allowCrosswalk = false;
 	public int m_numberOfBuses = 2;
 	public int m_minutesLeft = 5;
+	public bool m_dan_carnival_barking = false;
+	public bool m_barrel_open = false;
+	public bool m_dan_distracted = false;
+	public bool m_price_of_grabber_revealed = false;
+	public bool m_asked_dad_for_money = false;
 	
 	public IEnumerator SetEmotionLevel(int new_emotion_level)
     {
@@ -172,7 +177,7 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 
 	void OnEnterRoom()
 	{
-		C.Scott.AnimPrefix = "Phone";
+		//C.Scott.AnimPrefix = "Phone";
 		
 		
 	}
@@ -185,12 +190,18 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 
 	IEnumerator OnInteractCharacterScott( ICharacter character )
 	{
+		yield return C.WalkToClicked();
 		yield return C.FaceClicked();
 			yield return C.Player.Say("Hey dad.");
 			yield return E.WaitSkip();
 		if (E.Is(eLocation.BusStop)){
 			yield return C.Scott.Say("Whats up kiddo?");
 			D.AskDadAboutBus.Start();
+		}else if (m_price_of_grabber_revealed == true){
+			yield return C.Plr.Say("Can I have $10 to buy an investment-grade toothless Sue(tm) the T-Rex grabber?");
+			yield return E.WaitSkip();
+			yield return C.Scott.Say("Nope.");
+			m_asked_dad_for_money = true;
 		}else if (E.Is(eLocation.Legs)){
 			yield return C.Scott.Say("Just gotta finish this work email. I'll join you in a minute.");
 		}
@@ -198,26 +209,50 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 
 	IEnumerator OnEnterRoomAfterFade()
 	{
-		E.StartCutscene();
-		yield return C.Narrator.ChangeRoom(R.Current);
-		C.Narrator.SetPosition(-158,0);
-		Prop("BlackScreen").Alpha = 1;
-		yield return E.FadeIn();
-		yield return C.Display("Chapter 1: Elsa");
-		yield return E.WaitSkip();
-		yield return E.WaitSkip();
-		yield return C.Narrator.Say("Today is Saturday,");
-		yield return C.Narrator.Say("the first day of autumn in Chicago.");
-		yield return E.WaitSkip();
-		Prop("BlackScreen").FadeBG(1,0,10);
-		yield return C.Narrator.Say("Like Elsa & her dad have done many times before,");
-		yield return C.Narrator.Say("they wait for the 146 bus to the planetarium.");
-		yield return C.Narrator.Say("But today,");
-		yield return E.WaitSkip();
-		yield return C.Narrator.Say("for some reason,");
-		yield return E.WaitSkip();
-		yield return C.Narrator.Say("the bus isn't coming.");
-		E.EndCutscene();
+		if(R.Current.FirstTimeVisited) {
+			C.Scott.AnimPrefix = "Phone";
+			E.StartCutscene();
+			yield return C.Narrator.ChangeRoom(R.Current);
+			C.Narrator.SetPosition(-158,0);
+			Prop("BlackScreen").Alpha = 1;
+			yield return E.FadeIn();
+			yield return C.Display("Chapter 1: Elsa");
+			yield return C.Narrator.Say("Today is Saturday,");
+			yield return C.Narrator.Say("the first day of autumn in Chicago.");
+			yield return E.WaitSkip();
+			Prop("BlackScreen").FadeBG(1,0,10);
+			yield return C.Narrator.Say("Like Elsa & her dad have done many times before,");
+			Audio.PlayMusic("FoxTaleWaltz");
+			Audio.PlayAmbientSound("CitySounds",5);
+			Audio.Play("Birds").FadeIn(5);
+			yield return C.Narrator.Say("they wait for the 146 bus to the planetarium.");
+			yield return C.Narrator.Say("But today,");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("for some reason,");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("the bus isn't coming.");
+			E.EndCutscene();
+		}
+		
+		else {
+			if (!Audio.IsPlaying("FoxTaleWaltz")){
+			   Audio.PlayMusic("FoxTaleWaltz");
+			}
+		
+			if (!Audio.IsPlaying("CitySounds")){
+				Audio.PlayAmbientSound("CitySounds",5);
+			}
+			if (!Audio.IsPlaying("Birds")){
+				 Audio.Play("Birds").FadeIn(5);
+			}
+		}
+		
+		
+		if (C.Plr.LastRoom != null && C.Plr.LastRoom.ScriptName == "Legs1"){
+			C.Plr.SetPosition(Hotspot("Legs").WalkToPoint);
+			E.DisableCancel();
+			yield return C.Plr.WalkTo(Point("RightSideOfStreet")[0]+20, Point("RightSideOfStreet")[1]);
+		}
 		yield return E.Break;
 	}
 
@@ -228,6 +263,33 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 		yield return C.Player.Say("Maybe I should just give up and go play in the Legs accross the street.");
 		yield return C.Player.Face(_oldFacing);
 		yield return E.Break;
+	}
+
+	void Update()
+    {
+		if (m_dan_carnival_barking && !C.Dan.Talking)
+		{
+			if (E.FirstOption(5, "danbarks"))
+				C.Dan.SayBG("Don't miss the deal of a lifetime!");
+			else if (E.NextOption)
+				C.Dan.SayBG("Find your path to financial freedom today!");
+			else if (E.NextOption)
+				C.Dan.SayBG("Tired of being poor and/or having to work? I've got the answer for you!");
+			else if (E.NextOption)
+				C.Dan.SayBG("How does being rich sound to you? Talk to me to find out more!");
+			else if (E.NextOption)
+				C.Dan.SayBG("Sick of worrying about money? I've to the solution here!");
+		}
+		
+		if (E.GetTimerExpired("DanDistracted")){
+			C.Display("Timer Expired");
+			m_dan_distracted = false;
+			C.Dan.StopAnimation();
+			C.Scott.StopAnimation();
+			C.Dan.WalkToBG(Point("DanHome"));
+			m_dan_carnival_barking = true;
+		}
+		
 	}
 
 	void OnPostRestore( int version )
@@ -256,5 +318,44 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 			default:
 				break;
 		}
+		Audio.Play("Birds").FadeIn(5);
+		Audio.PlayAmbientSound("CitySounds",5);
+		Audio.PlayMusic("FoxTaleWaltz");
+		
+	}
+
+	IEnumerator OnLookAtPropBarrel( IProp prop )
+	{
+		eFace _prevFacing = C.Plr.Facing;
+		yield return C.Plr.Face(eFace.Down);
+		if(!m_barrel_open){
+			yield return C.Plr.Say("It's a museum trash bin.");
+			yield return C.Plr.Say("That guy is standing weirdly close to it.");
+		} else {
+			yield return C.Plr.Say("It's filled to the top with dozens of one-of-a-kind misprinted Sue(tm) the T-Rex grabbers.");
+		}
+		yield return C.Plr.Face(_prevFacing);
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractPropBarrel( IProp prop )
+	{
+			D.BusStopInteractBarrel.Start();
+		yield return E.Break;
+	}
+
+	IEnumerator OnLookAtCharacterDan( ICharacter character )
+	{
+		eFace _prevFacing = C.Plr.Facing;
+		yield return C.Plr.Face(eFace.Down);
+		yield return C.Plr.Say("He looks kind of familiar.");
+		yield return C.Plr.Say("He's standing very close to that trash barrel.");
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractCharacterDan( ICharacter character )
+	{
+		D.BusStopDialogDan.Start();
+		yield return E.Break;
 	}
 }

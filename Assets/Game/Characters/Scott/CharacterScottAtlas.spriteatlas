@@ -49,11 +49,13 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: 1d38b900bd6c1244e8dfc27f5033873e, type: 3}
   - {fileID: 21300000, guid: e16d353043bfd474c9276708307c6a62, type: 3}
   - {fileID: 21300000, guid: b1014a30d8403824cb5db28143dbeb9b, type: 3}
   - {fileID: 21300000, guid: 77c89360f5d8247458eaf05b0ea06605, type: 3}
   - {fileID: 21300000, guid: 8d6bd890af3ebc54ca2bc1c223584465, type: 3}
   - {fileID: 21300000, guid: c8dbcb90e5ef4584d8c39d0a1a3c3ecf, type: 3}
+  - {fileID: 21300000, guid: 1e3e4321fa6214a4cb8fcf90ed2e08ea, type: 3}
   - {fileID: 21300000, guid: 93aabcc1d01b7974eaa2a7b42a3c7d85, type: 3}
   - {fileID: 21300000, guid: 7a71d132e98f3084898f0644ff7d122d, type: 3}
   - {fileID: 21300000, guid: b48341633088c1647b50d5b92670da4c, type: 3}
@@ -61,8 +63,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 92f8918472d64d14d8f063b0dd618bbb, type: 3}
   - {fileID: 21300000, guid: bf8e3045ca32f8648ae250072c362b14, type: 3}
   - {fileID: 21300000, guid: 0d460f75b7e7b254ca6205b8301c977a, type: 3}
-  - {fileID: 21300000, guid: f1787ee5499d22b4195646d22e1e4148, type: 3}
   - {fileID: 21300000, guid: 63aeec06ce4ca1b4d8dd1b02cb40e7a9, type: 3}
+  - {fileID: 21300000, guid: 0a385536fc605544eb8de42b6b798219, type: 3}
   - {fileID: 21300000, guid: 08a79ef699904b64eb24b9bcf30fd4d0, type: 3}
   - {fileID: 21300000, guid: 2b53b00715632614cb47dce01754a4d0, type: 3}
   - {fileID: 21300000, guid: 6c42dd17fbea36d4498c6546c6baf9ae, type: 3}
@@ -73,34 +75,38 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b04a19a819536a742a20060bcb4da936, type: 3}
   - {fileID: 21300000, guid: a9fc06c876b848541935ed609738ae58, type: 3}
   - {fileID: 21300000, guid: 6ad1e3e804d76a34fa3dbdfccddb03b0, type: 3}
-  - {fileID: 21300000, guid: 16af5f89826e59549b92c0c59dfdb893, type: 3}
+  - {fileID: 21300000, guid: d563d9f8ee3cb934e811a7e8a30946a9, type: 3}
   - {fileID: 21300000, guid: 2cf718b9a8408e440b41cf3fe65dc2f5, type: 3}
   - {fileID: 21300000, guid: 8d1c769afa8703046a4068ef5a2dd206, type: 3}
   - {fileID: 21300000, guid: dc6070ca388582f4593e20526414fb5f, type: 3}
   - {fileID: 21300000, guid: 8a97263b6d92fdd43810a1e099b0420f, type: 3}
+  - {fileID: 21300000, guid: e9766bbb6a8f1a4458aa5712811ec0d8, type: 3}
   - {fileID: 21300000, guid: 184a56cb920560e429688d797a2109df, type: 3}
   - {fileID: 21300000, guid: 9d7c3f6c65a407f4b895f8ffc598282c, type: 3}
+  - {fileID: 21300000, guid: cfda6d7cb778d9f40b3b8d5006cce326, type: 3}
   - {fileID: 21300000, guid: 3295e33d85bb9cb468a441bf4fc7665d, type: 3}
   - {fileID: 21300000, guid: ebaca16d67d85104b856fefbb597897f, type: 3}
-  - {fileID: 21300000, guid: 4abc837d61ca2c646a05cf9b0a93d3c9, type: 3}
   - {fileID: 21300000, guid: ba6b278d2e643fb4c97ec05eff2c4c0c, type: 3}
   - {fileID: 21300000, guid: 4b6a98dde8d64ef4da38d311069982e3, type: 3}
+  - {fileID: 21300000, guid: c7086bfdfbc9cb04baca30565afdddf6, type: 3}
   - {fileID: 21300000, guid: ac325efd23a41bd4faf7a34d5910cd58, type: 3}
-  - {fileID: 21300000, guid: 45d13e3ef82c13a4abb0fb2f3f664eac, type: 3}
   - {fileID: 21300000, guid: 8fe8584ef45c0f944819db3c1c2f8c5f, type: 3}
   - {fileID: 21300000, guid: f6d22a5e5aa85d1428017cc4d0f9fd28, type: 3}
   - {fileID: 21300000, guid: 3d297cee18da57145a7bb67f6b4977d6, type: 3}
   - {fileID: 21300000, guid: d396f30fa337a7e44988e4c2d702a929, type: 3}
+  - {fileID: 21300000, guid: 634af51f87d021c4f818a219f96a4212, type: 3}
   - {fileID: 21300000, guid: a1175a9f37d5ec64385f795b59d5c1f7, type: 3}
   - {fileID: 21300000, guid: 44bffdef2adf9404bb385c0c72f76388, type: 3}
   - {fileID: 21300000, guid: ec2baeef8e5d73847a32393c144e6f0f, type: 3}
   - {fileID: 21300000, guid: e5bf9fff3bf113649a9e4a4c262029e8, type: 3}
   m_PackedSpriteNamesToIndex:
+  - WalkR_5
   - TalkD_1
   - WalkUR_2
   - TalkUR_0
   - PhoneTalkR_0
   - TalkUR_5
+  - WalkUR_7
   - IdleR_0
   - TalkD_4
   - IdleUR_0
@@ -108,8 +114,8 @@ SpriteAtlas:
   - WalkR_3
   - TalkUR_3
   - TalkR_2
-  - PhoneR_1
   - WalkR_2
+  - WalkUR_5
   - WalkUR_0
   - PhoneTalkR_3
   - TalkU_5
@@ -120,24 +126,26 @@ SpriteAtlas:
   - WalkUR_3
   - TalkU_0
   - TalkU_4
-  - PhoneR_0
+  - WalkR_7
   - TalkR_5
   - PhoneTalkR_2
   - TalkR_4
   - WalkR_1
+  - WalkUR_6
   - TalkU_2
   - IdleU_0
+  - WalkUR_4
   - WalkR_0
   - TalkD_3
-  - IdleD_1
   - PhoneIdleR_0
   - TalkUR_1
+  - WalkR_4
   - TalkD_5
-  - IdleR_1
   - PhoneTalkR_1
   - TalkR_1
   - TalkR_0
   - TalkU_1
+  - WalkR_6
   - TalkD_0
   - TalkD_2
   - IdleD_0

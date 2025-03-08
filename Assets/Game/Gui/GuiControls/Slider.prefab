@@ -225,10 +225,10 @@ MonoBehaviour:
   m_handleAnimClick: SliderHandle
   m_handleAnimOff: SliderHandleOff
   m_colorWhat: 0
-  m_color: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
-  m_colorHover: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
-  m_colorClick: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
-  m_colorOff: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
+  m_color: {r: 0.40000004, g: 0.22352943, b: 0.19215688, a: 1}
+  m_colorHover: {r: 0.40000004, g: 0.22352943, b: 0.19215688, a: 1}
+  m_colorClick: {r: 0.40000004, g: 0.22352943, b: 0.19215688, a: 1}
+  m_colorOff: {r: 0.44705886, g: 0.36078432, b: 0.34509805, a: 1}
   m_soundHover: 
   m_soundClick: 
   m_soundSlide: 
@@ -561,4 +561,4 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 9bfc53a14025788469f6f9870d73e7a0, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4291258937
+    rgba: 4281416038

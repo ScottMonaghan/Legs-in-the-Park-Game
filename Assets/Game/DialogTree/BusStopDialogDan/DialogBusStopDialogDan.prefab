@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &707933496547184150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3639113257583491170}
+  - component: {fileID: 486892722360995753}
+  m_Layer: 0
+  m_Name: DialogBusStopDialogDan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3639113257583491170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707933496547184150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486892722360995753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707933496547184150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86cb530816edbf41b6daa364f3a3311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_data:
+    m_options:
+    - m_name: DadSaidNo
+      m_text: My dad said no.
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: DadSaidYes
+      m_text: My dad said yes!
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: FinancialFreedom
+      m_text: How can I obtain financial freedom?
+      m_visible: 1
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: WhatMisprint
+      m_text: Misprint?
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: WhyBrokenToy
+      m_text: Why would anyone buy a broken toy?
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: HowMuch
+      m_text: How much for the grabber?
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: WhyTenDollars
+      m_text: Why only $10?
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: NoMoney
+      m_text: I don't have any money
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: Again
+      m_text: Let me go over this with you again...
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: Familiar
+      m_text: You look familiar, have we met?
+      m_visible: 1
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: Familiar2
+      m_text: Are you sure we haven't met?
+      m_visible: 0
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: WhyBarrel
+      m_text: Why are you blocking that barrel?
+      m_visible: 1
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: LookInBarrel
+      m_text: Can I look in the barrel?
+      m_visible: 1
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    - m_name: Exit
+      m_text: Bye for now.
+      m_visible: 1
+      m_disabled: 0
+      m_used: 0
+      m_timesUsed: 0
+    m_scriptName: BusStopDialogDan
+    m_scriptClass: DialogBusStopDialogDan

@@ -43,18 +43,21 @@ public class DialogBusStopInteractCrosswalk : DialogTreeScript<DialogBusStopInte
 			C.Scott.WalkToBG(Point("RightSideOfStreet"));
 			yield return C.Plr.WalkTo(Point("Gum"));
 			yield return C.Plr.PlayAnimation("ElsaGum");
-			C.Plr.SetPosition(C.Plr.Position[0] + 44, C.Plr.Position[1]);
 			C.Plr.StopAnimation();
+			C.Plr.AnimPrefix="ElsaGum";
+			yield return C.Player.Say("Well this is a sticky situation!");
+			C.Plr.SetPosition(C.Plr.Position[0] + 44, C.Plr.Position[1]);
+			C.Plr.AnimPrefix="";
 			I.StickyShoe.Add();
 			yield return C.Plr.Face(eFace.Down);
-			yield return C.Player.Say("Well this is a sticky situation!");
 			yield return C.Plr.WalkTo(Point("RightSideOfStreet")[0] + 20, Point("RightSideOfStreet")[1]);
+			C.Dan.AnimPrefix = "SUE";
 			yield return C.Plr.Face(C.Scott);
 			C.Scott.AnimPrefix = "Phone";
 			yield return C.Scott.Face(C.Player);
 			yield return C.Scott.Say("I just gotta finish this work email. I'll be right in.");
 			yield return C.Player.Say("Okay!");
-		
+			RoomBusStop.Script.m_dan_carnival_barking = true;
 			Region("Crosswalk").Walkable = false;
 			Hotspot("LeftCrosswalk").Disable();
 			Hotspot("RightCrosswalk").Enable();

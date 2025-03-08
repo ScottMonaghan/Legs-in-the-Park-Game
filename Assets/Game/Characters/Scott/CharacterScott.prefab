@@ -52,7 +52,7 @@ MonoBehaviour:
     m_description: Dad
     m_cursor: Talk
     m_room: BusStop
-    m_position: {x: -261, y: -73}
+    m_position: {x: -265, y: -78}
     m_faceDirection: 1
     m_clickable: 1
     m_visible: 1
@@ -60,7 +60,7 @@ MonoBehaviour:
     m_walkSpeed: {x: 50, y: 50}
     m_moveable: 1
     m_solid: 1
-    m_solidSize: {x: 32, y: 16}
+    m_solidSize: {x: 32, y: 4}
     m_turnBeforeWalking: 1
     m_turnBeforeFacing: 1
     m_turnSpeedFPS: 12
@@ -78,9 +78,9 @@ MonoBehaviour:
     m_antiGlide: 0
     m_footstepSound: 
     m_useSpriteAsHotspot: 1
-    m_baseline: -7
-    m_walkToPoint: {x: -1, y: -7}
-    m_lookAtPoint: {x: -0, y: -6}
+    m_baseline: 0
+    m_walkToPoint: {x: 23, y: 0}
+    m_lookAtPoint: {x: -0, y: 96}
     m_scriptName: Scott
     m_scriptClass: CharacterScott
   m_clickableColliders: []
@@ -92,7 +92,6 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 423c0f8e31f9f0444af4956b51be0d35, type: 2}
   - {fileID: 7400000, guid: 83bd4471a141c1c4ea878a4a6cd29210, type: 2}
   - {fileID: 7400000, guid: eb443988d87bf41418e2b88078d6e199, type: 2}
-  - {fileID: 7400000, guid: 7c8ca7eee1931804d95107fdabd6670f, type: 2}
   - {fileID: 7400000, guid: 97e21164972762142b7d815346f47513, type: 2}
   - {fileID: 7400000, guid: 5e60470ade7cddd4b800c9263652b7a4, type: 2}
   - {fileID: 7400000, guid: 2c0df4f5a10bb044584717500e196d5b, type: 2}
@@ -113,22 +112,27 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 52}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 32, y: 104}
-    newSize: {x: 32, y: 104}
+    oldSize: {x: 64, y: 104}
+    newSize: {x: 64, y: 104}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -10, y: -10}
-      - {x: -10, y: 10}
-      - {x: 10, y: 10}
-      - {x: 10, y: -10}
+    - - {x: 9, y: 52}
+      - {x: -12, y: 52}
+      - {x: -14, y: 51}
+      - {x: -14, y: -11}
+      - {x: -9, y: -52}
+      - {x: 8, y: -52}
+      - {x: 14, y: -23}
+      - {x: 14, y: 34}
+      - {x: 13, y: 51}
 --- !u!212 &5715815178776297081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -168,13 +172,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 208
+  m_SortingOrder: 138
   m_Sprite: {fileID: 21300000, guid: ec2baeef8e5d73847a32393c144e6f0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 32, y: 104}
+  m_Size: {x: 64, y: 104}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -194,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_tint: {r: 1, g: 1, b: 1, a: 0}
   m_outline: {r: 1, g: 1, b: 1, a: 0}
-  m_offset: {x: 0, y: 45}
+  m_offset: {x: 0, y: 52}
   m_shaderOverride: {fileID: 0}
 --- !u!95 &1125356524261059255
 Animator:

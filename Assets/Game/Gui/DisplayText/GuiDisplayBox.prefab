@@ -71,6 +71,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5604872423837538293}
     m_Modifications:
+    - target: {fileID: 3713800946280121344, guid: 6fdcc7a77e2f8f44f864c6269c6706ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6690161430560335701, guid: 6fdcc7a77e2f8f44f864c6269c6706ab, type: 3}
       propertyPath: m_anim
       value: Bg
@@ -181,11 +185,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012255500758172001, guid: 6fdcc7a77e2f8f44f864c6269c6706ab, type: 3}
       propertyPath: m_Size.x
-      value: 205
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8012255500758172001, guid: 6fdcc7a77e2f8f44f864c6269c6706ab, type: 3}
       propertyPath: m_Size.y
-      value: 77
+      value: 377
       objectReference: {fileID: 0}
     - target: {fileID: 8012255500758172001, guid: 6fdcc7a77e2f8f44f864c6269c6706ab, type: 3}
       propertyPath: m_Sprite
@@ -230,22 +234,83 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 704239611335084410, guid: ab4512e3f02dded4eb124f4924a66d87, type: 3}
       propertyPath: m_Text
-      value: 'Lorem ipsum dolor sit amet,
+      value: '
 
-        consectetur adipiscing elit, sed
+        Lorem
+
+        ipsum
+
+        dolor
+
+        sit
+
+        amet,
+
+        consectetur
+
+        adipiscing
+
+        elit,
+
+        sed
+
         do
 
-        eiusmod tempor incididunt ut labore
+        eiusmod
 
-        et dolore magna
-        aliqua. Ut enim ad
+        tempor
 
-        minim veniam, quis nostrud
+        incididunt
+
+        ut
+
+        labore
+
+        et
+
+        dolore
+
+        magna
+
+        aliqua.
+
+        Ut
+
+        enim
+
+        ad
+
+        minim
+
+        veniam,
+
+        quis
+
+        nostrud
 
         exercitation
-        ullamco laboris nisi ut
 
-        aliquip ex ea commodo consequat.'
+        ullamco
+
+        laboris
+
+        nisi
+
+        ut
+
+        aliquip
+
+        ex
+
+        ea
+
+        commodo
+
+        consequat.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 704239611335084410, guid: ab4512e3f02dded4eb124f4924a66d87, type: 3}
+      propertyPath: m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2928397047671501694, guid: ab4512e3f02dded4eb124f4924a66d87, type: 3}
       propertyPath: m_text

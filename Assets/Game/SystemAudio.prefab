@@ -46,16 +46,13 @@ MonoBehaviour:
   m_volumeByType:
   - m_type: 1
     m_volume: 1
-    m_mixerGroup: {fileID: 243360952077068278, guid: 1c6db700d48808a47aeeb712a75a818f,
-      type: 2}
+    m_mixerGroup: {fileID: 243360952077068278, guid: 1c6db700d48808a47aeeb712a75a818f, type: 2}
   - m_type: 2
     m_volume: 1
-    m_mixerGroup: {fileID: 243448924589960726, guid: 1c6db700d48808a47aeeb712a75a818f,
-      type: 2}
+    m_mixerGroup: {fileID: 243448924589960726, guid: 1c6db700d48808a47aeeb712a75a818f, type: 2}
   - m_type: 4
     m_volume: 1
-    m_mixerGroup: {fileID: 243504310622813720, guid: 1c6db700d48808a47aeeb712a75a818f,
-      type: 2}
+    m_mixerGroup: {fileID: 243504310622813720, guid: 1c6db700d48808a47aeeb712a75a818f, type: 2}
   m_musicDuckingMaxVolume: 0.5
   m_falloffMinVol: 0.2
   m_falloffPanMax: 0.75
@@ -64,12 +61,22 @@ MonoBehaviour:
   m_falloffPanStart: 0.5
   m_falloffPanEnd: 2
   m_noDuplicateTime: 0.05
+  m_narratorMixerGroup: {fileID: 0}
   m_autoAddCues: 1
   m_audioCues:
+  - {fileID: 5984454833516717573, guid: a87053309ed692b44a8f6d412673ccd2, type: 3}
+  - {fileID: 3386454289688767812, guid: bf573118d935e5745b2dc3ce3c1580e3, type: 3}
   - {fileID: 11426600, guid: 2c643cf6d170a1845bd86209b6ca496a, type: 3}
+  - {fileID: 7067852044875037246, guid: 9a1d475807b2d7a4086c48bc8ebfc6bc, type: 3}
   - {fileID: 11426600, guid: c6310e800026e2e428019c2a6358d52e, type: 3}
+  - {fileID: 3791576129266769003, guid: b1d89f3f347567e4f9d0a73c90dbeac9, type: 3}
   - {fileID: 114876034982820868, guid: 3b2a729029b4ad04985d489155e1943a, type: 3}
+  - {fileID: 3203322290327549400, guid: 4f4838f504400d345a7a2abb20b7913c, type: 3}
+  - {fileID: 8448875086878840533, guid: ebf59517c32f3f041bf507de85a9d69a, type: 3}
   - {fileID: 11426600, guid: 7a3ac0fc4933a4c438c3fa967a310509, type: 3}
+  - {fileID: 6018237718871993181, guid: b0d72a0d1aa76494da4671f2affa0c23, type: 3}
   - {fileID: 11426600, guid: 6ace69fdf6921d04aa1a3ae9616a6822, type: 3}
   - {fileID: 11426600, guid: 08c56f42496582a49a839f7213be6ad0, type: 3}
+  - {fileID: 7721505461055835516, guid: d41befa6f83d58140b0db03ee4db88fd, type: 3}
   - {fileID: 11426600, guid: 85d471550f9b57d41bf2b7677dd6a3a0, type: 3}
+  - {fileID: 6451574334934603097, guid: 0a5ac5a7ac7d8d14ba4cf06c6cae7475, type: 3}
