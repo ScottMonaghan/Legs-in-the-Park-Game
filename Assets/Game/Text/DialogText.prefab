@@ -50,9 +50,9 @@ MonoBehaviour:
   m_localize: 0
   m_sortingLayer: Gui
   m_orderInLayer: -999
-  m_wrapWidth: 200
+  m_wrapWidth: 250
   m_truncate: 0
-  m_wrapUniformLineWidth: 0
+  m_wrapUniformLineWidth: 1
   m_wrapWidthMin: 120
   m_keepOnScreen: 1
   m_screenPadding:
@@ -113,7 +113,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1164025503
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: -999
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &10256322
 TextMesh:
@@ -123,14 +123,12 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115000}
-  m_Text: 'Lorem ipsum dolor sit amet,
+  m_Text: 'Lorem ipsum dolor sit amet, consectetur
 
-    consectetur adipiscing elit, sed do
+    adipiscing elit, sed do eiusmod
+    tempor
 
-    eiusmod
-    tempor incididunt ut labore
-
-    et dolore magna aliqua'
+    incididunt ut labore et dolore magna aliqua'
   m_OffsetZ: 0
   m_CharacterSize: 10
   m_LineSpacing: 0.9

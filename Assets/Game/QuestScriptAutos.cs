@@ -31,6 +31,9 @@ namespace PowerScript
 		public static IInventory AstronautCard  { get { return PowerQuest.Get.GetInventory("AstronautCard"); } }
 		public static IInventory StickyShoe     { get { return PowerQuest.Get.GetInventory("StickyShoe"); } }
 		public static IInventory AbcGum         { get { return PowerQuest.Get.GetInventory("AbcGum"); } }
+		public static IInventory Grabber        { get { return PowerQuest.Get.GetInventory("Grabber"); } }
+		public static IInventory GummyGrabber   { get { return PowerQuest.Get.GetInventory("GummyGrabber"); } }
+		public static IInventory SilverLeaf     { get { return PowerQuest.Get.GetInventory("SilverLeaf"); } }
 		// #INVENTORY# - Do not edit this line, it's used by the system to insert rooms for easy access
 	}
 
@@ -60,6 +63,7 @@ namespace PowerScript
 		public static IRoom Intro          { get { return PowerQuest.Get.GetRoom("Intro"); } }
 		public static IRoom Legs1          { get { return PowerQuest.Get.GetRoom("Legs1"); } }
 		public static IRoom Legs2          { get { return PowerQuest.Get.GetRoom("Legs2"); } }
+		public static IRoom LegsFountain   { get { return PowerQuest.Get.GetRoom("LegsFountain"); } }
 		// #ROOM# - Do not edit this line, it's used by the system to insert rooms for easy access
 	}
 
@@ -69,13 +73,10 @@ namespace PowerScript
 		// Access to specific dialog trees (Auto-generated)
 		public static IDialogTree ChatWithBarney       { get { return PowerQuest.Get.GetDialogTree("ChatWithBarney"); } }
 		public static IDialogTree AskDadAboutBus       { get { return PowerQuest.Get.GetDialogTree("AskDadAboutBus"); } }
-		public static IDialogTree InteractLegs         { get { return PowerQuest.Get.GetDialogTree("InteractLegs"); } }
-		public static IDialogTree BusStopInteractTree  { get { return PowerQuest.Get.GetDialogTree("BusStopInteractTree"); } }
-		public static IDialogTree BusStopInteractCrosswalk { get { return PowerQuest.Get.GetDialogTree("BusStopInteractCrosswalk"); } }
-		public static IDialogTree InteractAstronautCard { get { return PowerQuest.Get.GetDialogTree("InteractAstronautCard"); } }
-		public static IDialogTree InteractStickyShoe   { get { return PowerQuest.Get.GetDialogTree("InteractStickyShoe"); } }
-		public static IDialogTree BusStopInteractBarrel { get { return PowerQuest.Get.GetDialogTree("BusStopInteractBarrel"); } }
 		public static IDialogTree BusStopDialogDan     { get { return PowerQuest.Get.GetDialogTree("BusStopDialogDan"); } }
+		public static IDialogTree LegsMeetRobin        { get { return PowerQuest.Get.GetDialogTree("LegsMeetRobin"); } }
+		public static IDialogTree LegsReadyForClues                { get { return PowerQuest.Get.GetDialogTree("LegsReadyForClues"); } }
+		public static IDialogTree LegsFountainBench    { get { return PowerQuest.Get.GetDialogTree("LegsFountainBench"); } }
 		// #DIALOG# - Do not edit this line, it's used by the system to insert rooms for easy access	    	    
 	}
 

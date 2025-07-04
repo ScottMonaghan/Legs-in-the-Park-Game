@@ -24,7 +24,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		DrankWater,
 		WonGame
 	};
-	public enum eExitDirection {None,North,South,West,East};
+	public enum eExitDirection {None,Up,Down,Left,Right};
 	public eExitDirection m_lastExitDirection = eExitDirection.None;
 	public eProgress m_progressExample = eProgress.None;
 	
@@ -32,12 +32,52 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	/// All variables like this in Quest Scripts are automatically saved
 	public bool m_spokeToBarney = false;
 	
+	//public eQuestClickableType _lastClickableType = eQuestClickableType.None; //I don't believe this is used SJM 2025-03-29
+	
+	//Global inventory variables
+	public bool m_ready_for_gummy_grabber = false;
+	public bool m_lookedAtAstronautCard = false;
+	public bool m_lookedAtStickyShoe = false;
+	public bool m_lookedAtAbcGum = false;
+	public bool m_lookedAtGrabber = false;
+	public bool m_lookedAtGummyGrabber = false;
+	
+	//Shared Global Variables for Legs rooms
+	public eLegsProgress m_legsProgress = eLegsProgress.None;
+	public enum eLegsProgress {
+		None,
+		RobinHiding,
+		SawRobinPeek1,
+		SawRobinPeek2,
+		SawRobinPeek3,
+		SawRobinPeek4,
+		ClickedRobin,
+		MeetingRobin,
+		GotTreasureHunt,
+		CompletedTreasureHunt,
+		GotHope,
+		LookingForDad
+	};
+	public Vector2 m_legs_robin_hide_point = new Vector2(0,0);
+	public Vector2 m_legs_robin_peek_point = new Vector2(0,0);
+	public Vector2 m_legs_robin_meet_point = new Vector2(0,0);
+	public Vector2 m_legs_elsa_meet_robin_point = new Vector2(0,0);
+	
+	//Legs treasure hunt path and tracker
+	public List<eExitDirection> m_treasure_hunt_path = new List<eExitDirection>();
+	public int m_treasure_hunt_path_index = -1;
 	////////////////////////////////////////////////////////////////////////////////////
 	// Global Game Functions
 	
 	/// Called when game first starts
 	public void OnGameStart()
 	{     
+		((IQuestClickable)I.AstronautCard).Cursor = "Look";
+		((IQuestClickable)I.StickyShoe).Cursor = "Look";
+		((IQuestClickable)I.AbcGum).Cursor = "Look";
+		((IQuestClickable)I.Grabber).Cursor = "Look";
+		((IQuestClickable)I.GummyGrabber).Cursor = "Look";
+		
 	} 
 
 	/// Called after restoring a game. Use this if you need to update any references based on saved data.
@@ -82,7 +122,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		
 		// Update keyboard/mouse shortcuts
 		UpdateInput();
-			
+		
 	}
  	
 	/// Update keyboard and mouse shortcuts
@@ -251,11 +291,11 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			// This bit of logic cycles between three options. The '% 3' makes it cycle between 3 options.
 			int option = E.Occurrence("unhandledInteract") % 3;
 			if ( option == 0 )
-				yield return C.Display("You can't use that");
+				yield return C.Plr.Say("You can't use that");
 			else if ( option == 1 )
-				yield return C.Display("That doesn't work");
+				yield return C.Plr.Say("That doesn't work");
 			else if ( option == 2 )
-				yield return C.Display("Nothing happened");
+				yield return C.Plr.Say("Nothing happened");
 		}
 	}
 
@@ -271,26 +311,477 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		// This bit of logic randomly chooses between three options
 		int option = Random.Range(0,3);
 		if ( option == 0 )
-			yield return C.Display("It's nothing interesting");
+			yield return C.Plr.Say("It's nothing interesting");
 		else if ( option == 1 )
-			yield return C.Display("You don't see anything");
+			yield return C.Plr.Say("You don't see anything");
 		else if ( option == 2 ) // in this one we do some fancy manipulation to include the name of what was clicked
-			yield return C.Display($"The {mouseOver.Description.ToLower()} isn't very interesting");
+			yield return C.Plr.Say($"The {mouseOver.Description.ToLower()} isn't very interesting");
 	}
 
 	/// Called when player used one inventory item on another that doesn't have a response
 	public IEnumerator UnhandledUseInvInv(Inventory invA, Inventory invB)
 	{
 		// Called when player used one inventory item on another that doesn't have a response
-		yield return C.Display( "You can't use those together" );
+		//Defaults
+		yield return C.Plr.Say($"I don't know how to make the {invA.Description} work with the {invB.Description}");
 	}
 
 	/// Called when player used inventory on something that didn't have a response
 	public IEnumerator UnhandledUseInv(IQuestClickable mouseOver, Inventory item)
 	{		
 		// This function is called when the uses an item on things that don't have a response
-		yield return C.Display( "You can't use that" ); 
+		
+		//Bus Stop Overrides
+		if (mouseOver == C.Scott){
+			yield return C.Scott.Say("No thanks.");
+		} else if (mouseOver == C.Dan){
+			if (! RoomBusStop.Script.m_dan_distracted){
+			RoomBusStop.Script.m_dan_carnival_barking = false;
+			yield return C.Dan.Face(eFace.Left);
+			yield return C.Dan.Say("That's quite a generous offer little lady, but I'm going to have to decline.");
+			yield return C.Dan.Say("Now pardon me while I get back to my hustle.");
+			yield return C.Dan.Face(eFace.Right);
+			RoomBusStop.Script.m_dan_carnival_barking = true;
+		} else {
+			yield return E.HandleInteract(C.Dan);
+		}
+		//Defaults
+		} else if (mouseOver != null) {
+			yield return C.Plr.Say($"I don't know how to make the {I.Active.Description} work with the {mouseOver.Description}");
+		} else {
+			yield return C.Plr.Say($"I don't know to to make the {I.Active.Description} work with that.");
+		}
 	}
 
+	public void LegsOnEnterRoom()
+    {
+		if (E.Reached(eLegsProgress.GotTreasureHunt) && E.Before(eLegsProgress.CompletedTreasureHunt))
+		{
+			//Only show Robin if on the wrong path
+			if (Globals.m_treasure_hunt_path_index < 0)
+			{
+				C.Robin.Visible = true;
+				C.Robin.Clickable = true;
+			}
+			else
+			{
+				C.Robin.Visible = false;
+				C.Robin.Clickable = false;
+			}
+		} else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad)){
+			if (m_legs_robin_meet_point == new Vector2(0,0)){
+				m_legs_robin_meet_point = Point("RobinMeet1");
+				m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
+				C.Robin.Position = m_legs_robin_meet_point;
+				C.Robin.Facing = eFace.Right;
+			}
+			C.Robin.Visible = true;
+			C.Robin.Clickable = true;
+		}
+		
+	}
 
+	public IEnumerator OnRobinHide()
+	{
+		eFace _prevFacing = C.Plr.Facing;
+		if(E.Before(eLegsProgress.SawRobinPeek1)){
+			E.Set(eLegsProgress.SawRobinPeek1);
+		} else if(E.Before(eLegsProgress.SawRobinPeek2)){
+			yield return C.Plr.Face(C.Robin);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(eFace.Down);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(C.Robin);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(eFace.Down);
+			yield return C.Plr.Say("I'm not crazy...");
+			yield return C.Plr.Say("You saw that right?");
+			E.Set(eLegsProgress.SawRobinPeek2);
+		} else if (E.Before(eLegsProgress.SawRobinPeek3)){
+			yield return C.Plr.Face(C.Robin);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(eFace.Down);
+			yield return C.Plr.Say("Okay, that was definitely a kid.");
+			E.Set(eLegsProgress.SawRobinPeek3);
+		} else if (E.Before(eLegsProgress.SawRobinPeek4)){
+			yield return C.Plr.Face(C.Robin);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(eFace.Down);
+			yield return C.Plr.Say("This is getting ridiculous.");
+			E.Set(eLegsProgress.SawRobinPeek4);
+		} else {
+			yield return C.Plr.Face(C.Robin);
+			yield return E.WaitSkip();
+			yield return C.Plr.Face(eFace.Down);
+			yield return C.Plr.Say("I'm gonna catch that kid if it's the last thing I do.");
+		}
+		
+		
+		yield return C.Plr.Face(_prevFacing);
+		
+		yield return E.Break;
+	}
+
+	public IEnumerator LegsRobinPeek()
+	{
+		C.Robin.Visible = false;
+		C.Robin.Clickable = false;
+		C.Robin.SetPosition(-9999,-9999);
+		yield return C.Robin.ChangeRoom(R.Current);
+		
+		C.Robin.SetPosition(Globals.m_legs_robin_hide_point);
+		C.Robin.Visible = true;
+		yield return C.Robin.WalkTo(Globals.m_legs_robin_peek_point,true);
+		C.Robin.Clickable = true;
+		E.SetTimer("robin_peeking",1);
+		yield return E.Break;
+	}
+
+	public void LegsResetTreasureHunt()
+	{
+		m_treasure_hunt_path.Clear();
+		m_treasure_hunt_path.Add(eExitDirection.Down);
+		m_treasure_hunt_path.Add(eExitDirection.Up);
+		m_treasure_hunt_path.Add(eExitDirection.Left);
+		m_treasure_hunt_path.Add(eExitDirection.Right);
+		m_treasure_hunt_path.Shuffle();
+	}
+
+	public IEnumerator LegsRobinRecitePoem()
+	{
+
+		/*
+		It will be up to your skills to locate your quarry,
+		It will come down to your skills to locate your quarry,
+		It will be left to your skills to locate your quarry,
+		You must have the right skills to locate your quarry,
+		
+		But don't make up a lie to tell your own story.
+		But don't write down a lie to tell your own story.
+		But if left to a liar you won't tell your own story.
+		But to get the truth right you must tell your own story.
+		
+		You think me up to no good? Then please be my guest,
+		Look down on my intentions? Then please be my guest,
+		Still left with mistrust? Then please be my guest,
+		Unsure if I'm right? Then please be my guest,
+		
+		If you're fed up with my poem then be off on your quest!
+		If my poem gets you down then be off on your quest!
+		If there's nothing else left then be off on your quest!
+		If you're ready right now then be off on your quest!
+		*/
+		
+		if (m_treasure_hunt_path.Count == 0){
+			LegsResetTreasureHunt();
+		}
+		
+		if (m_treasure_hunt_path[0] == eExitDirection.Up){
+		yield return C.Robin.Say(" It will be up to your skills\n to locate your quarry,");
+		}
+		else if (m_treasure_hunt_path[0] == eExitDirection.Down){
+		yield return C.Robin.Say("It will come down to your skills\n to locate your quarry,");
+		}
+		else if (m_treasure_hunt_path[0] == eExitDirection.Left){
+		yield return C.Robin.Say(" It will be left to your skills\n to locate your quarry,");
+		}
+		else if (m_treasure_hunt_path[0] == eExitDirection.Right){
+		yield return C.Robin.Say(" You must have the right skills\n to locate your quarry,");
+		}
+		
+		if (m_treasure_hunt_path[1] == eExitDirection.Up){
+		yield return C.Robin.Say("But don't make up a lie\n to tell your own story.");
+		}
+		else if (m_treasure_hunt_path[1] == eExitDirection.Down){
+		yield return C.Robin.Say("But don't write down a lie\n to tell your own story.");
+		}
+		else if (m_treasure_hunt_path[1] == eExitDirection.Left){
+		yield return C.Robin.Say("But if left to a liar\n you won't tell your own story.");
+		}
+		else if (m_treasure_hunt_path[1] == eExitDirection.Right){
+		yield return C.Robin.Say("But to get the truth right\n you must tell your own story.");
+		}
+		
+		if (m_treasure_hunt_path[2] == eExitDirection.Up){
+		yield return C.Robin.Say("Think you're up to the task?\n Then please be my guest,");
+		}
+		else if (m_treasure_hunt_path[2] == eExitDirection.Down){
+		yield return C.Robin.Say("Got these clues down?\n Then please be my guest,");
+		}
+		else if (m_treasure_hunt_path[2] == eExitDirection.Left){
+		yield return C.Robin.Say("Left with no questions?\n Then please be my guest,");
+		}
+		else if (m_treasure_hunt_path[2] == eExitDirection.Right){
+		yield return C.Robin.Say("Think you've got it all right?\n Then please be my guest,");
+		}
+		
+		if (m_treasure_hunt_path[3] == eExitDirection.Up){
+		yield return C.Robin.Say("If you're fed up with my poem\n then be off on your quest!");
+		}
+		else if (m_treasure_hunt_path[3] == eExitDirection.Down){
+		yield return C.Robin.Say("If you've got these clues down\n then be off on your quest!");
+		}
+		else if (m_treasure_hunt_path[3] == eExitDirection.Left){
+		yield return C.Robin.Say("If there's nothing else left\n then be off on your quest!");
+		}
+		else if (m_treasure_hunt_path[3] == eExitDirection.Right){
+		yield return C.Robin.Say("If you're ready right now\n then be off on your quest!");
+		}
+		
+		
+		yield return E.Break;
+	}
+
+	public void LegsDoTreasureHunt()
+	{
+		if (m_treasure_hunt_path_index >= 0 && m_lastExitDirection == m_treasure_hunt_path[m_treasure_hunt_path_index]){
+			//progress the treasure hunt!
+			if (m_treasure_hunt_path[m_treasure_hunt_path_index] == m_treasure_hunt_path.LastOrDefault()){
+				//Successfully completed the treasure hunt path!
+				E.Set(eLegsProgress.CompletedTreasureHunt);
+			} else {
+				m_treasure_hunt_path_index++;
+			}
+		} else {
+			//we are off the path!
+			m_treasure_hunt_path_index = -1;
+			D.LegsMeetRobin.OptionOn("NewClues");
+		}
+	}
+
+	public IEnumerator LegsChangeRoom()
+	{
+		if (E.Reached(eLegsProgress.GotTreasureHunt) && E.Before(eLegsProgress.CompletedTreasureHunt)){
+			LegsDoTreasureHunt();
+		}
+		//if finished treasure hunt path send to Legs fountain
+		if (E.Is(eLegsProgress.CompletedTreasureHunt)){
+			yield return C.Plr.ChangeRoom(R.LegsFountain);
+		} else {
+		//otherwise send to the other legs room
+			//kick off Robin hiding on first room change
+			if(!E.Reached(eLegsProgress.RobinHiding))
+            {
+				E.Set(eLegsProgress.RobinHiding);
+            }
+			if (R.Current == R.Legs1){
+				yield return C.Plr.ChangeRoom(R.Legs2);
+			} else {
+				yield return C.Plr.ChangeRoom(R.Legs1);
+			}
+		}
+		
+		yield return E.Break;
+	}
+
+	public IEnumerator LegsOnEnterRoomAfterFade()
+	{
+        if (E.Before(eLegsProgress.RobinHiding))
+        {
+            yield return E.FadeOut();
+            //force-set inventory to allow play directly from room
+
+            C.Plr.ClearInventory();
+            I.AstronautCard.Add();
+            Globals.m_lookedAtAstronautCard = true;
+            ((IQuestClickable)I.AstronautCard).Cursor = "Use";
+            I.AbcGum.Add();
+            Globals.m_lookedAtAbcGum = true;
+            ((IQuestClickable)I.AbcGum).Cursor = "Use";
+            I.Grabber.Add();
+            Globals.m_lookedAtGrabber = true;
+            ((IQuestClickable)I.Grabber).Cursor = "Use";
+
+            //scene intro cut scene
+            E.StartCutscene();
+            //E.FadeIn();
+            yield return C.Narrator.ChangeRoom(R.Current);
+            C.Narrator.SetPosition(0, 0);
+            //Prop("BlackScreen").Alpha = 1;
+            yield return C.Narrator.Say("Before we continue, a quick story...");
+            yield return E.WaitSkip(1.0f);
+            yield return C.Narrator.Say("In the months before Elsa's birth,");
+            yield return C.Narrator.Say("her parents carefully labored to choose a name that was...");
+            yield return C.Narrator.Say("beautiful,");
+            yield return C.Narrator.Say("beautiful,");
+            yield return C.Narrator.Say("uncommon but classic,");
+            yield return C.Narrator.Say("and most importantly,");
+            yield return C.Narrator.Say("not associated with anything in popular culture.");
+            yield return E.WaitSkip();
+            yield return C.Narrator.Say("When Elsa was born,");
+            yield return C.Narrator.Say("everyone agreed they had chosen very well.");
+            yield return E.WaitSkip(1.0f);
+            yield return C.Narrator.Say("Then of course,");
+            yield return C.Narrator.Say("the movie happened.");
+            yield return C.Narrator.Say("the movie happened.");
+            yield return E.WaitSkip();
+            yield return C.Narrator.Say("I'm sure you know the one.");
+            yield return E.WaitSkip(1.5f);
+            yield return C.Narrator.Say("And so it's been,");
+            yield return C.Narrator.Say("that Elsa's introductions to other kids,");
+            yield return C.Narrator.Say("are almost always some variation of:");
+            yield return C.Narrator.Say("\"Hi my name's Elsa...\"");
+            yield return C.Narrator.Say("and before the new kid can exclaim their incredulity,");
+            yield return C.Narrator.Say("\"like Queen Elsa, but I had my name first.\"");
+            yield return E.WaitSkip();
+            yield return C.Narrator.Say("I tell you this not just because it is an amusing bit of color to flesh out Elsa's life,");
+            yield return C.Narrator.Say("but because I want you to remember it for later,");
+            yield return E.WaitSkip();
+            yield return C.Narrator.Say("Names are important.");
+            yield return E.WaitSkip(1.5f);
+            yield return C.Narrator.Say("Names have power.");
+            yield return C.Narrator.Say("Names have power.");
+            yield return C.Narrator.Say("Names have power.");
+            yield return E.WaitSkip(1.5f);
+
+            yield return C.Display("Chapter 2: In The Legs");
+            yield return E.WaitSkip();
+            //Prop("BlackScreen").FadeBG(1,0,10);
+            yield return E.FadeIn();
+            if (!Audio.IsPlaying("FoxTaleWaltz"))
+            {
+                Audio.PlayMusic("FoxTaleWaltz");
+            }
+            E.EndCutscene();
+            C.Plr.Position = Point("ExitWest");
+            E.DisableCancel();
+            yield return C.Plr.WalkTo(Point("EnteranceStopWest"));
+            yield return C.Plr.Face(eFace.Down);
+            yield return C.Plr.Say("Quick work emails are never quick.");
+            yield return C.Plr.Say("I should probably try to find some fun while I wait for my dad.");
+            yield return C.Plr.Face(eFace.Right);
+            yield return E.ConsumeEvent;
+        }
+        else if (C.Plr.LastRoom.ScriptName == "Legs1" || C.Plr.LastRoom.ScriptName == "Legs2" || C.Plr.LastRoom.ScriptName == "LegsFountain")
+        {
+            IRegion enterance_region = Region("ExitWest");
+            Vector2 starting_position = Point("ExitWest");
+            Vector2 enterance_walkto = Point("EnteranceStopWest");
+            if (E.Is(eExitDirection.Up))
+            {
+                starting_position = Point("ExitSouth");
+                enterance_region = Region("ExitSouth");
+                enterance_walkto = Point("EnteranceStopSouth");
+            }
+            else if (E.Is(eExitDirection.Down))
+            {
+                starting_position = Point("ExitNorth");
+                enterance_region = Region("ExitNorth");
+                enterance_walkto = Point("EnteranceStopNorth");
+            }
+            else if (E.Is(eExitDirection.Right) || E.Is(eExitDirection.None))
+            {
+                starting_position = Point("ExitWest");
+                enterance_region = Region("ExitWest");
+                enterance_walkto = Point("EnteranceStopWest");
+            }
+            else if (E.Is(eExitDirection.Left))
+            {
+                starting_position = Point("ExitEast");
+                enterance_region = Region("ExitEast");
+                enterance_walkto = Point("EnteranceStopEast");
+            }
+            else
+            {
+                yield return C.Display($"UNEXPECTED EXIT DIRECTION: {Globals.m_lastExitDirection}");
+            }
+            C.Plr.Position = starting_position;
+            enterance_region.Walkable = true;
+            E.DisableCancel();
+            yield return E.FadeIn();
+            yield return C.Plr.WalkTo(enterance_walkto);
+            enterance_region.Walkable = false;
+
+        }
+        else
+        {
+            yield return C.Display($"UNEXPECTED PREVIOUS ROOM: {C.Plr.LastRoom.ScriptName}.");
+        }
+
+        //Robin playing hide & seek
+        if (E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin))
+        {
+            //setup Robin
+            if (R.Current == R.Legs1)
+            {
+                if (E.FirstOption(2))
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide1");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek1");
+                }
+                else if (E.NextOption)
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide2");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek2");
+                }
+                Globals.m_legs_robin_meet_point = Point("RobinMeet1");
+                Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
+            }
+            else
+            {
+                if (E.FirstOption(4))
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide1");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek1");
+                }
+                else if (E.NextOption)
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide2");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek2");
+                }
+                else if (E.NextOption)
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide3");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek3");
+                }
+                else if (E.NextOption)
+                {
+                    Globals.m_legs_robin_hide_point = Point("RobinHide4");
+                    Globals.m_legs_robin_peek_point = Point("RobinPeek4");
+                }
+                Globals.m_legs_robin_meet_point = Point("RobinMeet1");
+                Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
+            }
+			yield return E.WaitFor(LegsRobinPeek);
+
+        }
+
+        //Got lost on the treasure hunt
+        if (
+            E.Reached(eLegsProgress.GotTreasureHunt)
+            && E.Before(eLegsProgress.CompletedTreasureHunt)
+            && C.Robin.Room == R.Current
+            && Globals.m_treasure_hunt_path_index == -1
+        )
+        {
+            yield return C.Robin.Face(C.Player);
+            yield return C.Robin.Say("Looks like you're a little lost. Hee hee.");
+            yield return C.Robin.Say("Can I do anything to help?");
+            Globals.m_treasure_hunt_path_index = 0;
+        }
+
+        //Completed treasure hunt!
+        if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad))
+        {
+            yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
+            yield return C.Plr.Say("I DID IT YOU BIG OLD WEIRDO!");
+        }
+
+        yield return E.Break;
+	}
+
+	public IEnumerator LegsOnUpdateBlocking()
+	{
+		if (E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin))
+		{
+			if (E.GetTimerExpired("robin_peeking"))
+			{
+				yield return C.Robin.WalkTo(Globals.m_legs_robin_hide_point, true);
+				C.Robin.Clickable = false;
+				C.Robin.Visible = false;
+				yield return E.WaitFor( Globals.OnRobinHide );
+			}
+		}
+		yield return E.Break;
+	}
 }

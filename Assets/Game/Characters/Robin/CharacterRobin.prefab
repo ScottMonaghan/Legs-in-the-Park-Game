@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Robin
-    m_cursor: 
+    m_description: strange boy
+    m_cursor: Talk
     m_room: 
     m_position: {x: -274, y: -80}
     m_faceDirection: 2
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_useSpriteAsHotspot: 1
     m_baseline: 0
     m_walkToPoint: {x: -1, y: 0}
-    m_lookAtPoint: {x: 1, y: 70}
+    m_lookAtPoint: {x: 0, y: -0}
     m_scriptName: Robin
     m_scriptClass: CharacterRobin
   m_clickableColliders: []
@@ -88,19 +88,15 @@ MonoBehaviour:
   m_transitionAnims: []
   m_animations:
   - {fileID: 7400000, guid: 6650ad5b6e5b59e468aca9ff9cc60012, type: 2}
-  - {fileID: 7400000, guid: 9c56e3a46a19ad54094f4eda7a960336, type: 2}
   - {fileID: 7400000, guid: 389c986388009cc418c58c0a4a465757, type: 2}
   - {fileID: 7400000, guid: 37cdd12382b80b943993a160ad90b5f1, type: 2}
-  - {fileID: 7400000, guid: 57ede1d8f84ac3147b4f2c7b846d1de2, type: 2}
   - {fileID: 7400000, guid: 3419b0277c1b30a4fb679c083e8f0679, type: 2}
   - {fileID: 7400000, guid: 95c19bbd561bc1245a75cdd008e8c96f, type: 2}
-  - {fileID: 7400000, guid: c740df472abb55a41a35b68e3cd9da43, type: 2}
   - {fileID: 7400000, guid: 6e6e4c5b6627f3e45bc09e7a4ae1011d, type: 2}
   - {fileID: 7400000, guid: 5cd3ab4b08e10d141bcfcdec6c738ac3, type: 2}
-  - {fileID: 7400000, guid: 535579ad430d00449b61157b28cfabaf, type: 2}
   - {fileID: 7400000, guid: ccbc2af54b76d8640a884d41caaeb9fa, type: 2}
-  - {fileID: 7400000, guid: b190115204e2d874f98447d7544abbfc, type: 2}
   - {fileID: 7400000, guid: 0b0ed67618ef89e4cbc399e035c62e28, type: 2}
+  - {fileID: 7400000, guid: 34afbaeeca0307c4785e6c7ceac9840e, type: 2}
 --- !u!60 &6971564378802948092
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -13,31 +13,37 @@ MonoBehaviour:
   m_Name: _ImportLegs1
   m_EditorClassIdentifier: 
   m_animations:
-  - m_name: LegsFG
-    m_firstFrame: 2
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: LegsBG
+  - m_name: Legs01FG
     m_firstFrame: 3
     m_loop: 0
     m_fullRect: 0
     m_length: 1
     m_frameDurations: 64000000
-  - m_name: LegsPath
+  - m_name: Legs01BG
     m_firstFrame: 4
     m_loop: 0
     m_fullRect: 0
     m_length: 1
     m_frameDurations: 64000000
+  - m_name: Legs01Path
+    m_firstFrame: 5
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: 640000006400000064000000
+  - m_name: BlackScreen
+    m_firstFrame: 9
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: 6400000064000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
   m_sourcePSD: Art/LegsRoom1.aseprite
-  m_sourceDirectory: C:\Users\scott\Desktop
+  m_sourceDirectory: Art/Export
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
   m_gui: 0

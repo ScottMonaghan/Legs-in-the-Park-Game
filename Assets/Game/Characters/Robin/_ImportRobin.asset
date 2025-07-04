@@ -37,62 +37,38 @@ MonoBehaviour:
     m_fullRect: 0
     m_length: 1
     m_frameDurations: c8000000
-  - m_name: IdleUL
+  - m_name: WalkR
     m_firstFrame: 7
     m_loop: 1
     m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 90010000
-  - m_name: IdleL
-    m_firstFrame: 8
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: WalkUR
+    m_firstFrame: 15
     m_loop: 1
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: a00f000032000000
-  - m_name: WalkR
-    m_firstFrame: 10
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 4
-    m_frameDurations: 96000000960000009600000096000000
-  - m_name: WalkL
-    m_firstFrame: 14
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 4
-    m_frameDurations: 96000000960000009600000096000000
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
   - m_name: TalkD
-    m_firstFrame: 18
+    m_firstFrame: 23
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c8000000c8000000640000006400000064000000
   - m_name: TalkR
-    m_firstFrame: 24
+    m_firstFrame: 29
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c8000000640000006400000064000000c8000000
-  - m_name: TalkL
-    m_firstFrame: 30
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 6
-    m_frameDurations: c8000000c800000064000000640000006400000064000000
   - m_name: TalkU
-    m_firstFrame: 36
-    m_loop: 1
-    m_fullRect: 0
-    m_length: 6
-    m_frameDurations: c8000000c800000064000000640000006400000064000000
-  - m_name: TalkUL
-    m_firstFrame: 42
+    m_firstFrame: 35
     m_loop: 1
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c800000064000000640000006400000064000000
   - m_name: TalkUR
-    m_firstFrame: 48
+    m_firstFrame: 41
     m_loop: 1
     m_fullRect: 0
     m_length: 6
@@ -103,7 +79,7 @@ MonoBehaviour:
   m_spriteMeshType: 1
   m_crunchedCompression: 0
   m_sourcePSD: Art/robin.aseprite
-  m_sourceDirectory: Art/Export
+  m_sourceDirectory: C:\Users\scott\Desktop
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
   m_gui: 0

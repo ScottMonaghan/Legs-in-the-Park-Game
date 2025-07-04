@@ -422,16 +422,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Barrel
-    m_cursor: Use
+    m_description: barrel
+    m_cursor: Look
     m_visible: 1
     m_clickable: 1
     m_animation: Barrel
     m_alpha: 1
     m_position: {x: 0, y: 0}
-    m_baseline: -75
+    m_baseline: -85
     m_baselineFixed: 0
-    m_walkToPoint: {x: 264, y: -84}
+    m_walkToPoint: {x: 271, y: -85}
     m_lookAtPoint: {x: 299, y: -49}
     m_scriptName: Barrel
   m_parallaxDepth: 0
@@ -538,7 +538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 750
+  m_SortingOrder: 850
   m_Sprite: {fileID: 21300000, guid: 4c0dfde5e04296b40b73980315cb1dd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -632,97 +632,6 @@ PolygonCollider2D:
       - {x: 97.79959, y: -57.9385}
       - {x: 139.41978, y: -103.59144}
       - {x: -176.16602, y: -103.393005}
---- !u!1 &2263663458930217534
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4993844086181537194}
-  - component: {fileID: 3063073995929718366}
-  - component: {fileID: 2328367278226784353}
-  m_Layer: 0
-  m_Name: RegionDanZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4993844086181537194
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263663458930217534}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 8465351111693685813}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3063073995929718366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263663458930217534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20008c577fbd68147a04948177cd9c5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_data:
-    m_enabled: 1
-    m_walkable: 1
-    m_playerOnly: 0
-    m_tint: {r: 1, g: 1, b: 1, a: 0}
-    m_fadeDistance: 0
-    m_scaleTop: 1
-    m_scaleBottom: 1
-    m_scriptName: DanZone
---- !u!60 &2328367278226784353
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263663458930217534}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -12.000001, y: -12.000001}
-      - {x: -12.000001, y: 12.000001}
-      - {x: 12.000001, y: 12.000001}
-      - {x: 12.000001, y: -12.000001}
-    - - {x: 211.83002, y: -96.229004}
-      - {x: 211.83002, y: -64.065}
-      - {x: 223.104, y: -53.370003}
-      - {x: 349.363, y: -55.717003}
-      - {x: 350.64902, y: -67.229004}
-      - {x: 350.71402, y: -97.73801}
-      - {x: 330.389, y: -100.01501}
-      - {x: 220.78902, y: -99.66501}
-      - {x: 219.13602, y: -101.31801}
 --- !u!1 &2701076488348390131
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,8 +677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: The Legs In the Park
-    m_cursor: Use
+    m_description: the Legs
+    m_cursor: Look
     m_clickable: 1
     m_baseline: 0
     m_walkToPoint: {x: 445, y: -19}
@@ -851,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Crosswalk
+    m_description: Cross the screet to the Legs
     m_cursor: Right
     m_clickable: 1
     m_baseline: 0
@@ -936,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Crosswalk
+    m_description: crosswalk to the bus stop
     m_cursor: Left
     m_clickable: 0
     m_baseline: 0
@@ -1346,6 +1255,88 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &5512147447345836623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5383091669894730490}
+  - component: {fileID: 7862270194762841968}
+  - component: {fileID: 7496985606425156617}
+  m_Layer: 0
+  m_Name: RegionBarrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5383091669894730490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512147447345836623}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8465351111693685813}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7862270194762841968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512147447345836623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20008c577fbd68147a04948177cd9c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_data:
+    m_enabled: 1
+    m_walkable: 0
+    m_playerOnly: 0
+    m_tint: {r: 1, g: 1, b: 1, a: 0}
+    m_fadeDistance: 0
+    m_scaleTop: 1
+    m_scaleBottom: 1
+    m_scriptName: Barrel
+--- !u!60 &7496985606425156617
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5512147447345836623}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 269.73944, y: -83.36703}
+      - {x: 293.1991, y: -64.12416}
+      - {x: 325.61093, y: -72.66815}
+      - {x: 300.91776, y: -95.08506}
 --- !u!1 &5526762340934670540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,8 +1382,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Street
-    m_cursor: Use
+    m_description: Roosevelt Road
+    m_cursor: Right
     m_clickable: 1
     m_baseline: 0
     m_walkToPoint: {x: 0, y: 0}
@@ -1730,7 +1721,7 @@ Transform:
   - {fileID: 7616295656976478636}
   - {fileID: 3787361042931105131}
   - {fileID: 4321587005291933066}
-  - {fileID: 4993844086181537194}
+  - {fileID: 5383091669894730490}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1792,7 +1783,7 @@ MonoBehaviour:
   - {fileID: 1981172584966437510}
   - {fileID: 4298852086522613441}
   - {fileID: 4629765549229463937}
-  - {fileID: 3063073995929718366}
+  - {fileID: 7862270194762841968}
   m_walkableAreas:
   - {fileID: 5002102461930799417}
   m_animations:
@@ -2480,8 +2471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Nice Looking Tree
-    m_cursor: Use
+    m_description: nice looking tree
+    m_cursor: Look
     m_visible: 1
     m_clickable: 1
     m_animation: Tree
@@ -2489,8 +2480,8 @@ MonoBehaviour:
     m_position: {x: 0, y: 0}
     m_baseline: -47
     m_baselineFixed: 0
-    m_walkToPoint: {x: 0, y: 0}
-    m_lookAtPoint: {x: 0, y: 0}
+    m_walkToPoint: {x: -173, y: -49}
+    m_lookAtPoint: {x: -140, y: -43}
     m_scriptName: Tree
   m_parallaxDepth: 0
   m_parallaxAlignment: {x: 0, y: 0}

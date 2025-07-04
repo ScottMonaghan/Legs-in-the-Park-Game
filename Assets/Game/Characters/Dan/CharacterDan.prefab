@@ -73,14 +73,14 @@ MonoBehaviour:
     m_animShadow: 
     m_useRegionTinting: 1
     m_useRegionScaling: 1
-    m_textOffset: {x: 0, y: 0}
+    m_textOffset: {x: 0, y: 10}
     m_LipSyncEnabled: 0
     m_antiGlide: 0
     m_footstepSound: 
     m_useSpriteAsHotspot: 0
     m_baseline: 0
     m_walkToPoint: {x: -33, y: 1}
-    m_lookAtPoint: {x: -2, y: 82}
+    m_lookAtPoint: {x: -0, y: -0}
     m_scriptName: Dan
     m_scriptClass: CharacterDan
   m_clickableColliders: []

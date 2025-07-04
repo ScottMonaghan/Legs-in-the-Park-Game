@@ -126,12 +126,14 @@ public partial interface IInventory
 {
 }
 
-public partial class Inventory
-{
-	/* Partial functions you can use here to extend functionality
-	void ExOnInteraction(eQuestVerb verb) {}
-	void ExOnCancelInteraction(eQuestVerb verb) {}
-	*/
+	public partial class Inventory
+	{
+		/* Partial functions you can use here to extend functionality
+		void ExOnInteraction(eQuestVerb verb) {}
+		void ExOnCancelInteraction(eQuestVerb verb) {}
+		*/
+		//[Tooltip("If set, changes the name of the cursor when moused over in the Inventory GUI")]
+		[SerializeField] string m_mouseoverCursor { get { return m_cursor; } set{m_cursor=value; } }
 }
 
 // Gui and gui control Functions/Properties

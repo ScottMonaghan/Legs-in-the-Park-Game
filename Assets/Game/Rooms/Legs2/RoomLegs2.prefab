@@ -986,7 +986,7 @@ MonoBehaviour:
   m_data:
     m_description: Legs2
     m_playerVisible: 1
-    m_verticalResolution: 0
+    m_verticalResolution: 216
     m_activeWalkableArea: 0
     m_bounds:
       m_min: {x: 0, y: 0}
@@ -1009,11 +1009,31 @@ MonoBehaviour:
     - m_name: EnteranceStopWest
       m_position: {x: -96, y: -70}
     - m_name: EnteranceStopEast
-      m_position: {x: 84, y: -47}
+      m_position: {x: 87, y: -48}
     - m_name: EnteranceStopNorth
       m_position: {x: 12, y: -44}
     - m_name: EnteranceStopSouth
       m_position: {x: 11, y: -88}
+    - m_name: RobinHide1
+      m_position: {x: 35, y: -19}
+    - m_name: RobinPeek1
+      m_position: {x: 43, y: -19}
+    - m_name: RobinHide2
+      m_position: {x: 0, y: -20}
+    - m_name: RobinPeek2
+      m_position: {x: -8, y: -20}
+    - m_name: RobinHide3
+      m_position: {x: -173, y: -59}
+    - m_name: RobinPeek3
+      m_position: {x: -158, y: -59}
+    - m_name: RobinHide4
+      m_position: {x: 121, y: -81}
+    - m_name: RobinPeek4
+      m_position: {x: 111, y: -81}
+    - m_name: RobinMeet1
+      m_position: {x: -22, y: -62}
+    - m_name: ElsaMeetRobin1
+      m_position: {x: 37, y: -62}
   m_debugStartFunction: 
   m_hotspotComponents:
   - {fileID: 277134734}

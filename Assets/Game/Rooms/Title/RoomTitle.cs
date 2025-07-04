@@ -13,7 +13,7 @@ public class RoomTitle : RoomScript<RoomTitle>
 		G.InventoryBar.Hide();
 		
 		// Later we could start some music here
-		//SystemAudio.PlayMusic("MusicSlowStrings", 1);
+		Audio.PlayMusic("KrampusWorkshop", 1);
 	}
 
 	public IEnumerator OnEnterRoomAfterFade()
@@ -29,6 +29,7 @@ public class RoomTitle : RoomScript<RoomTitle>
 		// Wait a moment
 		yield return E.Wait(0.5f);
 		
+		/*
 		// Check if we have any save games. If so, turn on the "continue" prop.
 		if (  E.GetSaveSlotData().Count > 0 )
 		{
@@ -36,10 +37,17 @@ public class RoomTitle : RoomScript<RoomTitle>
 			Prop("Continue").Enable();
 			Prop("Continue").FadeBG(0,1,1.0f);
 		}
+		*/
 		
 		// Turn on the "new game" prop and fade it in
-		Prop("New").Enable();
-		yield return Prop("New").Fade(0,1,1.0f);
+		Prop("Prologue").Enable();
+		Prop("Prologue").FadeBG(0,1,1.0f);
+		Prop("Chapter1").Enable();
+		Prop("Chapter1").FadeBG(0,1,1.0f);
+		Prop("Chapter2").Enable();
+		Prop("Chapter2").FadeBG(0,1,1.0f);
+		Prop("Chapter3").Enable();
+		Prop("Chapter3").FadeBG(0,1,1.0f);
 		
 		// This is the point the game will skip to if ESC is pressed
 		E.EndCutscene();
@@ -63,4 +71,36 @@ public class RoomTitle : RoomScript<RoomTitle>
 		yield return E.ConsumeEvent;
 	}
 
+
+	IEnumerator OnInteractPropPrologue( IProp prop )
+	{
+		yield return E.ChangeRoom(R.Intro);
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractPropChapter1( IProp prop )
+	{
+		yield return E.ChangeRoom(R.BusStop);
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractPropChapter2( IProp prop )
+	{
+		yield return E.ChangeRoom(R.Legs1);
+		yield return E.Break;
+	}
+
+	IEnumerator OnExitRoom( IRoom oldRoom, IRoom newRoom )
+	{
+		// Hide the inventory in the title scene
+		G.InventoryBar.Show();
+		Audio.StopMusic(5);
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractPropChapter3( IProp prop )
+	{
+		yield return E.ChangeRoom(R.LegsFountain);
+		yield return E.Break;
+	}
 }

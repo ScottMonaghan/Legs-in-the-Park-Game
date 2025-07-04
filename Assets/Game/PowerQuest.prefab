@@ -100,17 +100,18 @@ MonoBehaviour:
   m_cursorPrefab: {fileID: 11435822, guid: 3799efca464e21f4b9247c6beea65b92, type: 3}
   m_cameraPrefab: {fileID: 11462848, guid: b254fcd8f583c324ba3da9904a492986, type: 3}
   m_roomPrefabs:
+  - {fileID: 114788632828080210, guid: 908a928d57ccea1418803714fc2b24b8, type: 3}
   - {fileID: 6624152743663063617, guid: 6d861c0a11385c94db0843d8abc07291, type: 3}
   - {fileID: 279166639900110886, guid: 86dce06fede46254f84ff79bc5d2e8a3, type: 3}
-  - {fileID: 114788632828080210, guid: 908a928d57ccea1418803714fc2b24b8, type: 3}
   - {fileID: 114107578643181592, guid: 815776d2d5a9623498c61578ffc4c1cc, type: 3}
   - {fileID: 4844208553166097438, guid: f33262eb5b624dd47b8e6c3d94dba430, type: 3}
   - {fileID: 7692928587691744702, guid: baaf95b7911e71441af92d675e3b3df9, type: 3}
   - {fileID: 2286594746267465560, guid: 2d5518119015c90468060e0d210a3526, type: 3}
+  - {fileID: 5995650465333248653, guid: 21443436f63dafe4eac241060f3e51dd, type: 3}
   m_characterPrefabs:
   - {fileID: 5593523908310942928, guid: 7118ab3977950094980ee559ad56550d, type: 3}
-  - {fileID: 5275145514016332984, guid: 183b4c5d4ea9b794b85d410f10f9bab6, type: 3}
   - {fileID: 4970074800657891017, guid: 6edc8cf2727821547b551120845e5351, type: 3}
+  - {fileID: 5275145514016332984, guid: 183b4c5d4ea9b794b85d410f10f9bab6, type: 3}
   - {fileID: 4581767922099648042, guid: d145bebf3091d284fb8933c384f7881b, type: 3}
   - {fileID: 1266680259239985126, guid: 5aa7dd7116fb63e4d97e8350a8a778ec, type: 3}
   - {fileID: 114953134120639602, guid: b4910caf4195aeb45895069ad277b9fd, type: 3}
@@ -130,24 +131,52 @@ MonoBehaviour:
   m_dialogTreePrefabs:
   - {fileID: 114281990419900940, guid: be73794dfb294f14982196647fe6e96b, type: 3}
   - {fileID: 5132868252366101545, guid: 8da016e6ea5a57a4d9ce7973ed5a4c41, type: 3}
-  - {fileID: 553994783978057643, guid: 4f778f9afa7d03b4ca5e96503b072dbe, type: 3}
-  - {fileID: 8950532403675501233, guid: e7fa35d59716480409e249de41895c2a, type: 3}
-  - {fileID: 2904042888007224162, guid: 751c506f39dd089458dc9fd2191c3960, type: 3}
-  - {fileID: 3270966325124245372, guid: d87fd9db969ebb34d94338789b588b83, type: 3}
-  - {fileID: 245112948282465998, guid: c3b1bb2015ba2fa42a7feaf0b1b9c613, type: 3}
-  - {fileID: 2844845966850978952, guid: 3ac4de12261548a4583e0da8b8904fdf, type: 3}
   - {fileID: 486892722360995753, guid: 1d130633f456a4345a6956d0ebf3da6d, type: 3}
+  - {fileID: 5906791550292658926, guid: f8c6c0459d826684eb84e8f421815f6b, type: 3}
+  - {fileID: 4506446645943704143, guid: 1cc88fc8950990342971915404ea1b99, type: 3}
+  - {fileID: 6700009239001916219, guid: 90756ae21d1299045ad23fb394494f72, type: 3}
   m_inventoryPrefabs:
   - {fileID: 114497078864246608, guid: 7a896bee3c107ce49b5aebeb3b5d1b31, type: 3}
   - {fileID: 7134853990285981313, guid: c0c8d490c05bb54419270d281a0aed46, type: 3}
   - {fileID: 8735793602775207818, guid: 2f9e09e027192b349ac3f42b96d946dc, type: 3}
   - {fileID: 3913804434993976541, guid: 132c8949806ea5b429ebd5b2204d749f, type: 3}
+  - {fileID: 5120855671943120559, guid: d885f5818d777264d943e3dc16e09c20, type: 3}
+  - {fileID: 7327016414259564660, guid: 936257a3a6dfa2c449b10e385a73f490, type: 3}
+  - {fileID: 2826378067494085630, guid: fb2f9b943c6ade048aa48bda1ce46ee9, type: 3}
   m_inventoryAnimations:
+  - {fileID: 7400000, guid: 7e16babdee861c342ae59b48936fb1d0, type: 2}
   - {fileID: 7400000, guid: 10856a3a6e09a994f876dd16f8272cce, type: 2}
+  - {fileID: 7400000, guid: 118fa094adc6f1246af8b167575c0030, type: 2}
   m_inventorySprites:
   - {fileID: 21300000, guid: 8e670963018cd7442bfda98fdf2cc308, type: 3}
   - {fileID: 21300000, guid: f12c6f2bd067890469a44610bfcbcbfa, type: 3}
   - {fileID: 21300000, guid: 3128a95e76c6adf44a7ffde8daa56743, type: 3}
+  - {fileID: 21300000, guid: ba121cc7c01cd2e429e7543bb2992642, type: 3}
+  - {fileID: 21300000, guid: dcaaaea5e79f0d745a0266cb151387e5, type: 3}
+  - {fileID: 21300000, guid: f578a8d80a6832d418b631fbc7cfa622, type: 3}
+  - {fileID: 21300000, guid: dde08742f4acc9f4d86da349c0aa5e6e, type: 3}
+  - {fileID: 21300000, guid: 70d54648a04ab89499ac9b8769aa2909, type: 3}
+  - {fileID: 21300000, guid: bc31123e3136d08419d6bfcbf1fc2dfd, type: 3}
+  - {fileID: 21300000, guid: 8a1264554ec241e4298d65652a774213, type: 3}
+  - {fileID: 21300000, guid: 7680fb63067ff014e831d0a47338a94c, type: 3}
+  - {fileID: 21300000, guid: 311a4e23eabc2f845a4582847477f082, type: 3}
+  - {fileID: 21300000, guid: 37b8805ac6c80c54cb9bec9d975b20b6, type: 3}
+  - {fileID: 21300000, guid: e979450b1f8213745b8f477a288e519a, type: 3}
+  - {fileID: 21300000, guid: 878cf38a11cd0a142a669a6f90d0b70c, type: 3}
+  - {fileID: 21300000, guid: 1e1d3c767a229754bb6e8f16e31b99f9, type: 3}
+  - {fileID: 21300000, guid: c1cad1e09d51c7145b8686ff784a690f, type: 3}
+  - {fileID: 21300000, guid: 3b152c15d20a13c459a08f0a8048b895, type: 3}
+  - {fileID: 21300000, guid: 0b5bd7d82da5c7547939ee0e8a07cb1e, type: 3}
+  - {fileID: 21300000, guid: e5d9150d695cbda45a7a9a30e6939f78, type: 3}
+  - {fileID: 21300000, guid: 818b7d5649635454b866ddb7d7c18b7b, type: 3}
+  - {fileID: 21300000, guid: 46d2d8d6204d5914e8e319f361a0c18e, type: 3}
+  - {fileID: 21300000, guid: f396ff10ddfb94f48b79cea8205b3026, type: 3}
+  - {fileID: 21300000, guid: 175f85a23118cce4490f31c741f6f9fb, type: 3}
+  - {fileID: 21300000, guid: a4e948bfac2aae14cb5873b3c976f8bb, type: 3}
+  - {fileID: 21300000, guid: a8147e01bd01c5c4ea5709c0111de572, type: 3}
+  - {fileID: 21300000, guid: f87993799d59ab54ab82820fbb2eb5c0, type: 3}
+  - {fileID: 21300000, guid: 7bb868dfe0ecb6e4eb9624f371c75143, type: 3}
+  - {fileID: 21300000, guid: 7fc4fc2a6a76f394fba66db6b7ff0776, type: 3}
   - {fileID: 21300000, guid: e5156f3513628b845a26dab5e6b3275f, type: 3}
   m_guiAnimations:
   - {fileID: 0}

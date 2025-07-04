@@ -49,13 +49,15 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 78abe637e616872479bc3fc0d8168c0a, type: 3}
-  - {fileID: 21300000, guid: 15c8377c545d1a446b08af5b6b7f718c, type: 3}
-  - {fileID: 21300000, guid: 80cce8ed42d337b44b9f76eef3e247f6, type: 3}
+  - {fileID: 21300000, guid: 92f24f52b00051c43a63f4fa86abc3a4, type: 3}
+  - {fileID: 21300000, guid: 7451ef55238058d4fbe5f8775f8d95c5, type: 3}
+  - {fileID: 21300000, guid: bd97b97604007174dbf253b2723a13a9, type: 3}
+  - {fileID: 21300000, guid: ebd6061a4496a3c428ad3fae3a0e87e7, type: 3}
   m_PackedSpriteNamesToIndex:
-  - LegsBG_0
-  - LegsPath_0
-  - LegsFG_0
+  - Legs01FG_0
+  - Legs01BG_0
+  - Legs01Path_0
+  - BlackScreen_0
   m_RenderDataMap: {}
   m_Tag: RoomLegs1Atlas
   m_IsVariant: 0

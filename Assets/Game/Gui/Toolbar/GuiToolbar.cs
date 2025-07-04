@@ -35,12 +35,12 @@ public class GuiToolbar : GuiScript<GuiToolbar>
 	IEnumerator OnClickQuit( IGuiControl control )
 	{
 		
-		GuiPrompt.Script.Show("Really Save and Quit?", "Yes", "Cancel", ()=>
+		GuiPrompt.Script.Show("Really Save and Quit to Title?", "Yes", "Cancel", ()=>
 		{
 			if ( R.Current != R.Title )
 				E.Save(1,"Autosave");
-		
-			Application.Quit();
+			E.Restart(R.Title);
+			//Application.Quit();
 		});
 		yield return E.Break;
 	}

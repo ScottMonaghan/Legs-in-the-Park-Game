@@ -35,14 +35,15 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 		{
 			yield return RoomBusStop.Script.SetEmotionLevel(RoomBusStop.Script.m_emotion_level+1);
 		}
-		yield return E.Break;
 		option.Off();
 		Stop();
+		yield return E.Break;
 	}
 
 	IEnumerator Option5( IDialogOption option )
 	{
-		yield return C.Player.Say("Okay.");
+		yield return C.Player.Say("Never mind.");
+		yield return C.Scott.Say("Okay.");
 		Stop();
 		yield return E.Break;
 	}

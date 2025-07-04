@@ -64,25 +64,19 @@ MonoBehaviour:
       m_used: 0
       m_timesUsed: 0
     - m_name: WhatMisprint
-      m_text: Misprint?
+      m_text: What Misprint?
       m_visible: 0
       m_disabled: 0
       m_used: 0
       m_timesUsed: 0
     - m_name: WhyBrokenToy
-      m_text: Why would anyone buy a broken toy?
-      m_visible: 0
-      m_disabled: 0
-      m_used: 0
-      m_timesUsed: 0
-    - m_name: HowMuch
-      m_text: How much for the grabber?
+      m_text: Millions for a broken toy!?
       m_visible: 0
       m_disabled: 0
       m_used: 0
       m_timesUsed: 0
     - m_name: WhyTenDollars
-      m_text: Why only $10?
+      m_text: Why only $49.99?
       m_visible: 0
       m_disabled: 0
       m_used: 0
@@ -95,18 +89,6 @@ MonoBehaviour:
       m_timesUsed: 0
     - m_name: Again
       m_text: Let me go over this with you again...
-      m_visible: 0
-      m_disabled: 0
-      m_used: 0
-      m_timesUsed: 0
-    - m_name: Familiar
-      m_text: You look familiar, have we met?
-      m_visible: 1
-      m_disabled: 0
-      m_used: 0
-      m_timesUsed: 0
-    - m_name: Familiar2
-      m_text: Are you sure we haven't met?
       m_visible: 0
       m_disabled: 0
       m_used: 0

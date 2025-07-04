@@ -12,9 +12,11 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 		if(RoomBusStop.Script.m_asked_dad_for_money == true){
 			OptionOn("DadSaidNo");
 			OptionOn("DadSaidYes");
+			RoomBusStop.Script.m_asked_dad_for_money = false;
 		}
-		yield return C.Plr.Face(C.Dan);
 		yield return C.Plr.WalkTo(C.Dan);
+		yield return C.Plr.Face(eFace.Right);
+		yield return C.Dan.Face(eFace.Left);
 		yield return C.Dan.Say("Hey there little lady. What can old Dan do for you?");
 		yield return E.Break;
 	}
@@ -26,36 +28,47 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 
 	IEnumerator OptionFinancialFreedom( IDialogOption option )
 	{
+		RoomBusStop.Script.m_talked_to_dan = true;
 		yield return C.Plr.Say("How can I obtain financial freedom?");
 		
 		yield return C.Dan.Say("That is an EXCELLENT question!");
 		yield return C.Dan.Say("All you need is to invest in this");
 		yield return C.Dan.Say("one-of-a-kind misprinted Official Sue(tm), the T-Rex grabber!");
 		yield return C.Dan.Say("SURELY TO EVENTUALLY BE WORTH MILLIONS!!");
+		
+		yield return C.Dan.Say("Normally a specimen of this potential would sell for thousands");
+		yield return C.Dan.Say("or even HUNDREDS of thousands of dollars!");
+		yield return C.Dan.Say("But for you,");
+		yield return C.Dan.Say("just for today,");
+		yield return C.Dan.Say("I'd be willing to part with this beauty for just $49.99!");
+		
 		OptionOffForever("FinancialFreedom");
 		OptionOn("Again");
+		OptionOn("WhyBrokenToy");
 		OptionOn("WhatMisprint");
+		OptionOn("WhyTenDollars");
+		OptionOn("NoMoney");
+		RoomBusStop.Script.m_price_of_grabber_revealed = true;
 		yield return E.Break;
 	}
 
 	IEnumerator OptionWhatMisprint( IDialogOption option )
 	{
-		yield return C.Plr.Say("Misprint?");
+		yield return C.Plr.Say("What misprint?");
 		
 		yield return C.Dan.Say("If you look closely you'll see that this Official Sue(tm) the T-Rex Grabber");
 		yield return C.Dan.Say("HAS");
 		yield return C.Dan.Say("NO");
 		yield return C.Dan.Say("TEETH!");
 		yield return C.Dan.Say("It's a one-of-a-kind collector's dream!");
-		
+
 		OptionOffForever("WhatMisprint");
-		OptionOn("WhyBrokenToy");
 		yield return E.Break;
 	}
 
 	IEnumerator OptionWhyBrokenToy( IDialogOption option )
 	{
-		yield return C.Plr.Say("Why would anyone want a broken toy?");
+		yield return C.Plr.Say("Why would a broken toy be worth millions?");
 		yield return C.Dan.Say("Broken Toy!?");
 		yield return C.Dan.Say("BROKEN");
 		yield return C.Dan.Say("TOY!?");
@@ -66,7 +79,6 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 		yield return C.Dan.Say("Why, I bet your dear old dad over there would be able to quit working altogether with prize like this!");
 		
 		OptionOffForever("WhyBrokenToy");
-		OptionOn("HowMuch");
 		yield return E.Break;
 	}
 
@@ -85,37 +97,20 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 		yield return E.Break;
 	}
 
-	IEnumerator OptionAgainFinancialFreedom( IDialogOption option )
-	{
-		yield return E.HandleOption(D.BusStopDialogDan,"FinancialFreedom");
-		yield return E.Break;
-	}
-
-	IEnumerator OptionAgainMisprint( IDialogOption option )
-	{
-		yield return E.HandleOption(D.BusStopDialogDan,"WhatMisprint");
-		yield return E.Break;
-	}
-
 	IEnumerator OptionExit( IDialogOption option )
 	{
 		yield return C.Plr.Say("Bye for now.");
 		yield return C.Dan.Say("Talk to you later little lady!");
+		yield return C.Dan.Say("Now pardon me while I return to my hustle.");
 		Stop();
 		yield return E.WaitSkip();
 		RoomBusStop.Script.m_dan_carnival_barking = true;
 		yield return E.Break;
 	}
 
-	IEnumerator OptionAgainBrokenToy( IDialogOption option )
-	{
-		yield return E.HandleOption(D.BusStopDialogDan,"WhyBrokenToy");
-		yield return E.Break;
-	}
-
 	IEnumerator OptionWhyTenDollars( IDialogOption option )
 	{
-		yield return C.Plr.Say("If that is going to be worth millions, why only sell it $10?");
+		yield return C.Plr.Say("If that is going to be worth millions, why only sell it $49.99?");
 		yield return C.Dan.Say("I could tell you were a smart one!");
 		yield return C.Dan.Say("I've had a problem with a boat and need to achieve liquidity");
 		yield return C.Dan.Say("F");
@@ -128,24 +123,12 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 		yield return E.Break;
 	}
 
-	IEnumerator OptionAgainWhyTenDollars( IDialogOption option )
-	{
-		yield return E.HandleOption(D.BusStopDialogDan,"WhyTenDollars");
-		yield return E.Break;
-	}
-
 	IEnumerator OptionNoMoney( IDialogOption option )
 	{
 		yield return C.Plr.Say("I don't have any money!");
 		yield return C.Dan.Say("Why don't you go ask your handsome dad over there?");
 		yield return C.Dan.Say("I can tell he's got a soft spot for you.");
 		OptionOffForever("NoMoney");
-		yield return E.Break;
-	}
-
-	IEnumerator OptionAgainHowMuch( IDialogOption option )
-	{
-		yield return E.HandleOption(D.BusStopDialogDan,"HowMuch");
 		yield return E.Break;
 	}
 
@@ -212,18 +195,15 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 	IEnumerator OptionAgain( IDialogOption option )
 	{
 		yield return C.Plr.Say("Let me get this straight...");
-		yield return C.Plr.Say("To obtain financial freedom I just need that misprinted Official Sue(tm), the T-Rex grabber.");
+		yield return C.Plr.Say("You'll sell me that misprinted Official Sue(tm), the T-Rex grabber for $49.99");
 		if(Option("WhatMisprint").Used){
 		yield return C.Plr.Say("It was misprinted with no teeth.");
 		}
 		if(Option("WhyBrokenToy").Used){
-		yield return C.Plr.Say("And since collectors love misprints it could be worth a lot of money some day.");
-		}
-		if(Option("HowMuch").Used){
-		yield return C.Plr.Say("You'll sell it to me for $10.");
+		yield return C.Plr.Say("And since collectors love misprints it could be worth a millions of dollars some day.");
 		}
 		if(Option("WhyTenDollars").Used){
-		yield return C.Plr.Say("And it's so cheap because you need to sell it F-A-S-T.");
+		yield return C.Plr.Say("It's so cheap because you need to sell it F-A-S-T.");
 		}
 		if(Option("NoMoney").Used){
 		yield return C.Plr.Say("You suggested I should go ask my dad for the money.");
@@ -234,6 +214,12 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 		yield return C.Plr.Say("Is that all right?");
 		yield return C.Dan.Say("That sums it up perfectly little lady!");
 		yield return C.Dan.Say("I couldn't have said it better myself!");
+		yield return E.Break;
+	}
+
+	IEnumerator OptionMillions( IDialogOption option )
+	{
+
 		yield return E.Break;
 	}
 }

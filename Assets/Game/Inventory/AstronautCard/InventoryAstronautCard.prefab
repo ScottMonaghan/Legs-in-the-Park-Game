@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data:
-    m_description: Honarary Junior Astronaut Card
+    m_description: Laminated  Card
     m_animGui: AstronautCard
     m_animCursor: AstronautCard
     m_animCursorInactive: AstronautCard

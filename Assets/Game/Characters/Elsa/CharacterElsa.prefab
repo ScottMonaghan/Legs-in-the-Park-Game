@@ -54,7 +54,7 @@ MonoBehaviour:
     m_room: BusStop
     m_position: {x: -274, y: -80}
     m_faceDirection: 1
-    m_clickable: 0
+    m_clickable: 1
     m_visible: 1
     m_inventory:
     - m_name: AstronautCard
@@ -81,29 +81,46 @@ MonoBehaviour:
     m_footstepSound: 
     m_useSpriteAsHotspot: 1
     m_baseline: -1
-    m_walkToPoint: {x: 8, y: -3}
-    m_lookAtPoint: {x: -0, y: 46}
+    m_walkToPoint: {x: -30, y: -1}
+    m_lookAtPoint: {x: 0, y: 0}
     m_scriptName: Elsa
     m_scriptClass: CharacterElsa
   m_clickableColliders: []
   m_turnAnims: []
   m_transitionAnims: []
   m_animations:
+  - {fileID: 7400000, guid: 2cc3ac0813c808c4c86f8d78c11d2309, type: 2}
   - {fileID: 7400000, guid: c42980902121bb142b9da639298dd774, type: 2}
+  - {fileID: 7400000, guid: d4eb39be4e94dcf4ea03bfad53f9413a, type: 2}
   - {fileID: 7400000, guid: ca569eb605da9c247925d88409e85f01, type: 2}
+  - {fileID: 7400000, guid: 0aa3fcc81858e9a45a277ebbd41bb3dc, type: 2}
+  - {fileID: 7400000, guid: 3c654e5b4587482448b4afb85acee145, type: 2}
+  - {fileID: 7400000, guid: 050e0d2d01a935e41bcd9511f2fb95ff, type: 2}
+  - {fileID: 7400000, guid: 44b39c3c05fdd8c40813afbc660d3b67, type: 2}
+  - {fileID: 7400000, guid: 376c9008d5847fe428974cf7ab44e91e, type: 2}
+  - {fileID: 7400000, guid: 94dfe63d18684e54883d46389bc588d2, type: 2}
+  - {fileID: 7400000, guid: d0ec53bb03791f64b989e67f9f5b2b44, type: 2}
+  - {fileID: 7400000, guid: 79cc8de7d73f0a5419f885c983a8d498, type: 2}
   - {fileID: 7400000, guid: b23ae487428f43b46a208b4fe2b0ceae, type: 2}
   - {fileID: 7400000, guid: 9c9bbc67388f45d43a4e5a029030a0e3, type: 2}
+  - {fileID: 7400000, guid: fc7eab8511b1e924c958dac1c9cca530, type: 2}
   - {fileID: 7400000, guid: f526a43368a0f0c4c886167493730fc0, type: 2}
   - {fileID: 7400000, guid: 58663be5a455a8f438c04ac3d3c3d9cf, type: 2}
+  - {fileID: 7400000, guid: a044ede89bcb3be4f8abb2f6cbd5ab9e, type: 2}
+  - {fileID: 7400000, guid: 7a2c7cc0567db1f4089ef8818c1dd0f6, type: 2}
+  - {fileID: 7400000, guid: 790474b2f28f528498cc7e5747daa81a, type: 2}
+  - {fileID: 7400000, guid: e2fd2224f1970e044862c5e678212418, type: 2}
   - {fileID: 7400000, guid: b718bae89c3c00f43b35601ad182c90d, type: 2}
   - {fileID: 7400000, guid: 0ffe63033acbad545ad3de0df39fab1c, type: 2}
   - {fileID: 7400000, guid: 3feed9d477e02a1479671576d01153da, type: 2}
   - {fileID: 7400000, guid: dc59fedeb07e0ab468f6643429d2ed68, type: 2}
   - {fileID: 7400000, guid: ead91ac587b725a4b9c776369fc939e4, type: 2}
+  - {fileID: 7400000, guid: 2b2316cffc728eb49a8b897bdf9163af, type: 2}
   - {fileID: 7400000, guid: b6fd913d9c5a216468831da22c42cdd7, type: 2}
   - {fileID: 7400000, guid: 62a81c1767ae3274bb0f05e949e520b4, type: 2}
   - {fileID: 7400000, guid: 5c98c4bcecc0bdd45a214acf3c4571ad, type: 2}
   - {fileID: 7400000, guid: bdd8ebeb0cc224348854e0f414249a85, type: 2}
+  - {fileID: 7400000, guid: 213ae0950b7fa5d44bcf6243ae4cf799, type: 2}
   - {fileID: 7400000, guid: a66f89d392fd45549bd8a8003ca90bea, type: 2}
   - {fileID: 7400000, guid: bc5e2c05e2d9e2449aa9711a5a094982, type: 2}
 --- !u!60 &3182722319936300011
