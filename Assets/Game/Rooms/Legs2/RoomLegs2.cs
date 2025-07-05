@@ -20,8 +20,8 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 
 	IEnumerator OnEnterRoomAfterFade()
 	{
-		yield return E.WaitFor(Globals.LegsOnEnterRoomAfterFade);
-	/*
+		yield return E.WaitFor( Globals.LegsOnEnterRoomAfterFade );
+		/*
 		if (!Audio.IsPlaying("FoxTaleWaltz")){
 			Audio.PlayMusic("FoxTaleWaltz");
 		}
@@ -70,7 +70,6 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 			yield return C.Plr.WalkTo(Point("EnteranceStopWest"));
 			Region("ExitWest").Walkable = false;
 		}
-		yield return E.Break;
 		if (E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin)){
 			//setup Robin
 			if(E.FirstOption(4)){
@@ -102,7 +101,8 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 			yield return C.Robin.Say("Can I do anything to help?");
 			Globals.m_treasure_hunt_path_index =0;
 		}
-	*/
+		*/
+		yield return E.Break;
 	}
 
 	IEnumerator OnInteractHotspotExitWest( IHotspot hotspot )
@@ -167,10 +167,11 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 
 	void OnEnterRoom()
 	{
+		Globals.LegsOnEnterRoom();
+		
 		/*if(E.Before(eLegsProgress.RobinHiding)){
 			E.Set(eLegsProgress.RobinHiding);
 		}*/
-		Globals.LegsOnEnterRoom();
 		/*
 		if (E.Reached(eLegsProgress.GotTreasureHunt) && E.Before(eLegsProgress.CompletedTreasureHunt)){
 			//Only show Robin if on the wrong path

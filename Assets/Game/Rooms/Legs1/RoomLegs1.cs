@@ -6,12 +6,6 @@ using static GlobalScript;
 
 public class RoomLegs1 : RoomScript<RoomLegs1>
 {
-	
-	IEnumerator OnEnterRegionExitNorth( IRegion region, ICharacter character )
-	{
-
-		yield return E.Break;
-	}
 
 	IEnumerator OnEnterRoomAfterFade()
 	{
@@ -164,12 +158,6 @@ public class RoomLegs1 : RoomScript<RoomLegs1>
 		yield return E.Break;
 	}
 
-	IEnumerator OnEnterRegionExitWest( IRegion region, ICharacter character )
-	{
-
-		yield return E.Break;
-	}
-
 	IEnumerator OnInteractHotspotExitNorth( IHotspot hotspot )
 	{
 		Region("ExitNorth").Walkable = true;
@@ -203,6 +191,7 @@ public class RoomLegs1 : RoomScript<RoomLegs1>
 	IEnumerator UpdateBlocking()
 	{
 		//can't use global routine here because it ends up endlessly blocking
+		
 		if(E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin)) {
 			if (E.GetTimerExpired("robin_peeking")){
 				yield return C.Robin.WalkTo(Globals.m_legs_robin_hide_point,true);
@@ -211,12 +200,6 @@ public class RoomLegs1 : RoomScript<RoomLegs1>
 				yield return E.WaitFor( Globals.OnRobinHide );
 			}
 		}
-		yield return E.Break;
-	}
-
-	IEnumerator OnInteractCharacterRobin( ICharacter character )
-	{
-
 		yield return E.Break;
 	}
 

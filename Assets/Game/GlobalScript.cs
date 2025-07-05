@@ -64,7 +64,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public Vector2 m_legs_elsa_meet_robin_point = new Vector2(0,0);
 	
 	//Legs treasure hunt path and tracker
-	public List<eExitDirection> m_treasure_hunt_path = new List<eExitDirection>();
+	//public List<eExitDirection> m_treasure_hunt_path = new List<eExitDirection>();
+	public eExitDirection[] m_treasure_hunt_path = {eExitDirection.None, eExitDirection.None, eExitDirection.None, eExitDirection.None };
 	public int m_treasure_hunt_path_index = -1;
 	////////////////////////////////////////////////////////////////////////////////////
 	// Global Game Functions
@@ -439,11 +440,10 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 
 	public void LegsResetTreasureHunt()
 	{
-		m_treasure_hunt_path.Clear();
-		m_treasure_hunt_path.Add(eExitDirection.Down);
-		m_treasure_hunt_path.Add(eExitDirection.Up);
-		m_treasure_hunt_path.Add(eExitDirection.Left);
-		m_treasure_hunt_path.Add(eExitDirection.Right);
+		m_treasure_hunt_path[0] = eExitDirection.Down;
+		m_treasure_hunt_path[1] = eExitDirection.Up;
+		m_treasure_hunt_path[2] = eExitDirection.Left;
+		m_treasure_hunt_path[3] = eExitDirection.Right;
 		m_treasure_hunt_path.Shuffle();
 	}
 
@@ -472,9 +472,11 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		If you're ready right now then be off on your quest!
 		*/
 		
+		/*
 		if (m_treasure_hunt_path.Count == 0){
 			LegsResetTreasureHunt();
 		}
+		*/
 		
 		if (m_treasure_hunt_path[0] == eExitDirection.Up){
 		yield return C.Robin.Say(" It will be up to your skills\n to locate your quarry,");
@@ -742,7 +744,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
                 Globals.m_legs_robin_meet_point = Point("RobinMeet1");
                 Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
             }
-			yield return E.WaitFor(LegsRobinPeek);
+			yield return E.WaitFor(Globals.LegsRobinPeek);
 
         }
 
