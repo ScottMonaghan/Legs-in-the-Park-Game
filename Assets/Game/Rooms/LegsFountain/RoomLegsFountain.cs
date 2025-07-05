@@ -698,7 +698,7 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		else {
 		yield return C.Plr.WalkTo(Point("LeavePoint"));
 		yield return E.FadeOut();
-		if (C.Robin.Room is null){
+		if (C.Robin.Room == null){
 			C.Robin.Room = R.Legs1;
 		}
 		E.Set(eLegsProgress.GotHope);
