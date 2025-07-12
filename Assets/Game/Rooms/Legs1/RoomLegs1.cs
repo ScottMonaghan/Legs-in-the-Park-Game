@@ -217,4 +217,20 @@ public class RoomLegs1 : RoomScript<RoomLegs1>
 			}
 		}*/
 	}
+
+	IEnumerator OnWalkTo()
+	{
+		yield return E.Break;
+	}
+
+	void Update()
+	{
+		/*
+		if (E.Is(eLegsProgress.LookingForDad)){
+			C.Robin.FaceBG(C.Player);
+		}
+		*/
+		Globals.LegsOnUpdate();
+		
+	}
 }

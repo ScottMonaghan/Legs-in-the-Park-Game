@@ -52,12 +52,22 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 92f24f52b00051c43a63f4fa86abc3a4, type: 3}
   - {fileID: 21300000, guid: 7451ef55238058d4fbe5f8775f8d95c5, type: 3}
   - {fileID: 21300000, guid: bd97b97604007174dbf253b2723a13a9, type: 3}
+  - {fileID: 21300000, guid: aebc2b67aaae1a141a97c1544886db14, type: 3}
+  - {fileID: 21300000, guid: 52cc7209c94503542a7ca69694d68020, type: 3}
   - {fileID: 21300000, guid: ebd6061a4496a3c428ad3fae3a0e87e7, type: 3}
+  - {fileID: 21300000, guid: bbfa2c0cd860fbb4c837f1a67189d5e2, type: 3}
+  - {fileID: 21300000, guid: 2d46aabdc2c6af644bba20b38e03430c, type: 3}
+  - {fileID: 21300000, guid: 4dbc410e542b7564eae042e1f98efdc8, type: 3}
   m_PackedSpriteNamesToIndex:
   - Legs01FG_0
   - Legs01BG_0
   - Legs01Path_0
+  - Legs01PathEve_2
+  - Legs01PathEve_1
   - BlackScreen_0
+  - Legs01PathEve_4
+  - Legs01PathEve_0
+  - Legs01PathEve_3
   m_RenderDataMap: {}
   m_Tag: RoomLegs1Atlas
   m_IsVariant: 0

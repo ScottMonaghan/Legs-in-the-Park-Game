@@ -638,8 +638,9 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 			m_card_in_sunbeam = false;
 			m_crow_with_card_in_sunbeam = false;
 			//reset card position
-			yield return C.Plr.WalkTo(C.Plr.Position + new Vector2(20,0));
+			yield return C.Plr.WalkTo(C.Plr.Position + new Vector2(-20,0));
 			if (m_hope_retrieved){
+				yield return C.Plr.Face(eFace.Down);
 				yield return C.Plr.Say("I think I've got everything I need.");
 				yield return C.Plr.Say("Now to head back to Robin and show him the treasure!");
 				yield return E.HandleInteract(Hotspot("ExitLeft"));
@@ -703,6 +704,8 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		}
 		E.Set(eLegsProgress.GotHope);
 		E.Set(eExitDirection.Left);
+		R.Legs1.GetProp("Legs01Path").Animation = "Legs01PathEve";
+		R.Legs2.GetProp("Legs01Path").Animation = "Legs01PathEve";
 		yield return C.Plr.ChangeRoom(C.Robin.Room);
 		/*
 			yield return E.Display(

@@ -185,4 +185,9 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 		}
 		*/
 	}
+
+	void Update()
+	{
+		Globals.LegsOnUpdate();
+	}
 }

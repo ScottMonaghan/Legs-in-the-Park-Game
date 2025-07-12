@@ -50,11 +50,13 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 0b9e51904196fb244be3145cfd097609, type: 3}
+  - {fileID: 21300000, guid: f1d46754c822de44fb0df93f83c0209a, type: 3}
   - {fileID: 21300000, guid: f7e06cb41b02bb349936aac2aaf644dd, type: 3}
   - {fileID: 21300000, guid: a7e495d42e34429489149e3ca46a4971, type: 3}
   - {fileID: 21300000, guid: ef6318e9838e1e84ea8863e8b157ff01, type: 3}
   m_PackedSpriteNamesToIndex:
   - Legs02FG_0
+  - Legs01PathEve_0
   - Legs02BG_0
   - Legs01Path_0
   - Legs02CenterLegs_0

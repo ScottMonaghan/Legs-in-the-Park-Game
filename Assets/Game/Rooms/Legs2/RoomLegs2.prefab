@@ -1003,17 +1003,17 @@ MonoBehaviour:
     - m_name: ExitSouth
       m_position: {x: 19, y: -155}
     - m_name: ExitEast
-      m_position: {x: 203, y: -21}
+      m_position: {x: 204, y: -58}
     - m_name: ExitWest
-      m_position: {x: -240, y: -11}
+      m_position: {x: -237, y: -63}
     - m_name: EnteranceStopWest
       m_position: {x: -96, y: -70}
     - m_name: EnteranceStopEast
-      m_position: {x: 87, y: -48}
+      m_position: {x: 60, y: -63}
     - m_name: EnteranceStopNorth
       m_position: {x: 12, y: -44}
     - m_name: EnteranceStopSouth
-      m_position: {x: 11, y: -88}
+      m_position: {x: 11, y: -69}
     - m_name: RobinHide1
       m_position: {x: 35, y: -19}
     - m_name: RobinPeek1
@@ -1053,13 +1053,10 @@ MonoBehaviour:
   - {fileID: 8912190214824239345}
   m_walkableAreas:
   - {fileID: 6476735235269810500}
-  m_animations:
-  - {fileID: 7400000, guid: de3560ad902ca8c4f9c515ab51615d93, type: 2}
-  - {fileID: 7400000, guid: 353bb8068eda27a40bde1f656e7f004b, type: 2}
-  - {fileID: 7400000, guid: 17c3bbf12e008014ab1f80fb70c1aae9, type: 2}
-  - {fileID: 7400000, guid: 221580b5823f8774f8053ab851d98f6c, type: 2}
+  m_animations: []
   m_sprites:
   - {fileID: 21300000, guid: a7e495d42e34429489149e3ca46a4971, type: 3}
+  - {fileID: 21300000, guid: f1d46754c822de44fb0df93f83c0209a, type: 3}
   - {fileID: 21300000, guid: f7e06cb41b02bb349936aac2aaf644dd, type: 3}
   - {fileID: 21300000, guid: ef6318e9838e1e84ea8863e8b157ff01, type: 3}
   - {fileID: 21300000, guid: 0b9e51904196fb244be3145cfd097609, type: 3}

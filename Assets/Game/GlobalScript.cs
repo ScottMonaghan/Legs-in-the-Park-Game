@@ -378,6 +378,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			}
 			C.Robin.Visible = true;
 			C.Robin.Clickable = true;
+		} else if (E.Is(eLegsProgress.LookingForDad)){
+		
 		}
 		
 	}
@@ -578,198 +580,232 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 
 	public IEnumerator LegsOnEnterRoomAfterFade()
 	{
-        if (E.Before(eLegsProgress.RobinHiding))
-        {
-            yield return E.FadeOut();
-            //force-set inventory to allow play directly from room
-
-            C.Plr.ClearInventory();
-            I.AstronautCard.Add();
-            Globals.m_lookedAtAstronautCard = true;
-            ((IQuestClickable)I.AstronautCard).Cursor = "Use";
-            I.AbcGum.Add();
-            Globals.m_lookedAtAbcGum = true;
-            ((IQuestClickable)I.AbcGum).Cursor = "Use";
-            I.Grabber.Add();
-            Globals.m_lookedAtGrabber = true;
-            ((IQuestClickable)I.Grabber).Cursor = "Use";
-
-            //scene intro cut scene
-            E.StartCutscene();
-            //E.FadeIn();
-            yield return C.Narrator.ChangeRoom(R.Current);
-            C.Narrator.SetPosition(0, 0);
-            //Prop("BlackScreen").Alpha = 1;
-            yield return C.Narrator.Say("Before we continue, a quick story...");
-            yield return E.WaitSkip(1.0f);
-            yield return C.Narrator.Say("In the months before Elsa's birth,");
-            yield return C.Narrator.Say("her parents carefully labored to choose a name that was...");
-            yield return C.Narrator.Say("beautiful,");
-            yield return C.Narrator.Say("beautiful,");
-            yield return C.Narrator.Say("uncommon but classic,");
-            yield return C.Narrator.Say("and most importantly,");
-            yield return C.Narrator.Say("not associated with anything in popular culture.");
-            yield return E.WaitSkip();
-            yield return C.Narrator.Say("When Elsa was born,");
-            yield return C.Narrator.Say("everyone agreed they had chosen very well.");
-            yield return E.WaitSkip(1.0f);
-            yield return C.Narrator.Say("Then of course,");
-            yield return C.Narrator.Say("the movie happened.");
-            yield return C.Narrator.Say("the movie happened.");
-            yield return E.WaitSkip();
-            yield return C.Narrator.Say("I'm sure you know the one.");
-            yield return E.WaitSkip(1.5f);
-            yield return C.Narrator.Say("And so it's been,");
-            yield return C.Narrator.Say("that Elsa's introductions to other kids,");
-            yield return C.Narrator.Say("are almost always some variation of:");
-            yield return C.Narrator.Say("\"Hi my name's Elsa...\"");
-            yield return C.Narrator.Say("and before the new kid can exclaim their incredulity,");
-            yield return C.Narrator.Say("\"like Queen Elsa, but I had my name first.\"");
-            yield return E.WaitSkip();
-            yield return C.Narrator.Say("I tell you this not just because it is an amusing bit of color to flesh out Elsa's life,");
-            yield return C.Narrator.Say("but because I want you to remember it for later,");
-            yield return E.WaitSkip();
-            yield return C.Narrator.Say("Names are important.");
-            yield return E.WaitSkip(1.5f);
-            yield return C.Narrator.Say("Names have power.");
-            yield return C.Narrator.Say("Names have power.");
-            yield return C.Narrator.Say("Names have power.");
-            yield return E.WaitSkip(1.5f);
-
-            yield return C.Display("Chapter 2: In The Legs");
-            yield return E.WaitSkip();
-            //Prop("BlackScreen").FadeBG(1,0,10);
-            yield return E.FadeIn();
-            if (!Audio.IsPlaying("FoxTaleWaltz"))
-            {
-                Audio.PlayMusic("FoxTaleWaltz");
-            }
-            E.EndCutscene();
-            C.Plr.Position = Point("ExitWest");
-            E.DisableCancel();
-            yield return C.Plr.WalkTo(Point("EnteranceStopWest"));
-            yield return C.Plr.Face(eFace.Down);
-            yield return C.Plr.Say("Quick work emails are never quick.");
-            yield return C.Plr.Say("I should probably try to find some fun while I wait for my dad.");
-            yield return C.Plr.Face(eFace.Right);
-            yield return E.ConsumeEvent;
-        }
-        else if (C.Plr.LastRoom.ScriptName == "Legs1" || C.Plr.LastRoom.ScriptName == "Legs2" || C.Plr.LastRoom.ScriptName == "LegsFountain")
-        {
-            IRegion enterance_region = Region("ExitWest");
-            Vector2 starting_position = Point("ExitWest");
-            Vector2 enterance_walkto = Point("EnteranceStopWest");
-            if (E.Is(eExitDirection.Up))
-            {
-                starting_position = Point("ExitSouth");
-                enterance_region = Region("ExitSouth");
-                enterance_walkto = Point("EnteranceStopSouth");
-            }
-            else if (E.Is(eExitDirection.Down))
-            {
-                starting_position = Point("ExitNorth");
-                enterance_region = Region("ExitNorth");
-                enterance_walkto = Point("EnteranceStopNorth");
-            }
-            else if (E.Is(eExitDirection.Right) || E.Is(eExitDirection.None))
-            {
-                starting_position = Point("ExitWest");
-                enterance_region = Region("ExitWest");
-                enterance_walkto = Point("EnteranceStopWest");
-            }
-            else if (E.Is(eExitDirection.Left))
-            {
-                starting_position = Point("ExitEast");
-                enterance_region = Region("ExitEast");
-                enterance_walkto = Point("EnteranceStopEast");
-            }
-            else
-            {
-                yield return C.Display($"UNEXPECTED EXIT DIRECTION: {Globals.m_lastExitDirection}");
-            }
-            C.Plr.Position = starting_position;
-            enterance_region.Walkable = true;
-            E.DisableCancel();
-            yield return E.FadeIn();
-            yield return C.Plr.WalkTo(enterance_walkto);
-            enterance_region.Walkable = false;
-
-        }
-        else
-        {
-            yield return C.Display($"UNEXPECTED PREVIOUS ROOM: {C.Plr.LastRoom.ScriptName}.");
-        }
-
-        //Robin playing hide & seek
-        if (E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin))
-        {
-            //setup Robin
-            if (R.Current == R.Legs1)
-            {
-                if (E.FirstOption(2))
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide1");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek1");
-                }
-                else if (E.NextOption)
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide2");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek2");
-                }
-                Globals.m_legs_robin_meet_point = Point("RobinMeet1");
-                Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
-            }
-            else
-            {
-                if (E.FirstOption(4))
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide1");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek1");
-                }
-                else if (E.NextOption)
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide2");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek2");
-                }
-                else if (E.NextOption)
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide3");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek3");
-                }
-                else if (E.NextOption)
-                {
-                    Globals.m_legs_robin_hide_point = Point("RobinHide4");
-                    Globals.m_legs_robin_peek_point = Point("RobinPeek4");
-                }
-                Globals.m_legs_robin_meet_point = Point("RobinMeet1");
-                Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
-            }
-			yield return E.WaitFor(Globals.LegsRobinPeek);
-
-        }
-
-        //Got lost on the treasure hunt
-        if (
-            E.Reached(eLegsProgress.GotTreasureHunt)
-            && E.Before(eLegsProgress.CompletedTreasureHunt)
-            && C.Robin.Room == R.Current
-            && Globals.m_treasure_hunt_path_index == -1
-        )
-        {
-            yield return C.Robin.Face(C.Player);
-            yield return C.Robin.Say("Looks like you're a little lost. Hee hee.");
-            yield return C.Robin.Say("Can I do anything to help?");
-            Globals.m_treasure_hunt_path_index = 0;
-        }
-
-        //Completed treasure hunt!
-        if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad))
-        {
-            yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
-            yield return C.Plr.Say("I DID IT YOU BIG OLD WEIRDO!");
-        }
-
-        yield return E.Break;
+		if (E.Before(eLegsProgress.RobinHiding))
+		{
+			yield return E.FadeOut();
+			//force-set inventory to allow play directly from room
+		
+			C.Plr.ClearInventory();
+			I.AstronautCard.Add();
+			Globals.m_lookedAtAstronautCard = true;
+			((IQuestClickable)I.AstronautCard).Cursor = "Use";
+			I.AbcGum.Add();
+			Globals.m_lookedAtAbcGum = true;
+			((IQuestClickable)I.AbcGum).Cursor = "Use";
+			I.Grabber.Add();
+			Globals.m_lookedAtGrabber = true;
+			((IQuestClickable)I.Grabber).Cursor = "Use";
+		
+			//scene intro cut scene
+			E.StartCutscene();
+			//E.FadeIn();
+			yield return C.Narrator.ChangeRoom(R.Current);
+			C.Narrator.SetPosition(0, 0);
+			//Prop("BlackScreen").Alpha = 1;
+			yield return C.Narrator.Say("Before we continue, a quick story...");
+			yield return E.WaitSkip(1.0f);
+			yield return C.Narrator.Say("In the months before Elsa's birth,");
+			yield return C.Narrator.Say("her parents carefully labored to choose a name that was...");
+			yield return C.Narrator.Say("beautiful,");
+			yield return C.Narrator.Say("beautiful,");
+			yield return C.Narrator.Say("uncommon but classic,");
+			yield return C.Narrator.Say("and most importantly,");
+			yield return C.Narrator.Say("not associated with anything in popular culture.");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("When Elsa was born,");
+			yield return C.Narrator.Say("everyone agreed they had chosen very well.");
+			yield return E.WaitSkip(1.0f);
+			yield return C.Narrator.Say("Then of course,");
+			yield return C.Narrator.Say("the movie happened.");
+			yield return C.Narrator.Say("the movie happened.");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("I'm sure you know the one.");
+			yield return E.WaitSkip(1.5f);
+			yield return C.Narrator.Say("And so it's been,");
+			yield return C.Narrator.Say("that Elsa's introductions to other kids,");
+			yield return C.Narrator.Say("are almost always some variation of:");
+			yield return C.Narrator.Say("\"Hi my name's Elsa...\"");
+			yield return C.Narrator.Say("and before the new kid can exclaim their incredulity,");
+			yield return C.Narrator.Say("\"like Queen Elsa, but I had my name first.\"");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("I tell you this not just because it is an amusing bit of color to flesh out Elsa's life,");
+			yield return C.Narrator.Say("but because I want you to remember it for later,");
+			yield return E.WaitSkip();
+			yield return C.Narrator.Say("Names are important.");
+			yield return E.WaitSkip(1.5f);
+			yield return C.Narrator.Say("Names have power.");
+			yield return C.Narrator.Say("Names have power.");
+			yield return C.Narrator.Say("Names have power.");
+			yield return E.WaitSkip(1.5f);
+		
+			yield return C.Display("Chapter 2: In The Legs");
+			yield return E.WaitSkip();
+			//Prop("BlackScreen").FadeBG(1,0,10);
+			yield return E.FadeIn();
+			if (!Audio.IsPlaying("FoxTaleWaltz"))
+			{
+				Audio.PlayMusic("FoxTaleWaltz");
+			}
+			E.EndCutscene();
+			C.Plr.Position = Point("ExitWest");
+			E.DisableCancel();
+			yield return C.Plr.WalkTo(Point("EnteranceStopWest"));
+			yield return C.Plr.Face(eFace.Down);
+			yield return C.Plr.Say("Quick work emails are never quick.");
+			yield return C.Plr.Say("I should probably try to find some fun while I wait for my dad.");
+			yield return C.Plr.Face(eFace.Right);
+			yield return E.ConsumeEvent;
+		}
+		else if (C.Plr.LastRoom.ScriptName == "Legs1" || C.Plr.LastRoom.ScriptName == "Legs2" || C.Plr.LastRoom.ScriptName == "LegsFountain")
+		{
+			IRegion enterance_region = Region("ExitWest");
+			Vector2 starting_position = Point("ExitWest");
+			Vector2 enterance_walkto = Point("EnteranceStopWest");
+			Vector2 follow_offset = new Vector2(0,0);
+			if (E.Is(eExitDirection.Up))
+			{
+				starting_position = Point("ExitSouth");
+				enterance_region = Region("ExitSouth");
+				enterance_walkto = Point("EnteranceStopSouth");
+				follow_offset = new Vector2(-40,0);
+			}
+			else if (E.Is(eExitDirection.Down))
+			{
+				starting_position = Point("ExitNorth");
+				enterance_region = Region("ExitNorth");
+				enterance_walkto = Point("EnteranceStopNorth");
+				follow_offset = new Vector2(-40,0);
+			}
+			else if (E.Is(eExitDirection.Right) || E.Is(eExitDirection.None))
+			{
+				starting_position = Point("ExitWest");
+				enterance_region = Region("ExitWest");
+				enterance_walkto = Point("EnteranceStopWest");
+				follow_offset = new Vector2(-40,0);
+			}
+			else if (E.Is(eExitDirection.Left))
+			{
+				starting_position = Point("ExitEast");
+				enterance_region = Region("ExitEast");
+				enterance_walkto = Point("EnteranceStopEast");
+				follow_offset = new Vector2(40,0);
+			}
+			else
+			{
+				yield return C.Display($"UNEXPECTED EXIT DIRECTION: {Globals.m_lastExitDirection}");
+			}
+			C.Plr.Position = starting_position;
+			enterance_region.Walkable = true;
+			E.DisableCancel();
+			yield return E.FadeIn();
+			yield return C.Plr.WalkTo(enterance_walkto);
+			if (E.Is(eLegsProgress.LookingForDad)){
+				C.Robin.Visible = false;
+				C.Robin.Clickable = false;
+				yield return C.Robin.ChangeRoom(R.Current);
+				C.Robin.Position = starting_position;
+				C.Robin.Visible = true;
+				C.Robin.Clickable = true;
+				C.Robin.WalkToBG(C.Player.Position + follow_offset,C.Plr.Facing);
+			}
+			enterance_region.Walkable = false;
+		}
+		else
+		{
+			yield return C.Display($"UNEXPECTED PREVIOUS ROOM: {C.Plr.LastRoom.ScriptName}.");
+		}
+		
+		//Robin playing hide & seek
+		if (E.Reached(eLegsProgress.RobinHiding) && E.Before(eLegsProgress.ClickedRobin))
+		{
+			//setup Robin
+			if (R.Current == R.Legs1)
+			{
+				if (E.FirstOption(2))
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide1");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek1");
+				}
+				else if (E.NextOption)
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide2");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek2");
+				}
+				Globals.m_legs_robin_meet_point = Point("RobinMeet1");
+				Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
+			}
+			else
+			{
+				if (E.FirstOption(4))
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide1");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek1");
+				}
+				else if (E.NextOption)
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide2");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek2");
+				}
+				else if (E.NextOption)
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide3");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek3");
+				}
+				else if (E.NextOption)
+				{
+					Globals.m_legs_robin_hide_point = Point("RobinHide4");
+					Globals.m_legs_robin_peek_point = Point("RobinPeek4");
+				}
+				Globals.m_legs_robin_meet_point = Point("RobinMeet1");
+				Globals.m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
+			}
+			yield return E.WaitFor( Globals.LegsRobinPeek );
+		
+		}
+		
+		//Got lost on the treasure hunt
+		if (
+			E.Reached(eLegsProgress.GotTreasureHunt)
+			&& E.Before(eLegsProgress.CompletedTreasureHunt)
+			&& C.Robin.Room == R.Current
+			&& Globals.m_treasure_hunt_path_index == -1
+		)
+		{
+			yield return C.Robin.Face(C.Player);
+			yield return C.Robin.Say("Looks like you're a little lost. Hee hee.");
+			yield return C.Robin.Say("Can I do anything to help?");
+			Globals.m_treasure_hunt_path_index = 0;
+		}
+		
+		//Completed treasure hunt!
+		if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad))
+		{
+			E.StartCutscene();
+			yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
+			yield return C.Robin.Say(" Need some more clues? Hee hee.");
+			yield return C.Plr.Say("Nope. I got it mission accomplished!");
+			yield return C.Plr.Say("A silver leaf right?");
+			yield return C.Robin.Say(" Wait. What!?");
+			yield return C.Robin.Say(" You got it!?");
+			yield return C.Plr.Say("Yup. Right here.");
+			yield return C.Plr.Say("Let me show you then I gotta get back to my dad.");
+			yield return E.FadeOut();
+			yield return C.Narrator.Say("(PLACEHOLDER)");
+			yield return C.Narrator.Say("Elsa reaches into her pocket and shifts around looking for the silver leaf.");
+			yield return C.Plr.Say("Elsa: Wow it's REALLY warm now.");
+			yield return C.Narrator.Say("Elsa pulls out the leaf to show Robin");
+			yield return C.Narrator.Say("But it melts into her hand leaving a glowing outline");
+			yield return C.Plr.Say("Elsa: WHAT THE HECK!");
+			yield return C.Robin.Say("Robin: It shouldn't do that! You shouldn't even have been able to find it.");
+			yield return C.Plr.Say("Elsa: I NEED TO GET BACK TO MY DAD RIGHT NOW!");
+			yield return C.Narrator.Say("Elsa Fear meter appears in the same style of Impatience meter from the bus stop.");
+			E.EndCutscene();
+			yield return E.FadeIn();
+			C.Plr.WalkSpeed = new Vector2(100,100);
+			E.Set(eLegsProgress.LookingForDad);
+		}
+		
+		yield return E.Break;
 	}
 
 	public IEnumerator LegsOnUpdateBlocking()
@@ -785,5 +821,12 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			}
 		}
 		yield return E.Break;
+	}
+
+	public void LegsOnUpdate()
+	{
+		if (E.Is(eLegsProgress.LookingForDad)){
+			C.Robin.FaceBG(C.Player);
+		}
 	}
 }

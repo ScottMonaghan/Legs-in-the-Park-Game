@@ -29,14 +29,20 @@ MonoBehaviour:
     m_firstFrame: 5
     m_loop: 0
     m_fullRect: 0
-    m_length: 4
-    m_frameDurations: 640000006400000064000000
-  - m_name: BlackScreen
-    m_firstFrame: 9
+    m_length: 1
+    m_frameDurations: 64000000
+  - m_name: Legs01PathEve
+    m_firstFrame: 6
     m_loop: 0
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: 6400000064000000
+    m_length: 4
+    m_frameDurations: 6400000064000000640000006400000064000000
+  - m_name: BlackScreen
+    m_firstFrame: 10
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 0
+    m_frameDurations: 64000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
