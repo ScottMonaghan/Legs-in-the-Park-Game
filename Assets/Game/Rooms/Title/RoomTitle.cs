@@ -48,6 +48,8 @@ public class RoomTitle : RoomScript<RoomTitle>
 		Prop("Chapter2").FadeBG(0,1,1.0f);
 		Prop("Chapter3").Enable();
 		Prop("Chapter3").FadeBG(0,1,1.0f);
+		Prop("Chapter4").Enable();
+		Prop("Chapter4").FadeBG(0,1,1.0f);
 		
 		// This is the point the game will skip to if ESC is pressed
 		E.EndCutscene();
@@ -74,19 +76,19 @@ public class RoomTitle : RoomScript<RoomTitle>
 
 	IEnumerator OnInteractPropPrologue( IProp prop )
 	{
-		yield return E.ChangeRoom(R.Intro);
+		E.Restart(R.Intro);
 		yield return E.Break;
 	}
 
 	IEnumerator OnInteractPropChapter1( IProp prop )
 	{
-		yield return E.ChangeRoom(R.BusStop);
+		E.Restart(R.BusStop);
 		yield return E.Break;
 	}
 
 	IEnumerator OnInteractPropChapter2( IProp prop )
 	{
-		yield return E.ChangeRoom(R.Legs1);
+		E.Restart(R.Legs1);
 		yield return E.Break;
 	}
 
@@ -98,9 +100,17 @@ public class RoomTitle : RoomScript<RoomTitle>
 		yield return E.Break;
 	}
 
+	IEnumerator OnInteractPropChapter4( IProp prop )
+	{
+		
+		
+		E.Restart(R.Legs1,"PlayFromGotHope");
+		yield return E.Break;
+	}
+
 	IEnumerator OnInteractPropChapter3( IProp prop )
 	{
-		yield return E.ChangeRoom(R.LegsFountain);
+		E.Restart(R.LegsFountain);
 		yield return E.Break;
 	}
 }

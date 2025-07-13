@@ -296,6 +296,7 @@ MonoBehaviour:
   - {fileID: 1388849615134653938}
   - {fileID: 4595479780818631523}
   - {fileID: 1168959491389765497}
+  - {fileID: 3932954501916948692}
   m_regionComponents: []
   m_walkableAreas:
   - {fileID: 114493187884195118}
@@ -691,7 +692,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 192
+  m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &7649169265416381668
 TextMesh:
@@ -953,7 +954,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 192
+  m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &398175172658529407
 TextMesh:
@@ -1084,7 +1085,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 126
+  m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &732271070324554173
 TextMesh:
@@ -1215,7 +1216,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 126
+  m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &1285998366666450516
 TextMesh:
@@ -1299,7 +1300,7 @@ MonoBehaviour:
     m_baselineFixed: 0
     m_walkToPoint: {x: 0, y: 0}
     m_lookAtPoint: {x: 0, y: 0}
-    m_scriptName: Chapter3
+    m_scriptName: Chapter4
   m_parallaxDepth: 0
   m_parallaxAlignment: {x: 0, y: 0}
 --- !u!60 &2871798153916933610
@@ -1652,10 +1653,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9.577866, y: -11.302973}
-      - {x: 10.505905, y: -0.75951385}
-      - {x: 149.58153, y: -0.7595129}
-      - {x: 151.2056, y: -12.463018}
+    - - {x: 9.577, y: -10.075861}
+      - {x: 8.870151, y: 3.7368422}
+      - {x: 107.48357, y: 3.7368422}
+      - {x: 105.02043, y: -9.602009}
 --- !u!95 &8397697043874159097
 Animator:
   serializedVersion: 5

@@ -984,7 +984,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 
 	public void LegsOnUpdate()
 	{
-		if (E.Is(eLegsProgress.LegsEscapeAttempt1)){
+		if (E.Reached(eLegsProgress.LegsEscapeAttempt1) && E.Before(eLegsProgress.LegsEscapePanic)){
 			C.Robin.FaceBG(C.Player);
 		}
 	}
