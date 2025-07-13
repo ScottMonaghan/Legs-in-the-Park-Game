@@ -704,8 +704,7 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		}
 		E.Set(eLegsProgress.GotHope);
 		E.Set(eExitDirection.Left);
-		R.Legs1.GetProp("Legs01Path").Animation = "Legs01PathEve";
-		R.Legs2.GetProp("Legs01Path").Animation = "Legs01PathEve";
+
 		yield return C.Plr.ChangeRoom(C.Robin.Room);
 		/*
 			yield return E.Display(

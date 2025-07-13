@@ -15,8 +15,8 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 
 	public IEnumerator OnStop()
 	{
-		if (RoomBusStop.Script.m_emotion_level >= 5){
-			yield return RoomBusStop.Script.FullEmotionHint();
+		if (Globals.m_emotion_level >= 5){
+			yield return E.WaitFor(RoomBusStop.Script.FullEmotionHint);
 		} else if (Option(1).Used && Option(2).Used && Option(3).Used & Option(4).Used){
 			eFace _oldFacing = C.Plr.Facing;
 			yield return C.Plr.Face(eFace.Down);
@@ -33,7 +33,7 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 		yield return C.Scott.Say("I know. Almost done.");
 		if (option.FirstUse)
 		{
-			yield return RoomBusStop.Script.SetEmotionLevel(RoomBusStop.Script.m_emotion_level+1);
+			yield return E.WaitFor(()=>RoomBusStop.Script.SetEmotionLevel(Globals.m_emotion_level+1));
 		}
 		option.Off();
 		Stop();
@@ -54,7 +54,7 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 		yield return C.Scott.Say("It will get here when it gets here.");
 		if (option.FirstUse)
 		{
-			yield return RoomBusStop.Script.SetEmotionLevel(RoomBusStop.Script.m_emotion_level + 1);
+			yield return E.WaitFor(() => RoomBusStop.Script.SetEmotionLevel(Globals.m_emotion_level + 1));
 		}
 		option.Off();
 		Stop();
@@ -68,7 +68,7 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 		yield return C.Player.Say($"Last time it said {RoomBusStop.Script.m_minutesLeft - 1} minutes!");
 		if (option.FirstUse)
 		{
-			yield return RoomBusStop.Script.SetEmotionLevel(RoomBusStop.Script.m_emotion_level + 1);
+			yield return E.WaitFor(() => RoomBusStop.Script.SetEmotionLevel(Globals.m_emotion_level + 1));
 		}
 		
 		RoomBusStop.Script.m_minutesLeft++;
@@ -87,7 +87,7 @@ public class DialogAskDadAboutBus : DialogTreeScript<DialogAskDadAboutBus>
 		yield return C.Player.Say("awww.");
 		if (option.FirstUse)
 		{
-			yield return RoomBusStop.Script.SetEmotionLevel(RoomBusStop.Script.m_emotion_level + 1);
+			yield return E.WaitFor(() => RoomBusStop.Script.SetEmotionLevel(Globals.m_emotion_level + 1));
 		}
 		option.Off();
 		Stop();

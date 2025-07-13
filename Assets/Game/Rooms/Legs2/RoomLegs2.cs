@@ -6,17 +6,6 @@ using static GlobalScript;
 
 public class RoomLegs2 : RoomScript<RoomLegs2>
 {
-	
-	
-	IEnumerator OnInteractHotspotExitNorth( IHotspot hotspot )
-	{
-		Region("ExitNorth").Walkable = true;
-		yield return C.Plr.WalkTo(Point("ExitNorth"));
-		Region("ExitNorth").Walkable = false;
-		E.Set(eExitDirection.Up);
-		yield return Globals.LegsChangeRoom();
-		yield return E.Break;
-	}
 
 	IEnumerator OnEnterRoomAfterFade()
 	{
@@ -105,33 +94,71 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 		yield return E.Break;
 	}
 
-	IEnumerator OnInteractHotspotExitWest( IHotspot hotspot )
+	IEnumerator OnInteractHotspotExitWest(IHotspot hotspot)
 	{
-		Region("ExitWest").Walkable = true;
-		yield return C.Plr.WalkTo(Point("ExitWest"));
-		Region("ExitWest").Walkable = false;
-		E.Set(eExitDirection.Left);
-		yield return Globals.LegsChangeRoom();
+		if (Globals.CheckDadHuntDirection(eExitDirection.Left))
+		{
+			Region("ExitWest").Walkable = true;
+			yield return C.Plr.WalkTo(Point("ExitWest"));
+			Region("ExitWest").Walkable = false;
+			E.Set(eExitDirection.Left);
+			yield return E.WaitFor(() => Globals.LegsChangeRoom());
+		}
+		else
+		{
+			yield return E.WaitFor(Globals.LegsKeepDirection);
+		}
 		yield return E.Break;
 	}
 
-	IEnumerator OnInteractHotspotExitEast( IHotspot hotspot )
+	IEnumerator OnInteractHotspotExitNorth(IHotspot hotspot)
 	{
-		Region("ExitEast").Walkable = true;
-		yield return C.Plr.WalkTo(Point("ExitEast"));
-		Region("ExitEast").Walkable = false;
-		E.Set(eExitDirection.Right);
-		yield return Globals.LegsChangeRoom();
+		if (Globals.CheckDadHuntDirection(eExitDirection.Up))
+		{
+			Region("ExitNorth").Walkable = true;
+			yield return C.Plr.WalkTo(Point("ExitNorth"));
+			Region("ExitNorth").Walkable = false;
+			E.Set(eExitDirection.Up);
+			yield return E.WaitFor(() => Globals.LegsChangeRoom());
+		}
+		else
+		{
+			yield return E.WaitFor(Globals.LegsKeepDirection);
+		}
 		yield return E.Break;
 	}
 
-	IEnumerator OnInteractHotspotExitSouth( IHotspot hotspot )
+	IEnumerator OnInteractHotspotExitEast(IHotspot hotspot)
 	{
-		Region("ExitSouth").Walkable = true;
-		yield return C.Plr.WalkTo(Point("ExitSouth"));
-		Region("ExitSouth").Walkable = false;
-		E.Set(eExitDirection.Down);
-		yield return Globals.LegsChangeRoom();
+		if (Globals.CheckDadHuntDirection(eExitDirection.Right))
+		{
+			Region("ExitEast").Walkable = true;
+			yield return C.Plr.WalkTo(Point("ExitEast"));
+			Region("ExitEast").Walkable = false;
+			E.Set(eExitDirection.Right);
+			yield return E.WaitFor(() => Globals.LegsChangeRoom());
+		}
+		else
+		{
+			yield return E.WaitFor(Globals.LegsKeepDirection);
+		}
+		yield return E.Break;
+	}
+
+	IEnumerator OnInteractHotspotExitSouth(IHotspot hotspot)
+	{
+		if (Globals.CheckDadHuntDirection(eExitDirection.Down))
+		{
+			Region("ExitSouth").Walkable = true;
+			yield return C.Plr.WalkTo(Point("ExitSouth"));
+			Region("ExitSouth").Walkable = false;
+			E.Set(eExitDirection.Down);
+			yield return E.WaitFor(() => Globals.LegsChangeRoom());
+		}
+		else
+		{
+			yield return E.WaitFor(Globals.LegsKeepDirection);
+		}
 		yield return E.Break;
 	}
 
@@ -189,5 +216,13 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 	void Update()
 	{
 		Globals.LegsOnUpdate();
+	}
+
+	[QuestPlayFromFunction]
+	void PlayFromGotHope()
+	{
+		E.Set(eLegsProgress.GotHope);
+		E.Set(eExitDirection.Left);
+		E.DebugSetPreviousRoom(R.LegsFountain);
 	}
 }

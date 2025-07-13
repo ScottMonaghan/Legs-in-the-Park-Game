@@ -35,7 +35,7 @@ public class CharacterElsa : CharacterScript<CharacterElsa>
 				yield return C.Plr.Say("It should be better at picking things up now though.");
 			} else if (item == I.AstronautCard){
 				if( !RoomBusStop.Script.m_got_abc_gum && C.Player.HasInventory(I.StickyShoe)){
-				yield return RoomBusStop.Script.ScrapeShoe();
+				yield return E.WaitFor(RoomBusStop.Script.ScrapeShoe);
 				} else {
 					yield return C.Plr.Say("No thanks. The laminated edges are sharp. I might get scraped.");
 				}

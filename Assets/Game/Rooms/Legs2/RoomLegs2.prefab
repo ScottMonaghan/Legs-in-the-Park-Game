@@ -1034,7 +1034,7 @@ MonoBehaviour:
       m_position: {x: -22, y: -62}
     - m_name: ElsaMeetRobin1
       m_position: {x: 37, y: -62}
-  m_debugStartFunction: 
+  m_debugStartFunction: PlayFromGotHope
   m_hotspotComponents:
   - {fileID: 277134734}
   - {fileID: 1824267159}

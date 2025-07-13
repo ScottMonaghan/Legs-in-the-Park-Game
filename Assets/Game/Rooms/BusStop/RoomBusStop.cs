@@ -8,7 +8,7 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 {
 	public enum eLocation {BusStop,Legs}
 	public eLocation m_locationState = eLocation.BusStop;
-	public int m_emotion_level = 0;
+	//public int m_emotion_level = 0;
 	public bool m_allowCrosswalk = false;
 	public int m_numberOfBuses = 2;
 	public int m_minutesLeft = 5;
@@ -24,17 +24,18 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 	float m_paused_timer = 0;
 	public IEnumerator SetEmotionLevel(int new_emotion_level)
     {
-		m_emotion_level = new_emotion_level;
+		/*
+		Globals.m_emotion_level = new_emotion_level;
 		
 		if (!G.BusStopEmotionBar.Visible){
 			G.BusStopEmotionBar.Show();
-			G.BusStopEmotionBar.GetControl("Impatience").Visible = false;
+			G.BusStopEmotionBar.GetControl("Meter").Visible = false;
 			IImage meterBg = (IImage)(G.BusStopEmotionBar.GetControl("Bg"));
 			meterBg.Alpha = 0;
 			yield return meterBg.Fade(0,1,2);
-			G.BusStopEmotionBar.GetControl("Impatience").Visible = true;
+			G.BusStopEmotionBar.GetControl("Meter").Visible = true;
 		}
-		switch (m_emotion_level)
+		switch (Globals.m_emotion_level)
 		{
 			case 0:
 				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "Bg";
@@ -53,15 +54,20 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 				break;
 			case 5:
 				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient5";
-				m_allowCrosswalk = true;
 				break;
 			default:
 				break;
 		
 		
 		}
-		
-		
+		*/
+		E.WaitFor(() => Globals.SetEmotionLevel(new_emotion_level));
+		if (Globals.m_emotion_level >= 5)
+        {
+			E.Set(eLegsProgress.BusStopMaxFrustrated);
+			m_allowCrosswalk = true;
+
+		}
 		yield return E.Break;
 	}
 
@@ -83,10 +89,11 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 			E.DisableCancel();
 			yield return C.Plr.Face(eFace.Down);
 			yield return C.Player.Say("I'm just going to have to take matters into my own hands.");
-			G.BusStopEmotionBar.GetControl("Impatience").Visible=false;
+			G.BusStopEmotionBar.GetControl("Meter").Visible=false;
 			IImage meterBg = (IImage)G.BusStopEmotionBar.GetControl("Bg");
 			yield return meterBg.Fade(1,0,1);
 			G.BusStopEmotionBar.Hide();
+			Globals.m_emotion_level = 0;
 			yield return E.WaitSkip();
 			yield return C.Plr.Face(C.Scott);
 			yield return C.Player.Say("Dad, let's just go play in The Legs across the street like we used to!");
@@ -256,10 +263,10 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 		m_numberOfBuses ++;
 		yield return E.WaitSkip(0.25f);
 		if (Hotspot("BusSchedule").FirstLook){
-			yield return SetEmotionLevel(m_emotion_level+1);
+			yield return E.WaitFor(()=>SetEmotionLevel(Globals.m_emotion_level+1));
 		}
-		if (m_emotion_level >=5){
-			yield return FullEmotionHint();
+		if (Globals.m_emotion_level >=5){
+			yield return E.WaitFor(FullEmotionHint);
 		}
 		yield return E.Break;
 	}
@@ -397,7 +404,7 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 
 	void OnPostRestore( int version )
 	{
-		switch (m_emotion_level)
+		switch (Globals.m_emotion_level)
 		{
 			case 0:
 				G.BusStopEmotionBar.GetControl("Bg").Anim = "Bg";

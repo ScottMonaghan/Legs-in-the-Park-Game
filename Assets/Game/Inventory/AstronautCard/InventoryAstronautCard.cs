@@ -36,7 +36,7 @@ public class InventoryAstronautCard : InventoryScript<InventoryAstronautCard>
 	IEnumerator OnUseInvInventory( IInventory thisItem, IInventory item )
 	{
 		if (item == I.StickyShoe){
-			yield return RoomBusStop.Script.ScrapeShoe();
+			yield return E.WaitFor(RoomBusStop.Script.ScrapeShoe);
 		}
 		yield return E.Break;
 	}

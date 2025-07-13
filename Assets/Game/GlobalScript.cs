@@ -42,10 +42,14 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public bool m_lookedAtGrabber = false;
 	public bool m_lookedAtGummyGrabber = false;
 	
+	//Shared Global Variable for Emotion Meter
+	public int m_emotion_level = 0;
+	
 	//Shared Global Variables for Legs rooms
 	public eLegsProgress m_legsProgress = eLegsProgress.None;
 	public enum eLegsProgress {
 		None,
+		BusStopMaxFrustrated,
 		RobinHiding,
 		SawRobinPeek1,
 		SawRobinPeek2,
@@ -56,7 +60,9 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		GotTreasureHunt,
 		CompletedTreasureHunt,
 		GotHope,
-		LookingForDad
+		LegsEscapeAttempt1,
+		LegsEscapeAttempt2,
+		LegsEscapePanic,
 	};
 	public Vector2 m_legs_robin_hide_point = new Vector2(0,0);
 	public Vector2 m_legs_robin_peek_point = new Vector2(0,0);
@@ -64,9 +70,12 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public Vector2 m_legs_elsa_meet_robin_point = new Vector2(0,0);
 	
 	//Legs treasure hunt path and tracker
-	//public List<eExitDirection> m_treasure_hunt_path = new List<eExitDirection>();
 	public eExitDirection[] m_treasure_hunt_path = {eExitDirection.None, eExitDirection.None, eExitDirection.None, eExitDirection.None };
 	public int m_treasure_hunt_path_index = -1;
+	
+	public int m_dad_search_tracker = 0;
+	public eExitDirection m_dad_search_direction = eExitDirection.None;
+	
 	////////////////////////////////////////////////////////////////////////////////////
 	// Global Game Functions
 	
@@ -354,6 +363,48 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		}
 	}
 
+	public IEnumerator SetEmotionLevel(int new_emotion_level)
+	{
+		Globals.m_emotion_level = new_emotion_level;
+		
+		if (!G.BusStopEmotionBar.Visible){
+			G.BusStopEmotionBar.Show();
+			/*G.BusStopEmotionBar.GetControl("Meter").Visible = false;
+			IImage meterBg = (IImage)(G.BusStopEmotionBar.GetControl("Bg"));
+			meterBg.Alpha = 0;
+			yield return meterBg.Fade(0,1,2);
+			G.BusStopEmotionBar.GetControl("Meter").Visible = true;*/
+		}
+		switch (Globals.m_emotion_level)
+		{
+			case 0:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "Bg";
+				break;
+			case 1:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient1";
+				break;
+			case 2:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient2";
+				break;
+			case 3:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient3";
+				break;
+			case 4:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient4";
+				break;
+			case 5:
+				yield return G.BusStopEmotionBar.GetControl("Bg").Anim = "BgEmoteImpatient5";
+				//m_allowCrosswalk = true;
+				break;
+			default:
+				break;
+		
+		
+		}
+		
+		yield return E.Break;
+	}
+
 	public void LegsOnEnterRoom()
     {
 		if (E.Reached(eLegsProgress.GotTreasureHunt) && E.Before(eLegsProgress.CompletedTreasureHunt))
@@ -369,7 +420,28 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				C.Robin.Visible = false;
 				C.Robin.Clickable = false;
 			}
-		} else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad)){
+		} else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LegsEscapeAttempt1)){
+			R.Legs1.GetProp("Legs01Path").Animation = "Legs01PathEve";
+			R.Legs2.GetProp("Legs01Path").Animation = "Legs01PathEve";
+			if (C.Robin.Room == null)
+			{
+				C.Robin.Room = R.Current;
+			}
+		
+			if (!I.AstronautCard.Owned){
+				I.AstronautCard.Add();
+			}
+		
+			if (!I.GummyGrabber.Owned){
+				I.GummyGrabber.Add();
+			}
+		
+			if (!I.SilverLeaf.Owned){
+				I.SilverLeaf.Add();
+			}
+		
+		
+		
 			if (m_legs_robin_meet_point == new Vector2(0,0)){
 				m_legs_robin_meet_point = Point("RobinMeet1");
 				m_legs_elsa_meet_robin_point = Point("ElsaMeetRobin1");
@@ -378,7 +450,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			}
 			C.Robin.Visible = true;
 			C.Robin.Clickable = true;
-		} else if (E.Is(eLegsProgress.LookingForDad)){
+		} else if (E.Reached(eLegsProgress.LegsEscapeAttempt1) && E.Before(eLegsProgress.LegsEscapeAttempt2)){
 		
 		}
 		
@@ -699,7 +771,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			E.DisableCancel();
 			yield return E.FadeIn();
 			yield return C.Plr.WalkTo(enterance_walkto);
-			if (E.Is(eLegsProgress.LookingForDad)){
+			if (E.Reached(eLegsProgress.LegsEscapeAttempt1) && E.Before(eLegsProgress.LegsEscapePanic)){
 				C.Robin.Visible = false;
 				C.Robin.Clickable = false;
 				yield return C.Robin.ChangeRoom(R.Current);
@@ -764,7 +836,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		}
 		
 		//Got lost on the treasure hunt
-		if (
+		else if (
 			E.Reached(eLegsProgress.GotTreasureHunt)
 			&& E.Before(eLegsProgress.CompletedTreasureHunt)
 			&& C.Robin.Room == R.Current
@@ -778,7 +850,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		}
 		
 		//Completed treasure hunt!
-		if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LookingForDad))
+		else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LegsEscapeAttempt1))
 		{
 			E.StartCutscene();
 			yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
@@ -790,6 +862,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			yield return C.Plr.Say("Yup. Right here.");
 			yield return C.Plr.Say("Let me show you then I gotta get back to my dad.");
 			yield return E.FadeOut();
+			C.Narrator.Room = R.Current;
+			C.Narrator.SetPosition(0,0);
 			yield return C.Narrator.Say("(PLACEHOLDER)");
 			yield return C.Narrator.Say("Elsa reaches into her pocket and shifts around looking for the silver leaf.");
 			yield return C.Plr.Say("Elsa: Wow it's REALLY warm now.");
@@ -797,13 +871,98 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			yield return C.Narrator.Say("But it melts into her hand leaving a glowing outline");
 			yield return C.Plr.Say("Elsa: WHAT THE HECK!");
 			yield return C.Robin.Say("Robin: It shouldn't do that! You shouldn't even have been able to find it.");
-			yield return C.Plr.Say("Elsa: I NEED TO GET BACK TO MY DAD RIGHT NOW!");
-			yield return C.Narrator.Say("Elsa Fear meter appears in the same style of Impatience meter from the bus stop.");
 			E.EndCutscene();
 			yield return E.FadeIn();
+			yield return C.Plr.Say("Elsa: I NEED TO GET BACK TO MY DAD RIGHT NOW!");
+			yield return C.Robin.Say("Okay.");
+			G.BusStopEmotionBar.GetControl("Meter").Text = "Fear";
+			yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level + 1) );
 			C.Plr.WalkSpeed = new Vector2(100,100);
-			E.Set(eLegsProgress.LookingForDad);
+			E.Set(eLegsProgress.LegsEscapeAttempt1);
+		} else if (E.Reached(eLegsProgress.LegsEscapeAttempt1) && E.Before(eLegsProgress.LegsEscapeAttempt2)) {
+			m_dad_search_tracker++;
+			if (m_dad_search_tracker == 1)
+			{
+				yield return C.Plr.Say("All I need to do is retrace my steps back");
+			}
+			else if (m_dad_search_tracker == 2)
+			{
+				yield return C.Plr.Say("I THINK this is the way");
+			}
+			else if (m_dad_search_tracker == 3)
+			{
+				yield return C.Plr.Say("Is this the way?");
+			}
+			else if (m_dad_search_tracker >= 4)
+			{
+				yield return C.Plr.Say("ARRRRGH!");
+				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level + 1) );
+				E.Set(eLegsProgress.LegsEscapeAttempt2);
+				m_dad_search_tracker = 0;
+				yield return C.Plr.Say("Okay Elsa, you're not thinking straight.");
+				yield return C.Plr.Say("The park isn't very big all I need to do is walk in a straight line");
+				yield return C.Plr.Say("then I'll get to the street and walk back to my dad there.");
+		
+			}
+		} else if (E.Reached(eLegsProgress.LegsEscapeAttempt2) && E.Before(eLegsProgress.LegsEscapePanic)){
+			if (m_lastExitDirection != m_dad_search_direction){
+				m_dad_search_tracker = 1;
+				m_dad_search_direction = m_lastExitDirection;
+			} else {
+				m_dad_search_tracker++;
+			}
+			if (m_dad_search_tracker == 1){
+				yield return C.Plr.Say("Just gotta keep heading this way, and I'll be out in no time.");
+			}
+			else if (m_dad_search_tracker == 2) {
+				yield return C.Plr.Say("I'll be out soon.");
+			}
+			else if (m_dad_search_tracker == 3) {
+				yield return C.Plr.Say("I must be walking through the long part.");
+				yield return C.Plr.Say("That's okay it's still less than a city block.");
+			}
+			else if (m_dad_search_tracker == 4) {
+				yield return C.Plr.Say("How am I not there yet!?");
+				yield return C.Plr.Say("I MUST be close.");
+				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
+			}
+			else if (m_dad_search_tracker == 5) {
+				yield return C.Plr.Say("THIS IS RIDICULOUS!");
+				yield return C.Plr.Say("Must be straight ahead.");
+				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
+			}
+			else if (m_dad_search_tracker >= 6) {
+				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
+				E.Set(eLegsProgress.LegsEscapePanic);
+				yield return E.FadeOut();
+				C.Narrator.Room = R.Current;
+				C.Narrator.SetPosition(0,0);
+				C.Robin.SetTextPosition(new Vector2(0,10));
+				C.Elsa.SetTextPosition(new Vector2(0,10));
+				yield return C.Narrator.Say("PLACEHOLDER");
+				yield return C.Narrator.Say("Elsa starts too breath too heavy like she sometimes does when she is about to panic.");
+				yield return C.Narrator.Say("With rising concern, Robin asks,");
+				yield return C.Robin.Say("What's wrong?");
+				yield return C.Narrator.Say("Elsa half-sobs, half-screams through labored breaths,");
+				yield return C.Player.Say("I CAN'T...");
+				yield return C.Player.Say("FIND...");
+				yield return C.Player.Say("MY DAD!");
+				yield return C.Narrator.Say("THE EARTH SHAKES AND THE WIND BLOWS");
+				yield return C.Narrator.Say("Robin nervously replies,");
+				yield return C.Robin.Say("Don't worry, I'll help you. I can help you find your dad.");
+				yield return C.Narrator.Say("THE QUAKING AND WIND DIE DOWN");
+				yield return C.Narrator.Say("With a small voice tinged with hope, Elsa asks,");
+				yield return C.Player.Say("you can?");
+				yield return C.Robin.Say("Sure! But one question first,");
+				yield return E.WaitSkip();
+				yield return C.Robin.Say("What...\nis a dad?");
+				yield return C.Robin.Say("What...\nis a dad?");
+				yield return C.Robin.Say("What...\nis a dad?");
+				G.BusStopEmotionBar.Hide();
+				yield return E.WaitFor( EndDemo );
+			}
 		}
+		
 		
 		yield return E.Break;
 	}
@@ -825,8 +984,44 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 
 	public void LegsOnUpdate()
 	{
-		if (E.Is(eLegsProgress.LookingForDad)){
+		if (E.Is(eLegsProgress.LegsEscapeAttempt1)){
 			C.Robin.FaceBG(C.Player);
 		}
+	}
+
+	public IEnumerator LegsKeepDirection()
+	{
+		yield return C.Plr.Say("I can't go that way, I need to keep going the same direction so I can get out of here!");
+		yield return E.Break;
+	}
+
+	public bool CheckDadHuntDirection(eExitDirection direction)
+	{
+		if (E.Is(eLegsProgress.LegsEscapeAttempt2) && m_dad_search_direction != eExitDirection.None && direction != m_dad_search_direction){
+			return false;
+		}
+		return true;
+	}
+
+	public IEnumerator EndDemo()
+	{
+		yield return E.Display(
+			"You've reached the end of this alpha demo!\n"
+			+ "Thanks for playing!\n"
+			+ "\n"
+			+ "Please report any bugs to scott.monaghan@gmail.com\n"
+		);
+		yield return E.Display(
+			"Music Credit:\n"
+			+ "Krampus Workshop,\n"
+			+ "Night Vigil,\n"
+			+ "Fox Tale Waltz Part 1 Instrumental\n"
+			+ "Frost Waltz\n"
+			+ "Kevin MacLeod (incompetech.com)\n"
+			+ "Licensed under Creative Commons: By Attribution 4.0 License\n"
+			+ "http://creativecommons.org/licenses/by/4.0/"
+		);
+		E.Restart(R.Title);
+		yield return E.Break;
 	}
 }
