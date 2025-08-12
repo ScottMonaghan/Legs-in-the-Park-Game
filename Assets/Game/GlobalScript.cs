@@ -76,6 +76,14 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public int m_dad_search_tracker = 0;
 	public eExitDirection m_dad_search_direction = eExitDirection.None;
 	
+	
+	//contious shake variables
+	public bool m_contiuousShake = false;
+	public float m_continuousShakeIntensity = 1.0f;
+	public float m_continuousShakeFallOff = 0.15f;
+	public float m_continousShakeMinDuration = 0.1f;
+	
+	
 	////////////////////////////////////////////////////////////////////////////////////
 	// Global Game Functions
 	
@@ -123,6 +131,10 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public void Update()
 	{
 		// Add anything that should happen every frame here.
+		if (m_contiuousShake)
+        {
+			Camera.Shake(m_continuousShakeIntensity, m_continousShakeMinDuration, m_continuousShakeFallOff);
+        }
 	}	
 
 	/// Called every frame, even when paused. Non-blocking functions only
@@ -776,6 +788,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				C.Robin.Clickable = false;
 				yield return C.Robin.ChangeRoom(R.Current);
 				C.Robin.Position = starting_position;
+				yield return E.Wait(0.1f);
 				C.Robin.Visible = true;
 				C.Robin.Clickable = true;
 				C.Robin.WalkToBG(C.Player.Position + follow_offset,C.Plr.Facing);
@@ -853,32 +866,41 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LegsEscapeAttempt1))
 		{
 			E.StartCutscene();
+			Audio.PlayMusic("FoxTaleWaltz",1.0f);
+			C.Plr.SayBG("Robin!");
 			yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
 			yield return C.Robin.Say(" Need some more clues? Hee hee.");
 			yield return C.Plr.Say("Nope. I got it mission accomplished!");
+			C.Robin.AnimPrefix = "Surprised";
 			yield return C.Plr.Say("A silver leaf right?");
+			yield return E.WaitSkip();
 			yield return C.Robin.Say(" Wait. What!?");
 			yield return C.Robin.Say(" You got it!?");
-			yield return C.Plr.Say("Yup. Right here.");
-			yield return C.Plr.Say("Let me show you then I gotta get back to my dad.");
-			yield return E.FadeOut();
-			C.Narrator.Room = R.Current;
-			C.Narrator.SetPosition(0,0);
-			yield return C.Narrator.Say("(PLACEHOLDER)");
-			yield return C.Narrator.Say("Elsa reaches into her pocket and shifts around looking for the silver leaf.");
-			yield return C.Plr.Say("Elsa: Wow it's REALLY warm now.");
-			yield return C.Narrator.Say("Elsa pulls out the leaf to show Robin");
-			yield return C.Narrator.Say("But it melts into her hand leaving a glowing outline");
-			yield return C.Plr.Say("Elsa: WHAT THE HECK!");
-			yield return C.Robin.Say("Robin: It shouldn't do that! You shouldn't even have been able to find it.");
-			E.EndCutscene();
-			yield return E.FadeIn();
-			yield return C.Plr.Say("Elsa: I NEED TO GET BACK TO MY DAD RIGHT NOW!");
-			yield return C.Robin.Say("Okay.");
-			G.BusStopEmotionBar.GetControl("Meter").Text = "Fear";
+			yield return C.Plr.Say("Sure did! Right here.");
+			Prop("HopeMelt").Alpha = 0;
+			Prop("HopeMelt").Visible = true;
+			yield return Prop("HopeMelt").Fade(0,1,0.2f);
+			yield return C.Plr.Say("Elsa: Here you go. Now I gotta get back to my dad.");
+			Audio.StopMusic(0.2f);
+			Audio.Play("Thunder2");
+			Audio.PlayMusic("Day of Chaos");
+			Camera.Shake(3,1);
+			yield return Prop("HopeMelt").PlayAnimation("HopeMelt");
+			G.BusStopEmotionBar.GetControl("Meter").Text = "Panic";
 			yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level + 1) );
+		
+			Prop("HopeMelt").Animation = "MeltedHopeShine";
+			yield return C.Plr.Say("Elsa: WHAT THE HECK! IT MELTED INTO MY HAND!");
 			C.Plr.WalkSpeed = new Vector2(100,100);
+			C.Elsa.AnimPrefix = "Fear";
+			C.Robin.AnimPrefix = "Neutral";
+			yield return Prop("HopeMelt").Fade(1,0,0.2f);
+			Prop("HopeMelt").Visible = false;
+			yield return C.Robin.Say("It shouldn't do that!");
+			E.EndCutscene();
 			E.Set(eLegsProgress.LegsEscapeAttempt1);
+			yield return C.Plr.Say("I NEED TO GET BACK TO MY DAD RIGHT NOW!");
+			yield return C.Robin.Say("Okay.");
 		} else if (E.Reached(eLegsProgress.LegsEscapeAttempt1) && E.Before(eLegsProgress.LegsEscapeAttempt2)) {
 			m_dad_search_tracker++;
 			if (m_dad_search_tracker == 1)
@@ -896,6 +918,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			else if (m_dad_search_tracker >= 4)
 			{
 				yield return C.Plr.Say("ARRRRGH!");
+				Audio.Play("Thunder1");
+				Camera.Shake(2,1);
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level + 1) );
 				E.Set(eLegsProgress.LegsEscapeAttempt2);
 				m_dad_search_tracker = 0;
@@ -924,40 +948,59 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			else if (m_dad_search_tracker == 4) {
 				yield return C.Plr.Say("How am I not there yet!?");
 				yield return C.Plr.Say("I MUST be close.");
+				Audio.Play("Thunder3");
+				Camera.Shake(3,1);
+		
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
 			}
 			else if (m_dad_search_tracker == 5) {
 				yield return C.Plr.Say("THIS IS RIDICULOUS!");
 				yield return C.Plr.Say("Must be straight ahead.");
+				Audio.Play("Thunder1");
+				Camera.Shake(4,1);
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
 			}
 			else if (m_dad_search_tracker >= 6) {
+				Audio.PlayMusic("The House of Leaves",1.0f);
+				Audio.Play("Thunder4");
+				Audio.PlayAmbientSound("Earthquake");
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
+				m_continuousShakeIntensity = 2;
+				m_contiuousShake = true;
 				E.Set(eLegsProgress.LegsEscapePanic);
-				yield return E.FadeOut();
-				C.Narrator.Room = R.Current;
-				C.Narrator.SetPosition(0,0);
-				C.Robin.SetTextPosition(new Vector2(0,10));
-				C.Elsa.SetTextPosition(new Vector2(0,10));
-				yield return C.Narrator.Say("PLACEHOLDER");
-				yield return C.Narrator.Say("Elsa starts too breath too heavy like she sometimes does when she is about to panic.");
-				yield return C.Narrator.Say("With rising concern, Robin asks,");
-				yield return C.Robin.Say("What's wrong?");
-				yield return C.Narrator.Say("Elsa half-sobs, half-screams through labored breaths,");
+				yield return C.Plr.Face(eFace.Left);
+				yield return E.WaitSkip();
+				yield return E.WaitSkip();
+				yield return C.Plr.Face(eFace.Right);
+				yield return E.WaitSkip();
+				yield return E.WaitSkip();
+				yield return C.Robin.Face(C.Player);
+				yield return C.Plr.Say("WHAT IS GOING ON!???");
+				yield return C.Plr.Say("AHHHHHHHGH!");
+				yield return C.Plr.PlayAnimation("FearIdleToCurlIdle");
+				C.Plr.AnimPrefix = "Curl";
+				yield return C.Plr.Say("AHHHHHHHGH!");
+				yield return C.Robin.Face(C.Player);
+				yield return C.Robin.Say("WHAT'S WRONG?");
+				yield return C.Plr.Face(C.Robin);
 				yield return C.Player.Say("I CAN'T...");
 				yield return C.Player.Say("FIND...");
 				yield return C.Player.Say("MY DAD!");
-				yield return C.Narrator.Say("THE EARTH SHAKES AND THE WIND BLOWS");
-				yield return C.Narrator.Say("Robin nervously replies,");
-				yield return C.Robin.Say("Don't worry, I'll help you. I can help you find your dad.");
-				yield return C.Narrator.Say("THE QUAKING AND WIND DIE DOWN");
-				yield return C.Narrator.Say("With a small voice tinged with hope, Elsa asks,");
+				yield return C.Robin.Say("DON'T WORRY!");
+				yield return C.Robin.Say("I CAN HELP!");
+				m_continuousShakeIntensity = 1;
+				yield return E.WaitSkip();
 				yield return C.Player.Say("you can?");
 				yield return C.Robin.Say("Sure! But one question first,");
 				yield return E.WaitSkip();
 				yield return C.Robin.Say("What...\nis a dad?");
 				yield return C.Robin.Say("What...\nis a dad?");
 				yield return C.Robin.Say("What...\nis a dad?");
+				yield return C.Plr.Face(eFace.Down);
+				m_continuousShakeIntensity = 3;
+				yield return C.Plr.Say("AHHHHHHHGH!");
+				yield return C.Plr.Say("AHHHHHHHGH!");
+				E.FadeOutBG(3);
 				G.BusStopEmotionBar.Hide();
 				yield return E.WaitFor( EndDemo );
 			}
@@ -1017,11 +1060,35 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			+ "Night Vigil,\n"
 			+ "Fox Tale Waltz Part 1 Instrumental\n"
 			+ "Frost Waltz\n"
+			+ "Day of Chaos\n"
+			+ "The House of Falling Leaves\n"
 			+ "Kevin MacLeod (incompetech.com)\n"
 			+ "Licensed under Creative Commons: By Attribution 4.0 License\n"
 			+ "http://creativecommons.org/licenses/by/4.0/"
 		);
+		Audio.StopAmbientSound(3.0f);
+		Audio.StopMusic(3.0f);
+		yield return E.Wait(3.0f);
 		E.Restart(R.Title);
+		yield return E.Break;
+	}
+
+	public IEnumerator EmotionBarReset()
+	{
+		IImage meterBg = (IImage)G.BusStopEmotionBar.GetControl("Bg");
+		meterBg.Alpha = 1;
+		G.BusStopEmotionBar.GetControl("Meter").Visible=true;
+		Globals.m_emotion_level = 0;
+		yield return E.Break;
+	}
+
+	public IEnumerator EmotionBarFadeout()
+	{
+		G.BusStopEmotionBar.GetControl("Meter").Visible=false;
+		IImage meterBg = (IImage)G.BusStopEmotionBar.GetControl("Bg");
+		yield return meterBg.Fade(1,0,1);
+		G.BusStopEmotionBar.Hide();
+		yield return E.WaitFor(EmotionBarReset);
 		yield return E.Break;
 	}
 }

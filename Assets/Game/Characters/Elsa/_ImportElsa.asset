@@ -13,120 +13,54 @@ MonoBehaviour:
   m_Name: _ImportElsa
   m_EditorClassIdentifier: 
   m_animations:
-  - m_name: IdleD
+  - m_name: FearIdleToCurlIdle
     m_firstFrame: 1
     m_loop: 0
     m_fullRect: 0
     m_length: 2
-    m_frameDurations: a00f000064000000
-  - m_name: IdleR
+    m_frameDurations: 6400000064000000
+  - m_name: CurlIdleR
     m_firstFrame: 3
-    m_loop: 0
+    m_loop: 1
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: a00f000064000000
-  - m_name: NoSmileIdleR
-    m_firstFrame: 5
-    m_loop: 0
+    m_length: 3
+    m_frameDurations: ac0d0000c800000064000000
+  - m_name: CurlIdleD
+    m_firstFrame: 6
+    m_loop: 1
     m_fullRect: 0
-    m_length: 2
-    m_frameDurations: a00f000064000000
-  - m_name: IdleUR
-    m_firstFrame: 7
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 88130000
-  - m_name: IdleU
-    m_firstFrame: 8
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: a00f0000
-  - m_name: WalkR
+    m_length: 3
+    m_frameDurations: ac0d0000c800000064000000
+  - m_name: CurlIdleL
     m_firstFrame: 9
-    m_loop: 0
+    m_loop: 1
     m_fullRect: 0
-    m_length: 8
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
-  - m_name: WalkUR
-    m_firstFrame: 17
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 8
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
-  - m_name: TalkD
-    m_firstFrame: 25
-    m_loop: 0
+    m_length: 3
+    m_frameDurations: ac0d0000c800000064000000
+  - m_name: CurlTalkR
+    m_firstFrame: 12
+    m_loop: 1
     m_fullRect: 0
     m_length: 6
-    m_frameDurations: c8000000c800000064000000640000006400000064000000
-  - m_name: TalkR
-    m_firstFrame: 31
-    m_loop: 0
+    m_frameDurations: 6400000064000000c8000000c8000000c800000064000000
+  - m_name: CurlTalkL
+    m_firstFrame: 18
+    m_loop: 1
     m_fullRect: 0
     m_length: 6
-    m_frameDurations: c8000000c8000000c8000000640000006400000064000000
-  - m_name: TalkU
-    m_firstFrame: 37
-    m_loop: 0
+    m_frameDurations: 6400000064000000c8000000c8000000c800000064000000
+  - m_name: CurlTalkD
+    m_firstFrame: 24
+    m_loop: 1
     m_fullRect: 0
     m_length: 6
-    m_frameDurations: c8000000c8000000c8000000640000006400000064000000
-  - m_name: TalkUR
-    m_firstFrame: 43
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 6
-    m_frameDurations: c8000000c8000000c8000000640000006400000064000000
-  - m_name: GumWalkR
-    m_firstFrame: 49
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 8
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
-  - m_name: GumWalkUR
-    m_firstFrame: 57
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 8
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
-  - m_name: WalkBackFromCrow
-    m_firstFrame: 65
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 8
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
-  - m_name: PlaceCardStanding
-    m_firstFrame: 73
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 14
-    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000c800000064000000200300006400000064000000e8030000
-  - m_name: GetCardStanding
-    m_firstFrame: 87
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 14
-    m_frameDurations: e803000064000000640000002003000064000000c80000006400000064000000640000006400000064000000640000006400000064000000
-  - m_name: GetCardCrouching
-    m_firstFrame: 101
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 21
-    m_frameDurations: 6400000064000000640000006400000020030000640000006400000064000000640000006400000064000000c800000064000000640000006400000064000000640000006400000064000000c800000064000000
-  - m_name: PlaceTagCrouching
-    m_firstFrame: 122
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 21
-    m_frameDurations: 64000000c800000064000000640000006400000064000000640000006400000064000000c80000006400000064000000640000006400000064000000640000002003000064000000640000006400000064000000
+    m_frameDurations: 6400000064000000c8000000c8000000c800000064000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
-  m_sourcePSD: Art/elsa_v7.aseprite
+  m_sourcePSD: Art/elsa_curl_up.aseprite
   m_sourceDirectory: Art/Export
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites

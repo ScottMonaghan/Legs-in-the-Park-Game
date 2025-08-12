@@ -73,13 +73,55 @@ MonoBehaviour:
     m_fullRect: 0
     m_length: 6
     m_frameDurations: c8000000c800000064000000640000006400000064000000
+  - m_name: NeutralIdleD
+    m_firstFrame: 47
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: a00f000032000000
+  - m_name: NeutralIdleR
+    m_firstFrame: 49
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 2
+    m_frameDurations: a00f000032000000
+  - m_name: NeutralIdleUR
+    m_firstFrame: 51
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: c8000000
+  - m_name: NeutralIdleU
+    m_firstFrame: 52
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: c8000000
+  - m_name: NeutralWalkR
+    m_firstFrame: 53
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: NeutralWalkUR
+    m_firstFrame: 61
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
+  - m_name: SurprisedIdleR
+    m_firstFrame: 69
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: 320000003200000032000000a00f0000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
   m_sourcePSD: Art/robin.aseprite
-  m_sourceDirectory: C:\Users\scott\Desktop
+  m_sourceDirectory: Art/Export
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
   m_gui: 0

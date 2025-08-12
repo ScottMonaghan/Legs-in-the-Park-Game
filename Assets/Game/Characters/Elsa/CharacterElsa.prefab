@@ -87,13 +87,31 @@ MonoBehaviour:
     m_scriptClass: CharacterElsa
   m_clickableColliders: []
   m_turnAnims: []
-  m_transitionAnims: []
+  m_transitionAnims:
+  - anim: FearWalkToIdle
+    from: ^FearWalk[RL]$
+    to: ^Fear(Idle|Talk)[RL]$
+    onFlip: 0
   m_animations:
+  - {fileID: 7400000, guid: 0d993ad09c6298b42baad62f1b3a8202, type: 2}
+  - {fileID: 7400000, guid: 68aff5e2dc7d4d7468027b046ac30434, type: 2}
+  - {fileID: 7400000, guid: 13efcb04d8c106542aba716d0fd38873, type: 2}
+  - {fileID: 7400000, guid: 8dddbdb55b627e94aa4f67a2c9e847b1, type: 2}
+  - {fileID: 7400000, guid: 0dae3ac5c39b3084b9a4e5914d2b8297, type: 2}
+  - {fileID: 7400000, guid: d6cecfc39bff79b4689eb62af068fa0d, type: 2}
   - {fileID: 7400000, guid: 2cc3ac0813c808c4c86f8d78c11d2309, type: 2}
   - {fileID: 7400000, guid: c42980902121bb142b9da639298dd774, type: 2}
   - {fileID: 7400000, guid: d4eb39be4e94dcf4ea03bfad53f9413a, type: 2}
   - {fileID: 7400000, guid: ca569eb605da9c247925d88409e85f01, type: 2}
   - {fileID: 7400000, guid: 0aa3fcc81858e9a45a277ebbd41bb3dc, type: 2}
+  - {fileID: 7400000, guid: 178aa94665d88d54bb4d4e7666dd3491, type: 2}
+  - {fileID: 7400000, guid: 2ee66b7a0125bec459675bd91dbbafa6, type: 2}
+  - {fileID: 7400000, guid: a23a79c7ee7f34f4e878ad02c4424d40, type: 2}
+  - {fileID: 7400000, guid: 3b87ac51800c21241b27958d5cfa5d10, type: 2}
+  - {fileID: 7400000, guid: b01157b3ef305ae43bb132b5558cdf55, type: 2}
+  - {fileID: 7400000, guid: 2520b3cce7d0cee458a07fcffb2b52ad, type: 2}
+  - {fileID: 7400000, guid: 662d6b5f349724b40914e26b49c838c9, type: 2}
+  - {fileID: 7400000, guid: e268adc3c43af3046aff483b21d2855f, type: 2}
   - {fileID: 7400000, guid: 3c654e5b4587482448b4afb85acee145, type: 2}
   - {fileID: 7400000, guid: 050e0d2d01a935e41bcd9511f2fb95ff, type: 2}
   - {fileID: 7400000, guid: 44b39c3c05fdd8c40813afbc660d3b67, type: 2}
@@ -108,9 +126,10 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 58663be5a455a8f438c04ac3d3c3d9cf, type: 2}
   - {fileID: 7400000, guid: a044ede89bcb3be4f8abb2f6cbd5ab9e, type: 2}
   - {fileID: 7400000, guid: 7a2c7cc0567db1f4089ef8818c1dd0f6, type: 2}
-  - {fileID: 7400000, guid: 790474b2f28f528498cc7e5747daa81a, type: 2}
   - {fileID: 7400000, guid: e2fd2224f1970e044862c5e678212418, type: 2}
+  - {fileID: 7400000, guid: 790474b2f28f528498cc7e5747daa81a, type: 2}
   - {fileID: 7400000, guid: b718bae89c3c00f43b35601ad182c90d, type: 2}
+  - {fileID: 7400000, guid: 472d499939e0b3440b7507e75396eaa6, type: 2}
   - {fileID: 7400000, guid: 0ffe63033acbad545ad3de0df39fab1c, type: 2}
   - {fileID: 7400000, guid: 3feed9d477e02a1479671576d01153da, type: 2}
   - {fileID: 7400000, guid: dc59fedeb07e0ab468f6643429d2ed68, type: 2}

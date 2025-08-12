@@ -13,72 +13,30 @@ MonoBehaviour:
   m_Name: _ImportLegs2
   m_EditorClassIdentifier: 
   m_animations:
-  - m_name: Legs01Composite
+  - m_name: HopeZoom
     m_firstFrame: 1
     m_loop: 0
     m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs02Composite
-    m_firstFrame: 2
+    m_length: 11
+    m_frameDurations: e80300001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000d0070000
+  - m_name: HopeMelt
+    m_firstFrame: 12
     m_loop: 0
     m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs01FG
-    m_firstFrame: 3
+    m_length: 22
+    m_frameDurations: 640000003200000032000000640000003200000032000000320000003200000032000000320000003200000032000000320000003200000032000000320000003200000032000000320000003200000032000000f4010000
+  - m_name: MeltedHopeShine
+    m_firstFrame: 34
     m_loop: 0
     m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs01BG
-    m_firstFrame: 4
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs01Path
-    m_firstFrame: 5
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs01PathEve
-    m_firstFrame: 6
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs02FG
-    m_firstFrame: 7
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs02BG
-    m_firstFrame: 8
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: Legs02CenterLegs
-    m_firstFrame: 9
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
-  - m_name: BlackScreen
-    m_firstFrame: 10
-    m_loop: 0
-    m_fullRect: 0
-    m_length: 1
-    m_frameDurations: 64000000
+    m_length: 20
+    m_frameDurations: 1e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000f40100001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e0000001e000000e8030000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0
   m_spriteMeshType: 1
   m_crunchedCompression: 0
-  m_sourcePSD: Art/LegsRoom1.aseprite
+  m_sourcePSD: Art/room-fountain-hope-zoom.aseprite
   m_sourceDirectory: Art/Export
   m_deleteImportedPngs: 1
   m_spriteDirectory: Sprites
