@@ -866,7 +866,6 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		else if (E.Reached(eLegsProgress.GotHope) && E.Before(eLegsProgress.LegsEscapeAttempt1))
 		{
 			E.StartCutscene();
-			Audio.PlayMusic("FoxTaleWaltz",1.0f);
 			C.Plr.SayBG("Robin!");
 			yield return C.Plr.WalkTo(m_legs_elsa_meet_robin_point);
 			yield return C.Robin.Say(" Need some more clues? Hee hee.");
@@ -883,6 +882,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			yield return C.Plr.Say("Elsa: Here you go. Now I gotta get back to my dad.");
 			Audio.StopMusic(0.2f);
 			Audio.Play("Thunder2");
+			Audio.Stop("Thunder2", 4.0f);
 			Audio.PlayMusic("Day of Chaos");
 			Camera.Shake(3,1);
 			yield return Prop("HopeMelt").PlayAnimation("HopeMelt");
@@ -919,6 +919,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			{
 				yield return C.Plr.Say("ARRRRGH!");
 				Audio.Play("Thunder1");
+				Audio.Stop("Thunder1", 4.0f);
 				Camera.Shake(2,1);
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level + 1) );
 				E.Set(eLegsProgress.LegsEscapeAttempt2);
@@ -949,6 +950,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				yield return C.Plr.Say("How am I not there yet!?");
 				yield return C.Plr.Say("I MUST be close.");
 				Audio.Play("Thunder3");
+				Audio.Stop("Thunder3", 4.0f);
 				Camera.Shake(3,1);
 		
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
@@ -957,12 +959,14 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				yield return C.Plr.Say("THIS IS RIDICULOUS!");
 				yield return C.Plr.Say("Must be straight ahead.");
 				Audio.Play("Thunder1");
+				Audio.Stop("Thunder1", 4.0f);
 				Camera.Shake(4,1);
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
 			}
 			else if (m_dad_search_tracker >= 6) {
 				Audio.PlayMusic("The House of Leaves",1.0f);
 				Audio.Play("Thunder4");
+				Audio.Stop("Thunder4", 4.0f);
 				Audio.PlayAmbientSound("Earthquake");
 				yield return E.WaitFor(()=> SetEmotionLevel(m_emotion_level+1) );
 				m_continuousShakeIntensity = 2;
@@ -975,6 +979,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				yield return E.WaitSkip();
 				yield return E.WaitSkip();
 				yield return C.Robin.Face(C.Player);
+				E.StartCutscene();
 				yield return C.Plr.Say("WHAT IS GOING ON!???");
 				yield return C.Plr.Say("AHHHHHHHGH!");
 				yield return C.Plr.PlayAnimation("FearIdleToCurlIdle");
@@ -1001,6 +1006,7 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 				yield return C.Plr.Say("AHHHHHHHGH!");
 				yield return C.Plr.Say("AHHHHHHHGH!");
 				E.FadeOutBG(3);
+				E.EndCutscene();
 				G.BusStopEmotionBar.Hide();
 				yield return E.WaitFor( EndDemo );
 			}

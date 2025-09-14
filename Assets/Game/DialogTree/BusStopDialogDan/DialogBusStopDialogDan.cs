@@ -159,6 +159,7 @@ public class DialogBusStopDialogDan : DialogTreeScript<DialogBusStopDialogDan>
 
 	IEnumerator OptionLookInBarrel( IDialogOption option )
 	{
+		yield return C.Plr.Say("Can I look in the barrel?");
 		yield return C.Dan.Say("Sorry kiddo, no can do.");
 		yield return C.Dan.Say("What kind of responsible adult would be if I let kids rummage around in the trash.");
 		yield return C.Dan.Say("There could be dangerous items in there!");

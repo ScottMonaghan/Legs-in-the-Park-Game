@@ -224,5 +224,6 @@ public class RoomLegs2 : RoomScript<RoomLegs2>
 		E.Set(eLegsProgress.GotHope);
 		E.Set(eExitDirection.Left);
 		E.DebugSetPreviousRoom(R.LegsFountain);
+		Audio.PlayMusic("FoxTaleWaltz");
 	}
 }

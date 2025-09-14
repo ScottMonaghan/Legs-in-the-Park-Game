@@ -172,10 +172,9 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 
 	IEnumerator OnLookAtHotspotLegs( IHotspot hotspot )
 	{
-		yield return C.Plr.Face(eFace.Right);
-		yield return C.Player.Say("It's a forest of giant metal legs.");
-		
 		eFace _prevFacing = C.Plr.Facing;
+		yield return C.Plr.Face(eFace.Up);
+		yield return C.Player.Say("It's a forest of giant metal legs.");
 		yield return E.WaitSkip();
 		yield return C.Plr.Face(eFace.Down);
 		yield return C.Player.Say("That's a totally normal thing to have in a city park right?");
@@ -300,19 +299,27 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 	{
 		yield return C.WalkToClicked();
 		yield return C.FaceClicked();
-			yield return C.Player.Say("Hey dad.");
-			yield return E.WaitSkip();
 		if (E.Is(eLocation.BusStop)){
-			yield return C.Scott.Say("Whats up kiddo?");
-			D.AskDadAboutBus.Start();
+			if(!RoomBusStop.Script.m_allowCrosswalk){
+				yield return C.Player.Say("Hey Dad.");
+				yield return E.WaitSkip();
+				yield return C.Scott.Say("Whats up kiddo?");
+				D.AskDadAboutBus.Start();
+			} else {
+				yield return E.HandleInteract(Hotspot("LeftCrosswalk"));
+			}
 		} else if (m_dan_distracted){
 			yield return C.Scott.Say("Can you believe this guy?");
 		} else if (m_price_of_grabber_revealed == true && ! m_got_grabber){
+			yield return C.Plr.Say("Hey Dad.");
+			yield return E.WaitSkip();
 			yield return C.Plr.Say("Can I have $49.99 to buy an investment-grade toothless Sue(tm) the T-Rex grabber?");
 			yield return E.WaitSkip();
 			yield return C.Scott.Say("Nope.");
 			m_asked_dad_for_money = true;
 		} else if (E.Is(eLocation.Legs)){
+			yield return C.Plr.Say("Hey Dad.");
+			yield return E.WaitSkip();
 			yield return C.Scott.Say("Just gotta finish this work email. Why don't you head into the Legs. I'll join you in a minute.");
 		}
 	}
@@ -331,8 +338,8 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 			yield return C.Narrator.Say("the first day of autumn 2019 in Chicago.");
 			yield return E.WaitSkip();
 			Prop("BlackScreen").FadeBG(1,0,10);
+			Audio.PlayMusic("FoxTaleWaltz",5.0f);
 			yield return C.Narrator.Say("Like Elsa & her dad have done many times before,");
-			Audio.PlayMusic("FoxTaleWaltz");
 			Audio.PlayAmbientSound("CitySounds",5);
 			Audio.Play("Birds").FadeIn(5);
 			yield return C.Narrator.Say("they wait for the 146 bus to the planetarium.");

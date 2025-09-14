@@ -25,9 +25,9 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 	
 	IEnumerator OnEnterRoomAfterFade()
 	{
+		Audio.PlayMusic("Frost Waltz");
 		if (R.FirstTimeVisited){
 			//force-set inventory to allow play directly from room
-		
 			C.Plr.SetPosition(-140,-108);
 			C.Plr.ClearInventory();
 			I.AstronautCard.Add();
@@ -43,8 +43,7 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		}
 		C.Narrator.Room = R.Current;
 		C.Narrator.Position = new Vector2(0,0);
-		Audio.StopMusic(1);
-		Audio.PlayMusic("Frost Waltz",1);
+
 		if (!Audio.IsPlaying("Birds")){
 			 Audio.Play("Birds").FadeIn(5);
 		}
@@ -273,6 +272,8 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 					m_park_bench_movable = true;
 				} else if (!m_player_on_bench){
 					yield return C.Plr.Say("I need to get higher to reach.");
+				} else if (m_bench_position != 2){
+					yield return C.Plr.Say("I can't reach from here.");
 				} else {
 					yield return C.Plr.Face(eFace.Down);
 					yield return C.Plr.Say("and NOW I can get full return on my savvy investment!");
@@ -309,7 +310,7 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 			}
 		}
 		if (item == I.GummyGrabber){
-			if (!m_crow_guarding && !m_hope_retrieved && m_player_on_bench){
+			if (!m_crow_guarding && !m_hope_retrieved && m_player_on_bench && m_bench_position ==2){
 				yield return C.Plr.Face(eFace.Down);
 					yield return C.Plr.Say("This better be it or I'm getting my money back!");
 					yield return C.Plr.Face(eFace.UpRight);
@@ -344,6 +345,8 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		
 			} else if (!m_player_on_bench){
 				yield return C.Plr.Say("I need to get higher to reach.");
+			} else {
+				yield return C.Plr.Say("I can't reach from here.");
 			}
 		}
 		yield return E.Break;
@@ -698,13 +701,15 @@ public class RoomLegsFountain : RoomScript<RoomLegsFountain>
 		
 		else {
 		yield return C.Plr.WalkTo(Point("LeavePoint"));
-		yield return E.FadeOut();
+		Audio.Stop("Birds", 3.0f);
+		Audio.StopMusic(3.0f);
+		yield return E.FadeOut(3.0f);
 		if (C.Robin.Room == null){
 			C.Robin.Room = R.Legs1;
 		}
 		E.Set(eLegsProgress.GotHope);
 		E.Set(eExitDirection.Left);
-
+		Audio.PlayMusic("FoxTaleWaltz");
 		yield return C.Plr.ChangeRoom(C.Robin.Room);
 		/*
 			yield return E.Display(

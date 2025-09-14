@@ -14,6 +14,8 @@ public class RoomTitle : RoomScript<RoomTitle>
 		
 		// Later we could start some music here
 		Audio.PlayMusic("KrampusWorkshop", 1);
+		
+		// Set version
 	}
 
 	public IEnumerator OnEnterRoomAfterFade()

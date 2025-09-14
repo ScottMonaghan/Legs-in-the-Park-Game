@@ -575,7 +575,7 @@ MonoBehaviour:
     - m_name: EnteranceStopSouth
       m_position: {x: 7, y: -88}
     - m_name: EnteranceStopEast
-      m_position: {x: 104, y: -47}
+      m_position: {x: 80, y: -63}
     - m_name: RobinPeek1
       m_position: {x: -97, y: -51}
     - m_name: RobinHide1

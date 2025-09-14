@@ -37,13 +37,16 @@ public class CharacterRobin : CharacterScript<CharacterRobin>
 			yield return C.Plr.Say("that's weird right?");
 			yield return E.WaitSkip();
 			yield return C.Plr.Face(C.Robin);
-		} else {
+			D.LegsMeetRobin.Start();
+		} else if (E.Before(eLegsProgress.GotHope)) {
 			yield return C.Plr.WalkTo(Globals.m_legs_elsa_meet_robin_point);
 			C.Robin.FaceBG(C.Plr);
 			yield return C.Plr.Face(C.Robin);
+			D.LegsMeetRobin.Start();
+		} else if (E.Before(eLegsProgress.LegsEscapePanic)){
+			yield return C.Plr.Say("I don't want to talk. I need to find my dad!");
 		}
 		
-		D.LegsMeetRobin.Start();
 		yield return E.Break;
 	}
 }
