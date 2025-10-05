@@ -61,12 +61,12 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 		
 		}
 		*/
-		E.WaitFor(() => Globals.SetEmotionLevel(new_emotion_level));
+		yield return E.WaitFor(()=> Globals.SetEmotionLevel(new_emotion_level) );
 		if (Globals.m_emotion_level >= 5)
-        {
+		{
 			E.Set(eLegsProgress.BusStopMaxFrustrated);
 			m_allowCrosswalk = true;
-
+		
 		}
 		yield return E.Break;
 	}
@@ -333,7 +333,9 @@ public class RoomBusStop : RoomScript<RoomBusStop>
 			C.Narrator.SetPosition(-158,0);
 			Prop("BlackScreen").Alpha = 1;
 			yield return E.FadeIn();
-			yield return C.Display("Chapter 1: At the Bus Stop");
+			yield return C.Narrator.Say("Chapter 1: At the Bus Stop");
+			yield return E.WaitSkip();
+			yield return E.WaitSkip();
 			yield return C.Narrator.Say("Today is Saturday,");
 			yield return C.Narrator.Say("the first day of autumn 2019 in Chicago.");
 			yield return E.WaitSkip();

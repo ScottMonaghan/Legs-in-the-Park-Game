@@ -118,6 +118,7 @@ MonoBehaviour:
   - {fileID: 114894982771319608, guid: 65de018bf92bf6a4088d8c3f977119e7, type: 3}
   - {fileID: 1097922384601763554, guid: bfaa2537c8b202d4db87c0ead8b26cbe, type: 3}
   m_guiPrefabs:
+  - {fileID: 1830900513935293911, guid: a9410d9e5d6164b4094cb2dbb4aa8927, type: 3}
   - {fileID: 159721734365434343, guid: cee68f1d304773449b364851ce365d0e, type: 3}
   - {fileID: 114997530584156344, guid: 411a5d13109ce024888cfebc375721e4, type: 3}
   - {fileID: 8056484958200454590, guid: 008d06288a0a6bf40a1f91be9220b969, type: 3}

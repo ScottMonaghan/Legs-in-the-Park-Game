@@ -13,7 +13,7 @@ public class RoomIntro : RoomScript<RoomIntro>
 		E.StartCutscene();
 		C.Narrator.Room = R.Intro;
 		C.Narrator.SetPosition(0,0);
-		yield return C.Display("Prologue: The Legs");
+		yield return C.Narrator.Say("Prologue: The Legs");
 		yield return E.WaitSkip(1.0f);
 		yield return E.WaitSkip(1.0f);
 		yield return C.Narrator.Say("Before we begin...");

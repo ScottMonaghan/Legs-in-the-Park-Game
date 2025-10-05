@@ -56,10 +56,10 @@ MonoBehaviour:
   m_animClick: BtnDown
   m_animOff: BtnOff
   m_colorWhat: 1
-  m_color: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
-  m_colorHover: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
+  m_color: {r: 1, g: 1, b: 1, a: 1}
+  m_colorHover: {r: 0.56078434, g: 0.3372549, b: 0.23137257, a: 1}
   m_colorClick: {r: 1, g: 1, b: 1, a: 1}
-  m_colorOff: {r: 0.22352943, g: 0.4156863, b: 0.7803922, a: 1}
+  m_colorOff: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   m_soundHover: 
   m_soundClick: 
   m_hotspotPadding:
@@ -387,4 +387,4 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: 9bfc53a14025788469f6f9870d73e7a0, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4281416038
+    rgba: 4294967295

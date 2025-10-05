@@ -231,6 +231,12 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			Systems.Time.SetDebugTimeMultiplier(1);
 		if ( E.IsDebugBuild && Input.GetKey(KeyCode.Period) )
 			E.SkipDialog(false);
+
+		//show jump menu if j is pressed in debug
+		if (E.IsDebugBuild && Input.GetKeyDown(KeyCode.J))
+        {
+			G.DebugJump.Show();
+        }
 		
 	}
 
@@ -721,8 +727,8 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 			yield return C.Narrator.Say("Names have power.");
 			yield return C.Narrator.Say("Names have power.");
 			yield return E.WaitSkip(1.5f);
-		
-			yield return C.Display("Chapter 2: In The Legs");
+			E.EndCutscene();
+			yield return C.Narrator.Say("Chapter 2: Into The Legs");
 			yield return E.WaitSkip();
 			//Prop("BlackScreen").FadeBG(1,0,10);
 			yield return E.FadeIn();
@@ -1055,23 +1061,12 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 	public IEnumerator EndDemo()
 	{
 		yield return E.Display(
-			"You've reached the end of this alpha demo!\n"
+			"You've reached the end of this demo!\n"
 			+ "Thanks for playing!\n"
 			+ "\n"
 			+ "Please report any bugs to scott.monaghan@gmail.com\n"
 		);
-		yield return E.Display(
-			"Music Credit:\n"
-			+ "Krampus Workshop,\n"
-			+ "Night Vigil,\n"
-			+ "Fox Tale Waltz Part 1 Instrumental\n"
-			+ "Frost Waltz\n"
-			+ "Day of Chaos\n"
-			+ "The House of Falling Leaves\n"
-			+ "Kevin MacLeod (incompetech.com)\n"
-			+ "Licensed under Creative Commons: By Attribution 4.0 License\n"
-			+ "http://creativecommons.org/licenses/by/4.0/"
-		);
+		yield return E.WaitFor( RollCredits );
 		Audio.StopAmbientSound(3.0f);
 		Audio.StopMusic(3.0f);
 		yield return E.Wait(3.0f);
@@ -1095,6 +1090,39 @@ public partial class GlobalScript : GlobalScriptBase<GlobalScript>
 		yield return meterBg.Fade(1,0,1);
 		G.BusStopEmotionBar.Hide();
 		yield return E.WaitFor(EmotionBarReset);
+		yield return E.Break;
+	}
+
+	public IEnumerator RollCredits()
+	{
+		yield return E.Display(
+			"Game Design, Art, & Programming\n"
+			+ "----------------------------\n"
+			+ "Scott Monaghan (@scottsrobots.bsky.social)\n"
+			+ "\n"
+			+ "Music\n"
+			+ "-----\n"
+			+ "Kevin MacLeod (incompetech.com)\n"
+			+ "\n"
+			+ "Special Thanks\n"
+			+ "-------------\n"
+			+ "Dave Lloyd & the entire PowerQuest community\n"
+			+ "more info: powerquest.powerhoof.com"
+		);
+		yield return E.Display(
+			"Full Music Credit:\n"
+			+ "---------------\n"
+			+ "Krampus Workshop,\n"
+			+ "Night Vigil,\n"
+			+ "Fox Tale Waltz Part 1 Instrumental\n"
+			+ "Frost Waltz\n"
+			+ "Day of Chaos\n"
+			+ "The House of Falling Leaves\n"
+			+ "Kevin MacLeod (incompetech.com)\n"
+			+ "Licensed under Creative Commons: By Attribution 4.0 License\n"
+			+ "http://creativecommons.org/licenses/by/4.0/"
+		);
+		yield return E.ConsumeEvent;
 		yield return E.Break;
 	}
 }

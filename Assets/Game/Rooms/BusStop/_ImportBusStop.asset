@@ -13,12 +13,66 @@ MonoBehaviour:
   m_Name: _ImportBusStop
   m_EditorClassIdentifier: 
   m_animations:
+  - m_name: bus-stop-fg
+    m_firstFrame: 5
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 20030000
+  - m_name: bus-stop-bg
+    m_firstFrame: 6
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 20030000
+  - m_name: tree
+    m_firstFrame: 7
+    m_loop: 1
+    m_fullRect: 0
+    m_length: 4
+    m_frameDurations: d0070000140500005e01000042020000
+  - m_name: legs-fg
+    m_firstFrame: 11
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 42020000
+  - m_name: near-bg
+    m_firstFrame: 12
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: StreetAndPark
+    m_firstFrame: 13
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: Skyline
+    m_firstFrame: 14
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
+  - m_name: BlackScreen
+    m_firstFrame: 15
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 1
+    m_frameDurations: 01000000
   - m_name: Barrel
     m_firstFrame: 16
     m_loop: 0
     m_fullRect: 0
     m_length: 1
     m_frameDurations: 01000000
+  - m_name: tree_blow
+    m_firstFrame: 17
+    m_loop: 0
+    m_fullRect: 0
+    m_length: 8
+    m_frameDurations: 6400000064000000640000006400000064000000640000006400000064000000
   m_pixelsPerUnit: 1
   m_filterMode: 0
   m_compression: 0

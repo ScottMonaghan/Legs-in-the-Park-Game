@@ -1802,6 +1802,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 982b93932d228cb408a581e05d78f261, type: 2}
   - {fileID: 7400000, guid: 48d0f0b9d6637054ea0aa60b7f5d1e08, type: 2}
   - {fileID: 7400000, guid: a202e9b8127f2f24c915549aca22bd9c, type: 2}
+  - {fileID: 7400000, guid: 8bcbc79cc5dee554cb323cdb4a65dc89, type: 2}
   m_sprites:
   - {fileID: 21300000, guid: 4c0dfde5e04296b40b73980315cb1dd5, type: 3}
   - {fileID: 21300000, guid: c1f3a5091aec5394d9caaa742820d26e, type: 3}
@@ -1821,6 +1822,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fad80c81c3677ea41ad45816e0182e53, type: 3}
   - {fileID: 21300000, guid: 0078b44ecda6def48a44668356c6ab00, type: 3}
   - {fileID: 21300000, guid: 8f62f7d224d7c754b89b4c9303bb3aac, type: 3}
+  - {fileID: 21300000, guid: a5b2cdf86a4986043886108effd75b23, type: 3}
+  - {fileID: 21300000, guid: c96ed3179d6753442a264d43dbf1024a, type: 3}
+  - {fileID: 21300000, guid: 62db974fc393fb344acace19eeaac10d, type: 3}
+  - {fileID: 21300000, guid: c954d61ee6760e846b378b42ec58e2d4, type: 3}
+  - {fileID: 21300000, guid: 995bc0c30030814409dd931593c65b10, type: 3}
+  - {fileID: 21300000, guid: 8a95b6eab069b394fb10c26680cdf04f, type: 3}
+  - {fileID: 21300000, guid: 1c43d5c6d6e688144af59977c4937f49, type: 3}
+  - {fileID: 21300000, guid: e049f33099b0d494aa63a0d95bc72080, type: 3}
   m_variantShouldOverrideArt: 0
 --- !u!1 &6837844428198981848
 GameObject:
